@@ -1,0 +1,13 @@
+{
+  "name": "chronoai-flower-town-scene",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "local-space": "node scripts/local-space.mjs",
+    "build": "node ../../sdk/typescript/dist/cli.js build",
+    "check": "node ../../sdk/typescript/dist/cli.js check",
+    "dev": "node ../../sdk/typescript/dist/cli.js dev",
+    "shot": "node ../../sdk/typescript/dist/cli.js shot --views extended --angles front,left,top --out out/shots",
+    "typecheck": "node ../../sdk/typescript/node_modules/typescript/bin/tsc -p tsconfig.json"
+  }
+}

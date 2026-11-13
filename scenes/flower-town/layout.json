@@ -1,0 +1,18 @@
+{
+  "regions": [
+    {
+      "id": "shop",
+      "kind": "virtual",
+      "name": "街角花店",
+      "boxes": [[0, 0, 0, 100, 60, 100]]
+    }
+  ],
+  "plots": [
+    {
+      "id": "shop",
+      "regionId": "shop",
+      "label": "花店",
+      "boxes": [[0, 0, 0, 100, 60, 100]]
+    }
+  ]
+}

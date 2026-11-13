@@ -1,0 +1,8 @@
+{
+  "spaceId": "flower-town",
+  "mode": "nyxid",
+  "slug": "chrono-metaverse",
+  "plot": "shop",
+  "webUrl": "https://chrono-metaverse-chronoai.apps.nyxid.ai",
+  "buildScript": "build/main.ts"
+}

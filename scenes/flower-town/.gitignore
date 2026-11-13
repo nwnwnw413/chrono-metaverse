@@ -1,0 +1,14 @@
+# metaverse 工作区：拉取的数据和本地输出不进版本库，建造脚本（build/）和布局（layout.json）进。
+out/
+chunks/
+assets/
+node_modules/
+.claude/
+space.json
+palette.json
+entities.json
+anchors.json
+limits.json
+scan/
+work/
+web/

@@ -1,0 +1,22 @@
+{
+  "type": "order.placed",
+  "version": 1,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "item": { "type": "string", "maxLength": 80 },
+      "orderId": { "type": "string", "maxLength": 40 }
+    },
+    "required": ["item"],
+    "additionalProperties": false
+  },
+  "publicFields": ["item"],
+  "defaultVisibility": "public",
+  "display": {
+    "kind": "icon",
+    "icon": "flower",
+    "color": [236, 96, 140],
+    "durationSec": 5,
+    "labelTemplate": "新订单：{item}"
+  }
+}

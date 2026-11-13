@@ -1,0 +1,23 @@
+{
+  "type": "delivery.sent",
+  "version": 1,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "item": { "type": "string", "maxLength": 80 },
+      "orderId": { "type": "string", "maxLength": 40 }
+    },
+    "required": ["item"],
+    "additionalProperties": false
+  },
+  "publicFields": ["item"],
+  "defaultVisibility": "public",
+  "maxAgeSec": 14400,
+  "display": {
+    "kind": "path",
+    "pathRole": "origin",
+    "icon": "flower",
+    "color": [236, 96, 140],
+    "labelTemplate": "{item}"
+  }
+}
