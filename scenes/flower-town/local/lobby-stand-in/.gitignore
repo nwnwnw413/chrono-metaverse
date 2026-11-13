@@ -1,0 +1,9 @@
+metaverse.json
+# metaverse 补上的：原始扫描（scan/）不公开，重建工作目录和本地输出不进版本库
+out/
+chunks/
+assets/
+scan/
+work/
+web/
+node_modules/

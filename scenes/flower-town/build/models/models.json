@@ -1,1144 +1,1105 @@
 {
- "entities": {
-  "lib-antique_ceramic_vase_01": {
-   "assetHash": "bf9ac7ed810e2e049463e1d3be11ca8aa55a603af7861ceec8cc01d77593a02e",
-   "file": "bf9ac7ed810e.glb",
-   "bounds": {
-    "min": [
-     -0.1276,
-     -0.0002,
-     -0.1276
-    ],
-    "max": [
-     0.1276,
-     0.4395,
-     0.1276
-    ]
-   }
+  "entities": {
+    "lib-antique_ceramic_vase_01": {
+      "assetHash": "bf9ac7ed810e2e049463e1d3be11ca8aa55a603af7861ceec8cc01d77593a02e",
+      "file": "bf9ac7ed810e.glb",
+      "bounds": {
+        "min": [
+          -0.1276,
+          -0.0002,
+          -0.1276
+        ],
+        "max": [
+          0.1276,
+          0.4395,
+          0.1276
+        ]
+      }
+    },
+    "lib-brass_vase_02": {
+      "assetHash": "eefd93fcb13c15dc8613825b70ab366529273003ab512f9cfb3d5e1f65f8ad19",
+      "file": "eefd93fcb13c.glb",
+      "bounds": {
+        "min": [
+          -0.1046,
+          0.0003,
+          -0.1052
+        ],
+        "max": [
+          0.1057,
+          0.5291,
+          0.1052
+        ]
+      }
+    },
+    "lib-cashregister_01": {
+      "assetHash": "2631e4ca7a9d502dd60b2d6b5d1e0c3a254d066f1ec5471ef0bda783d3ddcea8",
+      "file": "2631e4ca7a9d.glb",
+      "bounds": {
+        "min": [
+          -0.2252,
+          0.0021,
+          -0.1735
+        ],
+        "max": [
+          0.3754,
+          0.6236,
+          0.4508
+        ]
+      }
+    },
+    "lib-ceramic_vase_01": {
+      "assetHash": "0a2cf87eb686d5f2312dc5a2de8e0e9306346778d9a633ee6f3e153d7ef9c123",
+      "file": "0a2cf87eb686.glb",
+      "bounds": {
+        "min": [
+          -0.1019,
+          0.0012,
+          -0.1019
+        ],
+        "max": [
+          0.1019,
+          0.4015,
+          0.1019
+        ]
+      }
+    },
+    "lib-ceramic_vase_02": {
+      "assetHash": "a801e0bd487ab3da431c020744d82ba574eb3eb838766434a58fa3e829f96927",
+      "file": "a801e0bd487a.glb",
+      "bounds": {
+        "min": [
+          -0.1092,
+          0.0011,
+          -0.1092
+        ],
+        "max": [
+          0.1092,
+          0.3104,
+          0.1092
+        ]
+      }
+    },
+    "lib-ceramic_vase_04": {
+      "assetHash": "027786bfb859699bd27b3a5b4818ce14e33dc1a36b072c66134ec23a7ad6de36",
+      "file": "027786bfb859.glb",
+      "bounds": {
+        "min": [
+          -0.0906,
+          0.0005,
+          -0.0906
+        ],
+        "max": [
+          0.0906,
+          0.3425,
+          0.0906
+        ]
+      }
+    },
+    "lib-gallinera_chair": {
+      "assetHash": "f25a3de7672df0dd4ccde8b37eeebe9defca98176acbe574a4829f60c5f4b8a0",
+      "file": "f25a3de7672d.glb",
+      "bounds": {
+        "min": [
+          -0.2908,
+          -0.0002,
+          -0.2656
+        ],
+        "max": [
+          0.2901,
+          1.0336,
+          0.3383
+        ]
+      }
+    },
+    "lib-hanging_industrial_lamp": {
+      "assetHash": "085a725a1e53ffae81d753ced5ee50806762c887399ed36a970241d3d8b1ac7c",
+      "file": "085a725a1e53.glb",
+      "bounds": {
+        "min": [
+          -0.2749,
+          -1.3401,
+          -0.2749
+        ],
+        "max": [
+          0.2749,
+          0.0154,
+          0.2749
+        ]
+      }
+    },
+    "lib-lantern_chandelier_01": {
+      "assetHash": "3a3a599fbbf1e25e6973df986da83e2458ff3c50695f648f8d4451920c8a46d0",
+      "file": "3a3a599fbbf1.glb",
+      "bounds": {
+        "min": [
+          -0.2854,
+          -0.8653,
+          -0.2873
+        ],
+        "max": [
+          0.2938,
+          0.0124,
+          0.2874
+        ]
+      }
+    },
+    "lib-modern_wooden_cabinet": {
+      "assetHash": "d45f1e4afdf4e39717ed6935766e092e7d2874758db1cc111a6249a00c734bfc",
+      "file": "d45f1e4afdf4.glb",
+      "bounds": {
+        "min": [
+          -1.2201,
+          0,
+          -0.27
+        ],
+        "max": [
+          1.2201,
+          0.6802,
+          0.25
+        ]
+      }
+    },
+    "lib-periwinkle_plant": {
+      "assetHash": "7f76dcdf3b49ac327ee47bb422cee5677364bb6d5c6b76b285b4e163b3255907",
+      "file": "7f76dcdf3b49.glb",
+      "bounds": {
+        "min": [
+          -0.5602,
+          -0.0001,
+          -0.1902
+        ],
+        "max": [
+          0.6753,
+          0.4108,
+          0.1306
+        ]
+      }
+    },
+    "lib-planter_box_02": {
+      "assetHash": "030c0f536a20dc483424ff40fef9bcf37047b861cce4a6507ddec02233a53412",
+      "file": "030c0f536a20.glb",
+      "bounds": {
+        "min": [
+          -0.6249,
+          -0.0007,
+          -0.2348
+        ],
+        "max": [
+          0.6267,
+          0.4527,
+          0.2325
+        ]
+      }
+    },
+    "lib-potted_plant_01": {
+      "assetHash": "4d76745de2f9fd17abaaf3d16c482d6ee78fd53d21e0dfae775b88498798252d",
+      "file": "4d76745de2f9.glb",
+      "bounds": {
+        "min": [
+          -0.3381,
+          -0.0001,
+          -0.3634
+        ],
+        "max": [
+          0.2491,
+          1.3365,
+          0.2699
+        ]
+      }
+    },
+    "lib-potted_plant_02": {
+      "assetHash": "9a4799b25b61606ae2a56dfa96abc2e7e96d888da91d0632e268b192717c8a70",
+      "file": "9a4799b25b61.glb",
+      "bounds": {
+        "min": [
+          -0.3967,
+          0,
+          -0.4204
+        ],
+        "max": [
+          0.3045,
+          0.8413,
+          0.2371
+        ]
+      }
+    },
+    "lib-potted_plant_04": {
+      "assetHash": "8146fac6173ef10ab43fc87f4409d5345a86af69a0303fb49b2e4c4e2fb98dc4",
+      "file": "8146fac6173e.glb",
+      "bounds": {
+        "min": [
+          -0.084,
+          0.0003,
+          -0.084
+        ],
+        "max": [
+          0.084,
+          0.2679,
+          0.1009
+        ]
+      }
+    },
+    "lib-round_wooden_table_02": {
+      "assetHash": "3fb05e7912ff75ccdec4bfc210bc3808313dadb180c0344c59c23919e792fcd3",
+      "file": "3fb05e7912ff.glb",
+      "bounds": {
+        "min": [
+          -0.3981,
+          -0.0001,
+          -0.3981
+        ],
+        "max": [
+          0.3981,
+          0.7461,
+          0.3981
+        ]
+      }
+    },
+    "lib-shelf_01": {
+      "assetHash": "518f0e837622fc922bc353e4ba2c28e854ffe2443c0f97f985e27987400966be",
+      "file": "518f0e837622.glb",
+      "bounds": {
+        "min": [
+          -0.5018,
+          -0.0001,
+          -0.0001
+        ],
+        "max": [
+          0.5018,
+          2.0804,
+          0.257
+        ]
+      }
+    },
+    "lib-shrub_sorrel_01": {
+      "assetHash": "1603665d2ac4024086bf4303d049bfc6e0e8e754ae978914c4f13f605d27ea28",
+      "file": "1603665d2ac4.glb",
+      "bounds": {
+        "min": [
+          -0.1865,
+          -0.0015,
+          -0.1238
+        ],
+        "max": [
+          0.1657,
+          0.0566,
+          0.0227
+        ]
+      }
+    },
+    "lib-small_wooden_table_01": {
+      "assetHash": "211346c18fb04e2cc04f39f94cee2a0a69ed40e86bc85da389ef8045d16a9a45",
+      "file": "211346c18fb0.glb",
+      "bounds": {
+        "min": [
+          -0.4581,
+          -0.0001,
+          -0.2201
+        ],
+        "max": [
+          0.4581,
+          0.5331,
+          0.22
+        ]
+      }
+    },
+    "lib-standing_chalkboard_01": {
+      "assetHash": "7365a82ccc5d7dd5c5706892e4f9e7f86742d5eaaf9fc058792061b0661c9e1e",
+      "file": "7365a82ccc5d.glb",
+      "bounds": {
+        "min": [
+          -0.4462,
+          -0.0001,
+          -0.3794
+        ],
+        "max": [
+          0.4734,
+          1.5091,
+          0.3794
+        ]
+      }
+    },
+    "lib-watering_can_metal_01": {
+      "assetHash": "f8607dd2322524923b58b3ad631ece387cc607cff9115a378ad8a5dd544408b5",
+      "file": "f8607dd23225.glb",
+      "bounds": {
+        "min": [
+          -0.0953,
+          -0.0011,
+          -0.1748
+        ],
+        "max": [
+          0.0958,
+          0.1958,
+          0.2777
+        ]
+      }
+    },
+    "lib-wicker_basket_01": {
+      "assetHash": "988575f04fa88c14e5fa686037c6fb15fd1910666180e8647bb46d63b5822a8d",
+      "file": "988575f04fa8.glb",
+      "bounds": {
+        "min": [
+          -0.1919,
+          -0.001,
+          -0.148
+        ],
+        "max": [
+          0.1914,
+          0.1166,
+          0.1471
+        ]
+      }
+    },
+    "lib-wicker_basket_02": {
+      "assetHash": "b3964e04032da2e62c5fa5c1767ba1d5dadbf8194fdf66727739c09d2ce9568d",
+      "file": "b3964e04032d.glb",
+      "bounds": {
+        "min": [
+          -0.1076,
+          -0.0003,
+          -0.1453
+        ],
+        "max": [
+          0.2394,
+          0.2002,
+          0.1092
+        ]
+      }
+    },
+    "lib-wooden_bookshelf_worn": {
+      "assetHash": "b45b4b0d81e971206c046903ed9406daf92530f927d72361ae6996d78656c94d",
+      "file": "b45b4b0d81e9.glb",
+      "bounds": {
+        "min": [
+          -0.687,
+          -0.0001,
+          -0.2907
+        ],
+        "max": [
+          0.687,
+          2.0635,
+          0.2907
+        ]
+      }
+    },
+    "lib-wooden_bucket_01": {
+      "assetHash": "0d432436a68568dba9b4769ad4c79fc3a1c45129f2f666931f4a1788f480d09b",
+      "file": "0d432436a685.glb",
+      "bounds": {
+        "min": [
+          -0.1845,
+          0.0001,
+          -0.17
+        ],
+        "max": [
+          0.1826,
+          0.55,
+          0.1723
+        ]
+      }
+    },
+    "lib-wooden_crate_01": {
+      "assetHash": "bd7e28eeb2385814a15eb2abf0b200067819298de9190af91d14ae4e414b0c0f",
+      "file": "bd7e28eeb238.glb",
+      "bounds": {
+        "min": [
+          -0.4127,
+          -0.008,
+          -0.1962
+        ],
+        "max": [
+          0.4127,
+          0.3417,
+          0.2129
+        ]
+      }
+    },
+    "lib-wooden_display_shelves_01": {
+      "assetHash": "60e653be887cdb40e8efc514869078f30e128fedf348267b48949eb3867682f1",
+      "file": "60e653be887c.glb",
+      "bounds": {
+        "min": [
+          -0.1858,
+          0.0004,
+          -0.5389
+        ],
+        "max": [
+          0.1858,
+          1.5567,
+          0.5389
+        ]
+      }
+    },
+    "lib-woodentable_03": {
+      "assetHash": "28efdec85e36c48a460aefbc365b3a860e9613c27617a4b41c60b1004572126f",
+      "file": "28efdec85e36.glb",
+      "bounds": {
+        "min": [
+          -0.6588,
+          -0.0001,
+          -0.2809
+        ],
+        "max": [
+          0.6682,
+          0.8301,
+          0.2945
+        ]
+      }
+    }
   },
-  "lib-brass_vase_02": {
-   "assetHash": "eefd93fcb13c15dc8613825b70ab366529273003ab512f9cfb3d5e1f65f8ad19",
-   "file": "eefd93fcb13c.glb",
-   "bounds": {
-    "min": [
-     -0.1046,
-     0.0003,
-     -0.1052
-    ],
-    "max": [
-     0.1057,
-     0.5291,
-     0.1052
-    ]
-   }
+  "files": {
+    "bf9ac7ed810e2e049463e1d3be11ca8aa55a603af7861ceec8cc01d77593a02e": {
+      "bytes": 430356,
+      "triangles": 9408,
+      "vertices": 5024,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 9408,
+      "bounds": {
+        "min": [
+          -0.12751498818397522,
+          0.0,
+          -0.12751497328281403
+        ],
+        "max": [
+          0.12751498818397522,
+          0.43955305218696594,
+          0.12751497328281403
+        ]
+      },
+      "source": "8d250535ba3e10d4c25fc4f3c5508959df05dff775ba4e42295f64fea231357e",
+      "file": "bf9ac7ed810e.glb"
+    },
+    "eefd93fcb13c15dc8613825b70ab366529273003ab512f9cfb3d5e1f65f8ad19": {
+      "bytes": 393724,
+      "triangles": 6890,
+      "vertices": 3849,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 6890,
+      "bounds": {
+        "min": [
+          -0.10511928051710129,
+          0.0,
+          -0.1051187813282013
+        ],
+        "max": [
+          0.10511928051710129,
+          0.5286411046981812,
+          0.1051187813282013
+        ]
+      },
+      "source": "492884aa887892619f65004b1b16fd62e9c073e47d3eec6336bc4e2c330ebb79",
+      "file": "eefd93fcb13c.glb"
+    },
+    "2631e4ca7a9d502dd60b2d6b5d1e0c3a254d066f1ec5471ef0bda783d3ddcea8": {
+      "bytes": 609116,
+      "triangles": 9927,
+      "vertices": 9276,
+      "materials": 2,
+      "textureSide": 1024,
+      "texturePixels": 2097152,
+      "sourceTriangles": 9927,
+      "bounds": {
+        "min": [
+          -0.30024534463882446,
+          0.0,
+          -0.3121025562286377
+        ],
+        "max": [
+          0.30024534463882446,
+          0.6213557720184326,
+          0.3121025562286377
+        ]
+      },
+      "source": "165d882fb89c45ab132de3444bee9c9f817e33c126560bfb5a965494a55b6734",
+      "file": "2631e4ca7a9d.glb"
+    },
+    "0a2cf87eb686d5f2312dc5a2de8e0e9306346778d9a633ee6f3e153d7ef9c123": {
+      "bytes": 300980,
+      "triangles": 10296,
+      "vertices": 6590,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 10296,
+      "bounds": {
+        "min": [
+          -0.10181723535060883,
+          0.0,
+          -0.10181816667318344
+        ],
+        "max": [
+          0.10181723535060883,
+          0.4002682864665985,
+          0.10181816667318344
+        ]
+      },
+      "source": "bf30a03a0da8ed68f4ac1acde206f8388766f343f9a696da5bb105147b2c5ef8",
+      "file": "0a2cf87eb686.glb"
+    },
+    "a801e0bd487ab3da431c020744d82ba574eb3eb838766434a58fa3e829f96927": {
+      "bytes": 404668,
+      "triangles": 11128,
+      "vertices": 7094,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 11128,
+      "bounds": {
+        "min": [
+          -0.10918986797332764,
+          0.0,
+          -0.10919085890054703
+        ],
+        "max": [
+          0.10918986797332764,
+          0.30918481945991516,
+          0.10919085890054703
+        ]
+      },
+      "source": "9584652802f3768026ee583ae75f815b79db128f64943a6d278c46d45e9fb7a2",
+      "file": "a801e0bd487a.glb"
+    },
+    "027786bfb859699bd27b3a5b4818ce14e33dc1a36b072c66134ec23a7ad6de36": {
+      "bytes": 347120,
+      "triangles": 9000,
+      "vertices": 5804,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 9000,
+      "bounds": {
+        "min": [
+          -0.09056076407432556,
+          0.0,
+          -0.0905599445104599
+        ],
+        "max": [
+          0.09056076407432556,
+          0.34194421768188477,
+          0.0905599445104599
+        ]
+      },
+      "source": "d0ae5100376b4e2450d17062b69575c56d3469378f3bf1a50d5c3feef2a48883",
+      "file": "027786bfb859.glb"
+    },
+    "f25a3de7672df0dd4ccde8b37eeebe9defca98176acbe574a4829f60c5f4b8a0": {
+      "bytes": 532000,
+      "triangles": 11560,
+      "vertices": 8888,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 11560,
+      "bounds": {
+        "min": [
+          -0.29039958119392395,
+          0.0,
+          -0.30194100737571716
+        ],
+        "max": [
+          0.29039958119392395,
+          1.033689022064209,
+          0.30194100737571716
+        ]
+      },
+      "source": "dd6f35a8000aa7e520fc305eb74899aa32db263c327c4c31d866d5529df0991e",
+      "file": "f25a3de7672d.glb"
+    },
+    "085a725a1e53ffae81d753ced5ee50806762c887399ed36a970241d3d8b1ac7c": {
+      "bytes": 578684,
+      "triangles": 9530,
+      "vertices": 8971,
+      "materials": 2,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 9530,
+      "bounds": {
+        "min": [
+          -0.2748032510280609,
+          0.0,
+          -0.2748032212257385
+        ],
+        "max": [
+          0.2748032510280609,
+          1.355350136756897,
+          0.2748032212257385
+        ]
+      },
+      "source": "3e5725cf88ae69370ba2e1a6789e412dc4147b005849c14d2417c7c39e9e5d10",
+      "file": "085a725a1e53.glb"
+    },
+    "3a3a599fbbf1e25e6973df986da83e2458ff3c50695f648f8d4451920c8a46d0": {
+      "bytes": 421408,
+      "triangles": 5971,
+      "vertices": 5713,
+      "materials": 3,
+      "textureSide": 1024,
+      "texturePixels": 2097152,
+      "sourceTriangles": 5971,
+      "bounds": {
+        "min": [
+          -0.289585143327713,
+          0.0,
+          -0.28731831908226013
+        ],
+        "max": [
+          0.289585143327713,
+          0.8775878548622131,
+          0.28731831908226013
+        ]
+      },
+      "source": "1c593c8aedbe79f83e0678f414d199d2ef440f1688b5d018028b96bcee2c99e0",
+      "file": "3a3a599fbbf1.glb"
+    },
+    "d45f1e4afdf4e39717ed6935766e092e7d2874758db1cc111a6249a00c734bfc": {
+      "bytes": 1391216,
+      "triangles": 24976,
+      "vertices": 31535,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 24976,
+      "bounds": {
+        "min": [
+          -1.2200002670288086,
+          0.0,
+          -0.25999999046325684
+        ],
+        "max": [
+          1.2200002670288086,
+          0.6801425218582153,
+          0.25999999046325684
+        ]
+      },
+      "source": "75c3a9671580848403ecf1beae5affda58b9dbde3f7262a2828dbcdfda171f13",
+      "file": "d45f1e4afdf4.glb"
+    },
+    "7f76dcdf3b49ac327ee47bb422cee5677364bb6d5c6b76b285b4e163b3255907": {
+      "bytes": 1488888,
+      "triangles": 34350,
+      "vertices": 31801,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 34350,
+      "bounds": {
+        "min": [
+          -0.6176835894584656,
+          0.0,
+          -0.16037273406982422
+        ],
+        "max": [
+          0.6176835894584656,
+          0.41073837876319885,
+          0.16037273406982422
+        ]
+      },
+      "source": "5cf2824392d9a3667cd047f9c12e305f0e76cc52d57668e1f0ec9eb2abc3c1a2",
+      "file": "7f76dcdf3b49.glb"
+    },
+    "030c0f536a20dc483424ff40fef9bcf37047b861cce4a6507ddec02233a53412": {
+      "bytes": 586300,
+      "triangles": 10944,
+      "vertices": 9176,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 10944,
+      "bounds": {
+        "min": [
+          -0.6257882118225098,
+          0.0,
+          -0.23359306156635284
+        ],
+        "max": [
+          0.6257882118225098,
+          0.45337265729904175,
+          0.23359306156635284
+        ]
+      },
+      "source": "eba431ad9869fd88cd586dcdf13ae955424c2ff7d4d018d557813b4337f1c1f8",
+      "file": "030c0f536a20.glb"
+    },
+    "4d76745de2f9fd17abaaf3d16c482d6ee78fd53d21e0dfae775b88498798252d": {
+      "bytes": 3009832,
+      "triangles": 97999,
+      "vertices": 64017,
+      "materials": 2,
+      "textureSide": 1024,
+      "texturePixels": 2097152,
+      "sourceTriangles": 176226,
+      "bounds": {
+        "min": [
+          -0.29353758692741394,
+          0.0,
+          -0.3165988326072693
+        ],
+        "max": [
+          0.29353758692741394,
+          1.336457371711731,
+          0.3165988326072693
+        ]
+      },
+      "source": "2504501b4c5cbf7a6217353a38e3f9c43dfd268cf8e3d5c5265b39cecdbf9385",
+      "file": "4d76745de2f9.glb"
+    },
+    "9a4799b25b61606ae2a56dfa96abc2e7e96d888da91d0632e268b192717c8a70": {
+      "bytes": 2218684,
+      "triangles": 69806,
+      "vertices": 44794,
+      "materials": 2,
+      "textureSide": 1024,
+      "texturePixels": 2097152,
+      "sourceTriangles": 69806,
+      "bounds": {
+        "min": [
+          -0.35057851672172546,
+          0.0,
+          -0.32869330048561096
+        ],
+        "max": [
+          0.35057851672172546,
+          0.8411787152290344,
+          0.32869330048561096
+        ]
+      },
+      "source": "26c627d6e02947782c7801fe6cc807291b31a9ca96485d8953198e794a929782",
+      "file": "9a4799b25b61.glb"
+    },
+    "8146fac6173ef10ab43fc87f4409d5345a86af69a0303fb49b2e4c4e2fb98dc4": {
+      "bytes": 464488,
+      "triangles": 8929,
+      "vertices": 5882,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 8929,
+      "bounds": {
+        "min": [
+          -0.08394315838813782,
+          0.0,
+          -0.09237571060657501
+        ],
+        "max": [
+          0.08394315838813782,
+          0.26745766401290894,
+          0.09237571060657501
+        ]
+      },
+      "source": "d497114ba6fb1a18a4ccc72df96fe87c450c876efddfa7866a1c0fc914b116f4",
+      "file": "8146fac6173e.glb"
+    },
+    "3fb05e7912ff75ccdec4bfc210bc3808313dadb180c0344c59c23919e792fcd3": {
+      "bytes": 286908,
+      "triangles": 4254,
+      "vertices": 3434,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 4254,
+      "bounds": {
+        "min": [
+          -0.3980890214443207,
+          0.0,
+          -0.3980890214443207
+        ],
+        "max": [
+          0.3980890214443207,
+          0.7460266351699829,
+          0.3980890214443207
+        ]
+      },
+      "source": "9865e46f1a3b5c8cd23c5e61323f9e1063f376f6ea2e2e03ae630b0d90c9e7bd",
+      "file": "3fb05e7912ff.glb"
+    },
+    "518f0e837622fc922bc353e4ba2c28e854ffe2443c0f97f985e27987400966be": {
+      "bytes": 186936,
+      "triangles": 182,
+      "vertices": 362,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 182,
+      "bounds": {
+        "min": [
+          -0.5017218589782715,
+          0.0,
+          -0.12848974764347076
+        ],
+        "max": [
+          0.5017218589782715,
+          2.080310344696045,
+          0.12848974764347076
+        ]
+      },
+      "source": "c34c898ef104a80a57e0033aa0c2cb9eb4359099e54c02f3901655d0f575d706",
+      "file": "518f0e837622.glb"
+    },
+    "1603665d2ac4024086bf4303d049bfc6e0e8e754ae978914c4f13f605d27ea28": {
+      "bytes": 239056,
+      "triangles": 3319,
+      "vertices": 2844,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 3319,
+      "bounds": {
+        "min": [
+          -0.17604967951774597,
+          0.0,
+          -0.07320519536733627
+        ],
+        "max": [
+          0.17604967951774597,
+          0.05800367891788483,
+          0.07320519536733627
+        ]
+      },
+      "source": "0a823331d7bedf78e925528829e4bfb131a099d6a08974b9e198e3341a99f54b",
+      "file": "1603665d2ac4.glb"
+    },
+    "211346c18fb04e2cc04f39f94cee2a0a69ed40e86bc85da389ef8045d16a9a45": {
+      "bytes": 247532,
+      "triangles": 3410,
+      "vertices": 2249,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 3410,
+      "bounds": {
+        "min": [
+          -0.45809391140937805,
+          0.0,
+          -0.21998131275177002
+        ],
+        "max": [
+          0.45809391140937805,
+          0.5330857634544373,
+          0.21998131275177002
+        ]
+      },
+      "source": "664cdcec8c9f89c44afbbb83bd570916952eebde6d36ae9c5200c96a46bb1cef",
+      "file": "211346c18fb0.glb"
+    },
+    "7365a82ccc5d7dd5c5706892e4f9e7f86742d5eaaf9fc058792061b0661c9e1e": {
+      "bytes": 323464,
+      "triangles": 2372,
+      "vertices": 2684,
+      "materials": 2,
+      "textureSide": 1024,
+      "texturePixels": 2097152,
+      "sourceTriangles": 2372,
+      "bounds": {
+        "min": [
+          -0.45976337790489197,
+          0.0,
+          -0.379352331161499
+        ],
+        "max": [
+          0.45976337790489197,
+          1.5090323686599731,
+          0.379352331161499
+        ]
+      },
+      "source": "004737cc81472dd4178b1e0bb2813a31ea136ae4551c556d2959e53542d866e0",
+      "file": "7365a82ccc5d.glb"
+    },
+    "f8607dd2322524923b58b3ad631ece387cc607cff9115a378ad8a5dd544408b5": {
+      "bytes": 566452,
+      "triangles": 11837,
+      "vertices": 7741,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 11837,
+      "bounds": {
+        "min": [
+          -0.09550929069519043,
+          0.0,
+          -0.22616803646087646
+        ],
+        "max": [
+          0.09550929069519043,
+          0.1968185305595398,
+          0.22616803646087646
+        ]
+      },
+      "source": "2847e0e5a40ce29111d4145473acab793f02de4809ae6574cca1955d78d58888",
+      "file": "f8607dd23225.glb"
+    },
+    "988575f04fa88c14e5fa686037c6fb15fd1910666180e8647bb46d63b5822a8d": {
+      "bytes": 871800,
+      "triangles": 22276,
+      "vertices": 15352,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 22276,
+      "bounds": {
+        "min": [
+          -0.1916121244430542,
+          0.0,
+          -0.14750760793685913
+        ],
+        "max": [
+          0.1916121244430542,
+          0.1174229308962822,
+          0.14750760793685913
+        ]
+      },
+      "source": "b323430aa3f6b137b0c273c4862d686e703a254a450208ebe0edf7759fb8e0ab",
+      "file": "988575f04fa8.glb"
+    },
+    "b3964e04032da2e62c5fa5c1767ba1d5dadbf8194fdf66727739c09d2ce9568d": {
+      "bytes": 769840,
+      "triangles": 17850,
+      "vertices": 10171,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 17850,
+      "bounds": {
+        "min": [
+          -0.17345842719078064,
+          0.0,
+          -0.12722526490688324
+        ],
+        "max": [
+          0.17345842719078064,
+          0.2004578560590744,
+          0.12722526490688324
+        ]
+      },
+      "source": "0ab71883ad6844bdd0eaf860975b11902caeea5237689b9113c79f517428db6b",
+      "file": "b3964e04032d.glb"
+    },
+    "b45b4b0d81e971206c046903ed9406daf92530f927d72361ae6996d78656c94d": {
+      "bytes": 609332,
+      "triangles": 10106,
+      "vertices": 6479,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 10106,
+      "bounds": {
+        "min": [
+          -0.68697589635849,
+          0.0,
+          -0.29065102338790894
+        ],
+        "max": [
+          0.68697589635849,
+          2.0634419918060303,
+          0.29065102338790894
+        ]
+      },
+      "source": "07192b5c5f240bf47e1fea1bc13cbaa9d502cfc880be530950d12eeb894409d1",
+      "file": "b45b4b0d81e9.glb"
+    },
+    "0d432436a68568dba9b4769ad4c79fc3a1c45129f2f666931f4a1788f480d09b": {
+      "bytes": 403604,
+      "triangles": 5116,
+      "vertices": 3991,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 5116,
+      "bounds": {
+        "min": [
+          -0.18348541855812073,
+          0.0,
+          -0.171110600233078
+        ],
+        "max": [
+          0.18348541855812073,
+          0.5498623847961426,
+          0.171110600233078
+        ]
+      },
+      "source": "487ee66e9ae65f79695bdc34f800ceb299591e9029bee002d6c0c7be8ca42600",
+      "file": "0d432436a685.glb"
+    },
+    "bd7e28eeb2385814a15eb2abf0b200067819298de9190af91d14ae4e414b0c0f": {
+      "bytes": 443180,
+      "triangles": 6576,
+      "vertices": 4686,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 6576,
+      "bounds": {
+        "min": [
+          -0.4126364588737488,
+          0.0,
+          -0.20447686314582825
+        ],
+        "max": [
+          0.4126364588737488,
+          0.3496182858943939,
+          0.20447686314582825
+        ]
+      },
+      "source": "d2872cbad165f68ba5e3b93fa3cae7e508bce6506190858fe212442ef9edcfab",
+      "file": "bd7e28eeb238.glb"
+    },
+    "60e653be887cdb40e8efc514869078f30e128fedf348267b48949eb3867682f1": {
+      "bytes": 259752,
+      "triangles": 3174,
+      "vertices": 2717,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 3174,
+      "bounds": {
+        "min": [
+          -0.18575482070446014,
+          0.0,
+          -0.538880467414856
+        ],
+        "max": [
+          0.18575482070446014,
+          1.5561838150024414,
+          0.538880467414856
+        ]
+      },
+      "source": "78bf24fdff3b473321a29fe3538ce625f9cf1628b674d61eb2d73f15e6f4ad9b",
+      "file": "60e653be887c.glb"
+    },
+    "28efdec85e36c48a460aefbc365b3a860e9613c27617a4b41c60b1004572126f": {
+      "bytes": 290892,
+      "triangles": 2298,
+      "vertices": 3262,
+      "materials": 1,
+      "textureSide": 1024,
+      "texturePixels": 1048576,
+      "sourceTriangles": 2298,
+      "bounds": {
+        "min": [
+          -0.6634264588356018,
+          0.0,
+          -0.287638783454895
+        ],
+        "max": [
+          0.6634264588356018,
+          0.8300816416740417,
+          0.287638783454895
+        ]
+      },
+      "source": "8d9067113985ce48152b0202e8dc56353890eab591b73811ccbcd31b3d258f24",
+      "file": "28efdec85e36.glb"
+    }
   },
-  "lib-cashregister_01": {
-   "assetHash": "2631e4ca7a9d502dd60b2d6b5d1e0c3a254d066f1ec5471ef0bda783d3ddcea8",
-   "file": "2631e4ca7a9d.glb",
-   "bounds": {
-    "min": [
-     -0.2252,
-     0.0021,
-     -0.1735
-    ],
-    "max": [
-     0.3754,
-     0.6236,
-     0.4508
-    ]
-   }
-  },
-  "lib-ceramic_vase_01": {
-   "assetHash": "0a2cf87eb686d5f2312dc5a2de8e0e9306346778d9a633ee6f3e153d7ef9c123",
-   "file": "0a2cf87eb686.glb",
-   "bounds": {
-    "min": [
-     -0.1019,
-     0.0012,
-     -0.1019
-    ],
-    "max": [
-     0.1019,
-     0.4015,
-     0.1019
-    ]
-   }
-  },
-  "lib-ceramic_vase_02": {
-   "assetHash": "a801e0bd487ab3da431c020744d82ba574eb3eb838766434a58fa3e829f96927",
-   "file": "a801e0bd487a.glb",
-   "bounds": {
-    "min": [
-     -0.1092,
-     0.0011,
-     -0.1092
-    ],
-    "max": [
-     0.1092,
-     0.3104,
-     0.1092
-    ]
-   }
-  },
-  "lib-ceramic_vase_04": {
-   "assetHash": "027786bfb859699bd27b3a5b4818ce14e33dc1a36b072c66134ec23a7ad6de36",
-   "file": "027786bfb859.glb",
-   "bounds": {
-    "min": [
-     -0.0906,
-     0.0005,
-     -0.0906
-    ],
-    "max": [
-     0.0906,
-     0.3425,
-     0.0906
-    ]
-   }
-  },
-  "lib-flower_empodium": {
-   "assetHash": "d88954b087e5e226bd0c4db460aa39dc69f20bdd30ab73efd2a90ab6871cc514",
-   "file": "d88954b087e5.glb",
-   "bounds": {
-    "min": [
-     -0.6835,
-     -0.0036,
-     -0.177
-    ],
-    "max": [
-     0.6395,
-     0.2648,
-     0.1072
-    ]
-   }
-  },
-  "lib-gallinera_chair": {
-   "assetHash": "f25a3de7672df0dd4ccde8b37eeebe9defca98176acbe574a4829f60c5f4b8a0",
-   "file": "f25a3de7672d.glb",
-   "bounds": {
-    "min": [
-     -0.2908,
-     -0.0002,
-     -0.2656
-    ],
-    "max": [
-     0.2901,
-     1.0336,
-     0.3383
-    ]
-   }
-  },
-  "lib-hanging_industrial_lamp": {
-   "assetHash": "085a725a1e53ffae81d753ced5ee50806762c887399ed36a970241d3d8b1ac7c",
-   "file": "085a725a1e53.glb",
-   "bounds": {
-    "min": [
-     -0.2749,
-     -1.3401,
-     -0.2749
-    ],
-    "max": [
-     0.2749,
-     0.0154,
-     0.2749
-    ]
-   }
-  },
-  "lib-lantern_chandelier_01": {
-   "assetHash": "3a3a599fbbf1e25e6973df986da83e2458ff3c50695f648f8d4451920c8a46d0",
-   "file": "3a3a599fbbf1.glb",
-   "bounds": {
-    "min": [
-     -0.2854,
-     -0.8653,
-     -0.2873
-    ],
-    "max": [
-     0.2938,
-     0.0124,
-     0.2874
-    ]
-   }
-  },
-  "lib-modern_wooden_cabinet": {
-   "assetHash": "d45f1e4afdf4e39717ed6935766e092e7d2874758db1cc111a6249a00c734bfc",
-   "file": "d45f1e4afdf4.glb",
-   "bounds": {
-    "min": [
-     -1.2201,
-     0,
-     -0.27
-    ],
-    "max": [
-     1.2201,
-     0.6802,
-     0.25
-    ]
-   }
-  },
-  "lib-periwinkle_plant": {
-   "assetHash": "7f76dcdf3b49ac327ee47bb422cee5677364bb6d5c6b76b285b4e163b3255907",
-   "file": "7f76dcdf3b49.glb",
-   "bounds": {
-    "min": [
-     -0.5602,
-     -0.0001,
-     -0.1902
-    ],
-    "max": [
-     0.6753,
-     0.4108,
-     0.1306
-    ]
-   }
-  },
-  "lib-planter_box_02": {
-   "assetHash": "030c0f536a20dc483424ff40fef9bcf37047b861cce4a6507ddec02233a53412",
-   "file": "030c0f536a20.glb",
-   "bounds": {
-    "min": [
-     -0.6249,
-     -0.0007,
-     -0.2348
-    ],
-    "max": [
-     0.6267,
-     0.4527,
-     0.2325
-    ]
-   }
-  },
-  "lib-potted_plant_01": {
-   "assetHash": "4d76745de2f9fd17abaaf3d16c482d6ee78fd53d21e0dfae775b88498798252d",
-   "file": "4d76745de2f9.glb",
-   "bounds": {
-    "min": [
-     -0.3381,
-     -0.0001,
-     -0.3634
-    ],
-    "max": [
-     0.2491,
-     1.3365,
-     0.2699
-    ]
-   }
-  },
-  "lib-potted_plant_02": {
-   "assetHash": "9a4799b25b61606ae2a56dfa96abc2e7e96d888da91d0632e268b192717c8a70",
-   "file": "9a4799b25b61.glb",
-   "bounds": {
-    "min": [
-     -0.3967,
-     0,
-     -0.4204
-    ],
-    "max": [
-     0.3045,
-     0.8413,
-     0.2371
-    ]
-   }
-  },
-  "lib-potted_plant_04": {
-   "assetHash": "8146fac6173ef10ab43fc87f4409d5345a86af69a0303fb49b2e4c4e2fb98dc4",
-   "file": "8146fac6173e.glb",
-   "bounds": {
-    "min": [
-     -0.084,
-     0.0003,
-     -0.084
-    ],
-    "max": [
-     0.084,
-     0.2679,
-     0.1009
-    ]
-   }
-  },
-  "lib-round_wooden_table_02": {
-   "assetHash": "3fb05e7912ff75ccdec4bfc210bc3808313dadb180c0344c59c23919e792fcd3",
-   "file": "3fb05e7912ff.glb",
-   "bounds": {
-    "min": [
-     -0.3981,
-     -0.0001,
-     -0.3981
-    ],
-    "max": [
-     0.3981,
-     0.7461,
-     0.3981
-    ]
-   }
-  },
-  "lib-shelf_01": {
-   "assetHash": "518f0e837622fc922bc353e4ba2c28e854ffe2443c0f97f985e27987400966be",
-   "file": "518f0e837622.glb",
-   "bounds": {
-    "min": [
-     -0.5018,
-     -0.0001,
-     -0.0001
-    ],
-    "max": [
-     0.5018,
-     2.0804,
-     0.257
-    ]
-   }
-  },
-  "lib-shrub_sorrel_01": {
-   "assetHash": "1603665d2ac4024086bf4303d049bfc6e0e8e754ae978914c4f13f605d27ea28",
-   "file": "1603665d2ac4.glb",
-   "bounds": {
-    "min": [
-     -0.1865,
-     -0.0015,
-     -0.1238
-    ],
-    "max": [
-     0.1657,
-     0.0566,
-     0.0227
-    ]
-   }
-  },
-  "lib-small_wooden_table_01": {
-   "assetHash": "211346c18fb04e2cc04f39f94cee2a0a69ed40e86bc85da389ef8045d16a9a45",
-   "file": "211346c18fb0.glb",
-   "bounds": {
-    "min": [
-     -0.4581,
-     -0.0001,
-     -0.2201
-    ],
-    "max": [
-     0.4581,
-     0.5331,
-     0.22
-    ]
-   }
-  },
-  "lib-standing_chalkboard_01": {
-   "assetHash": "7365a82ccc5d7dd5c5706892e4f9e7f86742d5eaaf9fc058792061b0661c9e1e",
-   "file": "7365a82ccc5d.glb",
-   "bounds": {
-    "min": [
-     -0.4462,
-     -0.0001,
-     -0.3794
-    ],
-    "max": [
-     0.4734,
-     1.5091,
-     0.3794
-    ]
-   }
-  },
-  "lib-watering_can_metal_01": {
-   "assetHash": "f8607dd2322524923b58b3ad631ece387cc607cff9115a378ad8a5dd544408b5",
-   "file": "f8607dd23225.glb",
-   "bounds": {
-    "min": [
-     -0.0953,
-     -0.0011,
-     -0.1748
-    ],
-    "max": [
-     0.0958,
-     0.1958,
-     0.2777
-    ]
-   }
-  },
-  "lib-wicker_basket_01": {
-   "assetHash": "988575f04fa88c14e5fa686037c6fb15fd1910666180e8647bb46d63b5822a8d",
-   "file": "988575f04fa8.glb",
-   "bounds": {
-    "min": [
-     -0.1919,
-     -0.001,
-     -0.148
-    ],
-    "max": [
-     0.1914,
-     0.1166,
-     0.1471
-    ]
-   }
-  },
-  "lib-wicker_basket_02": {
-   "assetHash": "b3964e04032da2e62c5fa5c1767ba1d5dadbf8194fdf66727739c09d2ce9568d",
-   "file": "b3964e04032d.glb",
-   "bounds": {
-    "min": [
-     -0.1076,
-     -0.0003,
-     -0.1453
-    ],
-    "max": [
-     0.2394,
-     0.2002,
-     0.1092
-    ]
-   }
-  },
-  "lib-wooden_bookshelf_worn": {
-   "assetHash": "b45b4b0d81e971206c046903ed9406daf92530f927d72361ae6996d78656c94d",
-   "file": "b45b4b0d81e9.glb",
-   "bounds": {
-    "min": [
-     -0.687,
-     -0.0001,
-     -0.2907
-    ],
-    "max": [
-     0.687,
-     2.0635,
-     0.2907
-    ]
-   }
-  },
-  "lib-wooden_bucket_01": {
-   "assetHash": "0d432436a68568dba9b4769ad4c79fc3a1c45129f2f666931f4a1788f480d09b",
-   "file": "0d432436a685.glb",
-   "bounds": {
-    "min": [
-     -0.1845,
-     0.0001,
-     -0.17
-    ],
-    "max": [
-     0.1826,
-     0.55,
-     0.1723
-    ]
-   }
-  },
-  "lib-wooden_crate_01": {
-   "assetHash": "bd7e28eeb2385814a15eb2abf0b200067819298de9190af91d14ae4e414b0c0f",
-   "file": "bd7e28eeb238.glb",
-   "bounds": {
-    "min": [
-     -0.4127,
-     -0.008,
-     -0.1962
-    ],
-    "max": [
-     0.4127,
-     0.3417,
-     0.2129
-    ]
-   }
-  },
-  "lib-wooden_display_shelves_01": {
-   "assetHash": "60e653be887cdb40e8efc514869078f30e128fedf348267b48949eb3867682f1",
-   "file": "60e653be887c.glb",
-   "bounds": {
-    "min": [
-     -0.1858,
-     0.0004,
-     -0.5389
-    ],
-    "max": [
-     0.1858,
-     1.5567,
-     0.5389
-    ]
-   }
-  },
-  "lib-woodentable_03": {
-   "assetHash": "28efdec85e36c48a460aefbc365b3a860e9613c27617a4b41c60b1004572126f",
-   "file": "28efdec85e36.glb",
-   "bounds": {
-    "min": [
-     -0.6588,
-     -0.0001,
-     -0.2809
-    ],
-    "max": [
-     0.6682,
-     0.8301,
-     0.2945
-    ]
-   }
+  "summary": {
+    "entities": 29,
+    "files": 29,
+    "bytes": 18852788,
+    "localSources": 29,
+    "downloaded": null
   }
- },
- "files": {
-  "bf9ac7ed810e2e049463e1d3be11ca8aa55a603af7861ceec8cc01d77593a02e": {
-   "bytes": 430356,
-   "triangles": 9408,
-   "vertices": 5024,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 9408,
-   "bounds": {
-    "min": [
-     -0.12751498818397522,
-     0.0,
-     -0.12751497328281403
-    ],
-    "max": [
-     0.12751498818397522,
-     0.43955305218696594,
-     0.12751497328281403
-    ]
-   },
-   "source": "8d250535ba3e10d4c25fc4f3c5508959df05dff775ba4e42295f64fea231357e",
-   "file": "bf9ac7ed810e.glb"
-  },
-  "eefd93fcb13c15dc8613825b70ab366529273003ab512f9cfb3d5e1f65f8ad19": {
-   "bytes": 393724,
-   "triangles": 6890,
-   "vertices": 3849,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 6890,
-   "bounds": {
-    "min": [
-     -0.10511928051710129,
-     0.0,
-     -0.1051187813282013
-    ],
-    "max": [
-     0.10511928051710129,
-     0.5286411046981812,
-     0.1051187813282013
-    ]
-   },
-   "source": "492884aa887892619f65004b1b16fd62e9c073e47d3eec6336bc4e2c330ebb79",
-   "file": "eefd93fcb13c.glb"
-  },
-  "2631e4ca7a9d502dd60b2d6b5d1e0c3a254d066f1ec5471ef0bda783d3ddcea8": {
-   "bytes": 609116,
-   "triangles": 9927,
-   "vertices": 9276,
-   "materials": 2,
-   "textureSide": 1024,
-   "texturePixels": 2097152,
-   "sourceTriangles": 9927,
-   "bounds": {
-    "min": [
-     -0.30024534463882446,
-     0.0,
-     -0.3121025562286377
-    ],
-    "max": [
-     0.30024534463882446,
-     0.6213557720184326,
-     0.3121025562286377
-    ]
-   },
-   "source": "165d882fb89c45ab132de3444bee9c9f817e33c126560bfb5a965494a55b6734",
-   "file": "2631e4ca7a9d.glb"
-  },
-  "0a2cf87eb686d5f2312dc5a2de8e0e9306346778d9a633ee6f3e153d7ef9c123": {
-   "bytes": 300980,
-   "triangles": 10296,
-   "vertices": 6590,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 10296,
-   "bounds": {
-    "min": [
-     -0.10181723535060883,
-     0.0,
-     -0.10181816667318344
-    ],
-    "max": [
-     0.10181723535060883,
-     0.4002682864665985,
-     0.10181816667318344
-    ]
-   },
-   "source": "bf30a03a0da8ed68f4ac1acde206f8388766f343f9a696da5bb105147b2c5ef8",
-   "file": "0a2cf87eb686.glb"
-  },
-  "a801e0bd487ab3da431c020744d82ba574eb3eb838766434a58fa3e829f96927": {
-   "bytes": 404668,
-   "triangles": 11128,
-   "vertices": 7094,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 11128,
-   "bounds": {
-    "min": [
-     -0.10918986797332764,
-     0.0,
-     -0.10919085890054703
-    ],
-    "max": [
-     0.10918986797332764,
-     0.30918481945991516,
-     0.10919085890054703
-    ]
-   },
-   "source": "9584652802f3768026ee583ae75f815b79db128f64943a6d278c46d45e9fb7a2",
-   "file": "a801e0bd487a.glb"
-  },
-  "027786bfb859699bd27b3a5b4818ce14e33dc1a36b072c66134ec23a7ad6de36": {
-   "bytes": 347120,
-   "triangles": 9000,
-   "vertices": 5804,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 9000,
-   "bounds": {
-    "min": [
-     -0.09056076407432556,
-     0.0,
-     -0.0905599445104599
-    ],
-    "max": [
-     0.09056076407432556,
-     0.34194421768188477,
-     0.0905599445104599
-    ]
-   },
-   "source": "d0ae5100376b4e2450d17062b69575c56d3469378f3bf1a50d5c3feef2a48883",
-   "file": "027786bfb859.glb"
-  },
-  "d88954b087e5e226bd0c4db460aa39dc69f20bdd30ab73efd2a90ab6871cc514": {
-   "bytes": 176576,
-   "triangles": 3053,
-   "vertices": 2613,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 3053,
-   "bounds": {
-    "min": [
-     -0.6614213585853577,
-     0.0,
-     -0.14204703271389008
-    ],
-    "max": [
-     0.6614213585853577,
-     0.2683515250682831,
-     0.14204703271389008
-    ]
-   },
-   "source": "5a47e40ea0536ddb76911bb1bdd98e5dc2be056d2b31c7071863598e8d3cd4c4",
-   "file": "d88954b087e5.glb"
-  },
-  "f25a3de7672df0dd4ccde8b37eeebe9defca98176acbe574a4829f60c5f4b8a0": {
-   "bytes": 532000,
-   "triangles": 11560,
-   "vertices": 8888,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 11560,
-   "bounds": {
-    "min": [
-     -0.29039958119392395,
-     0.0,
-     -0.30194100737571716
-    ],
-    "max": [
-     0.29039958119392395,
-     1.033689022064209,
-     0.30194100737571716
-    ]
-   },
-   "source": "dd6f35a8000aa7e520fc305eb74899aa32db263c327c4c31d866d5529df0991e",
-   "file": "f25a3de7672d.glb"
-  },
-  "085a725a1e53ffae81d753ced5ee50806762c887399ed36a970241d3d8b1ac7c": {
-   "bytes": 578684,
-   "triangles": 9530,
-   "vertices": 8971,
-   "materials": 2,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 9530,
-   "bounds": {
-    "min": [
-     -0.2748032510280609,
-     0.0,
-     -0.2748032212257385
-    ],
-    "max": [
-     0.2748032510280609,
-     1.355350136756897,
-     0.2748032212257385
-    ]
-   },
-   "source": "3e5725cf88ae69370ba2e1a6789e412dc4147b005849c14d2417c7c39e9e5d10",
-   "file": "085a725a1e53.glb"
-  },
-  "3a3a599fbbf1e25e6973df986da83e2458ff3c50695f648f8d4451920c8a46d0": {
-   "bytes": 421408,
-   "triangles": 5971,
-   "vertices": 5713,
-   "materials": 3,
-   "textureSide": 1024,
-   "texturePixels": 2097152,
-   "sourceTriangles": 5971,
-   "bounds": {
-    "min": [
-     -0.289585143327713,
-     0.0,
-     -0.28731831908226013
-    ],
-    "max": [
-     0.289585143327713,
-     0.8775878548622131,
-     0.28731831908226013
-    ]
-   },
-   "source": "1c593c8aedbe79f83e0678f414d199d2ef440f1688b5d018028b96bcee2c99e0",
-   "file": "3a3a599fbbf1.glb"
-  },
-  "d45f1e4afdf4e39717ed6935766e092e7d2874758db1cc111a6249a00c734bfc": {
-   "bytes": 1391216,
-   "triangles": 24976,
-   "vertices": 31535,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 24976,
-   "bounds": {
-    "min": [
-     -1.2200002670288086,
-     0.0,
-     -0.25999999046325684
-    ],
-    "max": [
-     1.2200002670288086,
-     0.6801425218582153,
-     0.25999999046325684
-    ]
-   },
-   "source": "75c3a9671580848403ecf1beae5affda58b9dbde3f7262a2828dbcdfda171f13",
-   "file": "d45f1e4afdf4.glb"
-  },
-  "7f76dcdf3b49ac327ee47bb422cee5677364bb6d5c6b76b285b4e163b3255907": {
-   "bytes": 1488888,
-   "triangles": 34350,
-   "vertices": 31801,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 34350,
-   "bounds": {
-    "min": [
-     -0.6176835894584656,
-     0.0,
-     -0.16037273406982422
-    ],
-    "max": [
-     0.6176835894584656,
-     0.41073837876319885,
-     0.16037273406982422
-    ]
-   },
-   "source": "5cf2824392d9a3667cd047f9c12e305f0e76cc52d57668e1f0ec9eb2abc3c1a2",
-   "file": "7f76dcdf3b49.glb"
-  },
-  "030c0f536a20dc483424ff40fef9bcf37047b861cce4a6507ddec02233a53412": {
-   "bytes": 586300,
-   "triangles": 10944,
-   "vertices": 9176,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 10944,
-   "bounds": {
-    "min": [
-     -0.6257882118225098,
-     0.0,
-     -0.23359306156635284
-    ],
-    "max": [
-     0.6257882118225098,
-     0.45337265729904175,
-     0.23359306156635284
-    ]
-   },
-   "source": "eba431ad9869fd88cd586dcdf13ae955424c2ff7d4d018d557813b4337f1c1f8",
-   "file": "030c0f536a20.glb"
-  },
-  "4d76745de2f9fd17abaaf3d16c482d6ee78fd53d21e0dfae775b88498798252d": {
-   "bytes": 3009832,
-   "triangles": 97999,
-   "vertices": 64017,
-   "materials": 2,
-   "textureSide": 1024,
-   "texturePixels": 2097152,
-   "sourceTriangles": 176226,
-   "bounds": {
-    "min": [
-     -0.29353758692741394,
-     0.0,
-     -0.3165988326072693
-    ],
-    "max": [
-     0.29353758692741394,
-     1.336457371711731,
-     0.3165988326072693
-    ]
-   },
-   "source": "2504501b4c5cbf7a6217353a38e3f9c43dfd268cf8e3d5c5265b39cecdbf9385",
-   "file": "4d76745de2f9.glb"
-  },
-  "9a4799b25b61606ae2a56dfa96abc2e7e96d888da91d0632e268b192717c8a70": {
-   "bytes": 2218684,
-   "triangles": 69806,
-   "vertices": 44794,
-   "materials": 2,
-   "textureSide": 1024,
-   "texturePixels": 2097152,
-   "sourceTriangles": 69806,
-   "bounds": {
-    "min": [
-     -0.35057851672172546,
-     0.0,
-     -0.32869330048561096
-    ],
-    "max": [
-     0.35057851672172546,
-     0.8411787152290344,
-     0.32869330048561096
-    ]
-   },
-   "source": "26c627d6e02947782c7801fe6cc807291b31a9ca96485d8953198e794a929782",
-   "file": "9a4799b25b61.glb"
-  },
-  "8146fac6173ef10ab43fc87f4409d5345a86af69a0303fb49b2e4c4e2fb98dc4": {
-   "bytes": 464488,
-   "triangles": 8929,
-   "vertices": 5882,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 8929,
-   "bounds": {
-    "min": [
-     -0.08394315838813782,
-     0.0,
-     -0.09237571060657501
-    ],
-    "max": [
-     0.08394315838813782,
-     0.26745766401290894,
-     0.09237571060657501
-    ]
-   },
-   "source": "d497114ba6fb1a18a4ccc72df96fe87c450c876efddfa7866a1c0fc914b116f4",
-   "file": "8146fac6173e.glb"
-  },
-  "3fb05e7912ff75ccdec4bfc210bc3808313dadb180c0344c59c23919e792fcd3": {
-   "bytes": 286908,
-   "triangles": 4254,
-   "vertices": 3434,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 4254,
-   "bounds": {
-    "min": [
-     -0.3980890214443207,
-     0.0,
-     -0.3980890214443207
-    ],
-    "max": [
-     0.3980890214443207,
-     0.7460266351699829,
-     0.3980890214443207
-    ]
-   },
-   "source": "9865e46f1a3b5c8cd23c5e61323f9e1063f376f6ea2e2e03ae630b0d90c9e7bd",
-   "file": "3fb05e7912ff.glb"
-  },
-  "518f0e837622fc922bc353e4ba2c28e854ffe2443c0f97f985e27987400966be": {
-   "bytes": 186936,
-   "triangles": 182,
-   "vertices": 362,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 182,
-   "bounds": {
-    "min": [
-     -0.5017218589782715,
-     0.0,
-     -0.12848974764347076
-    ],
-    "max": [
-     0.5017218589782715,
-     2.080310344696045,
-     0.12848974764347076
-    ]
-   },
-   "source": "c34c898ef104a80a57e0033aa0c2cb9eb4359099e54c02f3901655d0f575d706",
-   "file": "518f0e837622.glb"
-  },
-  "1603665d2ac4024086bf4303d049bfc6e0e8e754ae978914c4f13f605d27ea28": {
-   "bytes": 239056,
-   "triangles": 3319,
-   "vertices": 2844,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 3319,
-   "bounds": {
-    "min": [
-     -0.17604967951774597,
-     0.0,
-     -0.07320519536733627
-    ],
-    "max": [
-     0.17604967951774597,
-     0.05800367891788483,
-     0.07320519536733627
-    ]
-   },
-   "source": "0a823331d7bedf78e925528829e4bfb131a099d6a08974b9e198e3341a99f54b",
-   "file": "1603665d2ac4.glb"
-  },
-  "211346c18fb04e2cc04f39f94cee2a0a69ed40e86bc85da389ef8045d16a9a45": {
-   "bytes": 247532,
-   "triangles": 3410,
-   "vertices": 2249,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 3410,
-   "bounds": {
-    "min": [
-     -0.45809391140937805,
-     0.0,
-     -0.21998131275177002
-    ],
-    "max": [
-     0.45809391140937805,
-     0.5330857634544373,
-     0.21998131275177002
-    ]
-   },
-   "source": "664cdcec8c9f89c44afbbb83bd570916952eebde6d36ae9c5200c96a46bb1cef",
-   "file": "211346c18fb0.glb"
-  },
-  "7365a82ccc5d7dd5c5706892e4f9e7f86742d5eaaf9fc058792061b0661c9e1e": {
-   "bytes": 323464,
-   "triangles": 2372,
-   "vertices": 2684,
-   "materials": 2,
-   "textureSide": 1024,
-   "texturePixels": 2097152,
-   "sourceTriangles": 2372,
-   "bounds": {
-    "min": [
-     -0.45976337790489197,
-     0.0,
-     -0.379352331161499
-    ],
-    "max": [
-     0.45976337790489197,
-     1.5090323686599731,
-     0.379352331161499
-    ]
-   },
-   "source": "004737cc81472dd4178b1e0bb2813a31ea136ae4551c556d2959e53542d866e0",
-   "file": "7365a82ccc5d.glb"
-  },
-  "f8607dd2322524923b58b3ad631ece387cc607cff9115a378ad8a5dd544408b5": {
-   "bytes": 566452,
-   "triangles": 11837,
-   "vertices": 7741,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 11837,
-   "bounds": {
-    "min": [
-     -0.09550929069519043,
-     0.0,
-     -0.22616803646087646
-    ],
-    "max": [
-     0.09550929069519043,
-     0.1968185305595398,
-     0.22616803646087646
-    ]
-   },
-   "source": "2847e0e5a40ce29111d4145473acab793f02de4809ae6574cca1955d78d58888",
-   "file": "f8607dd23225.glb"
-  },
-  "988575f04fa88c14e5fa686037c6fb15fd1910666180e8647bb46d63b5822a8d": {
-   "bytes": 871800,
-   "triangles": 22276,
-   "vertices": 15352,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 22276,
-   "bounds": {
-    "min": [
-     -0.1916121244430542,
-     0.0,
-     -0.14750760793685913
-    ],
-    "max": [
-     0.1916121244430542,
-     0.1174229308962822,
-     0.14750760793685913
-    ]
-   },
-   "source": "b323430aa3f6b137b0c273c4862d686e703a254a450208ebe0edf7759fb8e0ab",
-   "file": "988575f04fa8.glb"
-  },
-  "b3964e04032da2e62c5fa5c1767ba1d5dadbf8194fdf66727739c09d2ce9568d": {
-   "bytes": 769840,
-   "triangles": 17850,
-   "vertices": 10171,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 17850,
-   "bounds": {
-    "min": [
-     -0.17345842719078064,
-     0.0,
-     -0.12722526490688324
-    ],
-    "max": [
-     0.17345842719078064,
-     0.2004578560590744,
-     0.12722526490688324
-    ]
-   },
-   "source": "0ab71883ad6844bdd0eaf860975b11902caeea5237689b9113c79f517428db6b",
-   "file": "b3964e04032d.glb"
-  },
-  "b45b4b0d81e971206c046903ed9406daf92530f927d72361ae6996d78656c94d": {
-   "bytes": 609332,
-   "triangles": 10106,
-   "vertices": 6479,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 10106,
-   "bounds": {
-    "min": [
-     -0.68697589635849,
-     0.0,
-     -0.29065102338790894
-    ],
-    "max": [
-     0.68697589635849,
-     2.0634419918060303,
-     0.29065102338790894
-    ]
-   },
-   "source": "07192b5c5f240bf47e1fea1bc13cbaa9d502cfc880be530950d12eeb894409d1",
-   "file": "b45b4b0d81e9.glb"
-  },
-  "0d432436a68568dba9b4769ad4c79fc3a1c45129f2f666931f4a1788f480d09b": {
-   "bytes": 403604,
-   "triangles": 5116,
-   "vertices": 3991,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 5116,
-   "bounds": {
-    "min": [
-     -0.18348541855812073,
-     0.0,
-     -0.171110600233078
-    ],
-    "max": [
-     0.18348541855812073,
-     0.5498623847961426,
-     0.171110600233078
-    ]
-   },
-   "source": "487ee66e9ae65f79695bdc34f800ceb299591e9029bee002d6c0c7be8ca42600",
-   "file": "0d432436a685.glb"
-  },
-  "bd7e28eeb2385814a15eb2abf0b200067819298de9190af91d14ae4e414b0c0f": {
-   "bytes": 443180,
-   "triangles": 6576,
-   "vertices": 4686,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 6576,
-   "bounds": {
-    "min": [
-     -0.4126364588737488,
-     0.0,
-     -0.20447686314582825
-    ],
-    "max": [
-     0.4126364588737488,
-     0.3496182858943939,
-     0.20447686314582825
-    ]
-   },
-   "source": "d2872cbad165f68ba5e3b93fa3cae7e508bce6506190858fe212442ef9edcfab",
-   "file": "bd7e28eeb238.glb"
-  },
-  "60e653be887cdb40e8efc514869078f30e128fedf348267b48949eb3867682f1": {
-   "bytes": 259752,
-   "triangles": 3174,
-   "vertices": 2717,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 3174,
-   "bounds": {
-    "min": [
-     -0.18575482070446014,
-     0.0,
-     -0.538880467414856
-    ],
-    "max": [
-     0.18575482070446014,
-     1.5561838150024414,
-     0.538880467414856
-    ]
-   },
-   "source": "78bf24fdff3b473321a29fe3538ce625f9cf1628b674d61eb2d73f15e6f4ad9b",
-   "file": "60e653be887c.glb"
-  },
-  "28efdec85e36c48a460aefbc365b3a860e9613c27617a4b41c60b1004572126f": {
-   "bytes": 290892,
-   "triangles": 2298,
-   "vertices": 3262,
-   "materials": 1,
-   "textureSide": 1024,
-   "texturePixels": 1048576,
-   "sourceTriangles": 2298,
-   "bounds": {
-    "min": [
-     -0.6634264588356018,
-     0.0,
-     -0.287638783454895
-    ],
-    "max": [
-     0.6634264588356018,
-     0.8300816416740417,
-     0.287638783454895
-    ]
-   },
-   "source": "8d9067113985ce48152b0202e8dc56353890eab591b73811ccbcd31b3d258f24",
-   "file": "28efdec85e36.glb"
-  }
- },
- "summary": {
-  "entities": 29,
-  "files": 29,
-  "bytes": 18852788,
-  "localSources": 29,
-  "downloaded": null
- }
 }

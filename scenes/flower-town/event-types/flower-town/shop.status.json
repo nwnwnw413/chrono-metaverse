@@ -1,15 +1,37 @@
 {
   "type": "shop.status",
-  "version": 1,
   "schema": {
     "type": "object",
-    "properties": { "status": { "type": "string", "enum": ["营业中", "已打烊"] } },
-    "required": ["status"],
+    "properties": {
+      "status": {
+        "type": "string",
+        "enum": [
+          "营业中",
+          "已打烊"
+        ]
+      }
+    },
+    "required": [
+      "status"
+    ],
     "additionalProperties": false
   },
-  "publicFields": ["status"],
+  "publicFields": [
+    "status"
+  ],
   "defaultVisibility": "public",
-  "state": { "key": "open", "value": "status" },
+  "state": {
+    "key": "open",
+    "value": "status"
+  },
   "maxAgeSec": 86400,
-  "display": { "kind": "label", "color": [120, 200, 110], "labelTemplate": "{status}" }
+  "display": {
+    "kind": "label",
+    "color": [
+      120,
+      200,
+      110
+    ],
+    "labelTemplate": "{status}"
+  }
 }

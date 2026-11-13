@@ -39,7 +39,6 @@ x 向东 6 米、z 向南 5 米，北墙在 z = 0.2，墙厚 0.2 米，吊顶 3.
 | Ceramic Vase 01 | James Ray Cock | CC0-1.0 | [ceramic_vase_01](https://polyhaven.com/a/ceramic_vase_01) |
 | Ceramic Vase 02 | James Ray Cock | CC0-1.0 | [ceramic_vase_02](https://polyhaven.com/a/ceramic_vase_02) |
 | Ceramic Vase 04 | James Ray Cock | CC0-1.0 | [ceramic_vase_04](https://polyhaven.com/a/ceramic_vase_04) |
-| Flower Empodium | Jenelle van Heerden, Rico Cilliers | CC0-1.0 | [flower_empodium](https://polyhaven.com/a/flower_empodium) |
 | Gallinera Chair | Ulan Cabanilla | CC0-1.0 | [gallinera_chair](https://polyhaven.com/a/gallinera_chair) |
 | Hanging Industrial Lamp | Kuutti Siitonen | CC0-1.0 | [hanging_industrial_lamp](https://polyhaven.com/a/hanging_industrial_lamp) |
 | Lantern Chandelier 01 | Kirill Sannikov | CC0-1.0 | [lantern_chandelier_01](https://polyhaven.com/a/lantern_chandelier_01) |
@@ -76,14 +75,20 @@ x 向东 6 米、z 向南 5 米，北墙在 z = 0.2，墙厚 0.2 米，吊顶 3.
 
 贴图用 `metaverse-recon texfetch` 下载（颜色、法线、粗糙度各一张，1k），按内容哈希放在工作区 `assets/`。
 
+## 订花流程
+
+来宾向花店的顾客专员订花，店主专员写「开始配送」和「送达」两条事件，组合页面就画出从收银台到前厅前台的路线。角色分工、事件约定、`scripts/order.mjs` 的用法、本地一键跑通（`scripts/local-demo.mjs`）和上线前要准备的 key 与组合，见 [ORDER_FLOW.md](ORDER_FLOW.md)。
+
+![组合「街角」里的送花路线](preview/street-corner.png)
+
 ## 事件类型
 
-`event-types/` 下是用 `metaverse admin register-event-type` 登记的文件，格式按设计 5.4：
+`event-types/` 下是用 `metaverse admin register-event-type` 登记的文件，格式按设计 5.4（`type`、`schema`、`publicFields`、`defaultVisibility`、`state?`、`maxAgeSec?`、`display`；版本由服务端追加，文件里不写）：
 
 | 空间 | 类型 | 显示 | 谁写 |
 |---|---|---|---|
 | `flower-town` | `order.placed` | 图标，5 秒 | 顾客专员接单时 |
-| `flower-town` | `delivery.sent` | 路线起点，4 小时内有效 | 店主专员说「开始配送」时 |
+| `flower-town` | `delivery.sent` | 路线起点 | 店主专员说「开始配送」时 |
 | `flower-town` | `shop.status` | 状态类标签（营业中 / 已打烊），一天自动失效 | 店主专员 |
 | `chronoai-lobby` | `delivery.arrived` | 路线终点，60 秒 | 店主专员确认送达时，用前厅发给花店的组织 key 写 |
 
@@ -111,7 +116,10 @@ npm run build         # 运行 build/main.ts，生成 out/ops.ndjson
 npm run check         # 确认全部操作都落在地块 shop 内
 npm run shot          # 无头浏览器截图到 out/shots/（需要 Chromium，默认 /opt/pw-browsers/chromium）
 npm run dev           # 本地查看器
+npm run order -- place --order 0042 --item 发布会花篮 --dry-run   # 订花事件的请求体（见 ORDER_FLOW.md）
 ```
+
+要连着接口服务一起跑（建空间、发布、组合、写事件），先起仓库的本地全套（`infra/dev/up.sh`），再 `npm run local-demo`，见 [ORDER_FLOW.md](ORDER_FLOW.md)。
 
 线上空间建好后改用 `metaverse pull`，它会用真实状态覆盖本地空状态；模型和贴图要先经 `metaverse edit upload` 上传核对（编辑计划的 `assets` 列出哈希、格式和本地路径），再 `metaverse push --plot shop` 推成草稿、拿预览链接，人确认后 `metaverse publish`。
 

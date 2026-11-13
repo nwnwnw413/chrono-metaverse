@@ -1,0 +1,4 @@
+{
+  "regions": [{ "id": "hall", "kind": "virtual", "name": "前厅（替身）", "boxes": [[0, 0, 0, 200, 80, 200]] }],
+  "plots": [{ "id": "hall", "regionId": "hall", "label": "前厅", "boxes": [[0, 0, 0, 200, 80, 200]] }]
+}

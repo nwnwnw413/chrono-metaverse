@@ -1,21 +1,34 @@
 {
   "type": "order.placed",
-  "version": 1,
   "schema": {
     "type": "object",
     "properties": {
-      "item": { "type": "string", "maxLength": 80 },
-      "orderId": { "type": "string", "maxLength": 40 }
+      "item": {
+        "type": "string",
+        "maxLength": 80
+      },
+      "orderId": {
+        "type": "string",
+        "maxLength": 40
+      }
     },
-    "required": ["item"],
+    "required": [
+      "item"
+    ],
     "additionalProperties": false
   },
-  "publicFields": ["item"],
+  "publicFields": [
+    "item"
+  ],
   "defaultVisibility": "public",
   "display": {
     "kind": "icon",
     "icon": "flower",
-    "color": [236, 96, 140],
+    "color": [
+      236,
+      96,
+      140
+    ],
     "durationSec": 5,
     "labelTemplate": "新订单：{item}"
   }

@@ -8,6 +8,8 @@
     "check": "node ../../sdk/typescript/dist/cli.js check",
     "dev": "node ../../sdk/typescript/dist/cli.js dev",
     "shot": "node ../../sdk/typescript/dist/cli.js shot --views extended --angles front,left,top --out out/shots",
-    "typecheck": "node ../../sdk/typescript/node_modules/typescript/bin/tsc -p tsconfig.json"
+    "typecheck": "node ../../sdk/typescript/node_modules/typescript/bin/tsc -p tsconfig.json",
+    "order": "node scripts/order.mjs",
+    "local-demo": "node scripts/local-demo.mjs"
   }
 }
