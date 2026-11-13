@@ -1,32 +1,4 @@
 {
- "concrete_floor_01": {
-  "sizeM": [
-   2.0,
-   2.0
-  ],
-  "source": {
-   "library": "polyhaven",
-   "id": "concrete_floor_01",
-   "title": "Concrete Floor 01",
-   "author": "Rob Tuytel",
-   "license": "CC0-1.0",
-   "page": "https://polyhaven.com/a/concrete_floor_01"
-  },
-  "maps": {
-   "color": {
-    "hash": "db7c800f1464359b5f359fc743e82ac51b34e014fdfd53844f4af34bb1949229",
-    "bytes": 755740
-   },
-   "normal": {
-    "hash": "28be1f6fa82eeab137c84954bf7ea0f5d8a4434352d01c29f15e20926eb7227e",
-    "bytes": 909898
-   },
-   "roughness": {
-    "hash": "f5239e1c6db5f0ddb4c2397e881a5938ab511386aab19a23c20d40f4ab2c181b",
-    "bytes": 354529
-   }
-  }
- },
  "dark_wood": {
   "sizeM": [
    2.0,
@@ -52,34 +24,6 @@
    "roughness": {
     "hash": "47ea12dbf649109b02eaa164dde9732a74e839957f29ad0ec7f5266b575d1835",
     "bytes": 574415
-   }
-  }
- },
- "hessian_380": {
-  "sizeM": [
-   0.274,
-   0.274
-  ],
-  "source": {
-   "library": "polyhaven",
-   "id": "hessian_380",
-   "title": "Hessian 380",
-   "author": "Rico Cilliers, colormass",
-   "license": "CC0-1.0",
-   "page": "https://polyhaven.com/a/hessian_380"
-  },
-  "maps": {
-   "color": {
-    "hash": "5727302df3a9c845e6320ff186ac13fc7d0f1ffcd6fda71667e808e09379fe6f",
-    "bytes": 944914
-   },
-   "normal": {
-    "hash": "3994fd74148cb413892edd08155976497b3e7e15a403a182f07325a6b1e7be1a",
-    "bytes": 1076074
-   },
-   "roughness": {
-    "hash": "a828755c5ddc9af0697eeed46427c5145df1dea5f1e2839f643156a285282fed",
-    "bytes": 956823
    }
   }
  },
@@ -164,34 +108,6 @@
    "roughness": {
     "hash": "410f94d0c0fd34c76b9d0f1e526652e728df89501ce569b5012e98ad606e6175",
     "bytes": 626916
-   }
-  }
- },
- "stone_tiles_02": {
-  "sizeM": [
-   2.0,
-   2.0
-  ],
-  "source": {
-   "library": "polyhaven",
-   "id": "stone_tiles_02",
-   "title": "Stone Tiles 02",
-   "author": "Charlotte Baglioni",
-   "license": "CC0-1.0",
-   "page": "https://polyhaven.com/a/stone_tiles_02"
-  },
-  "maps": {
-   "color": {
-    "hash": "687ef4a6cc07fb680352cf26b0a2a6256d4c18d8084dcd59ac739bc509296e18",
-    "bytes": 817710
-   },
-   "normal": {
-    "hash": "ab19cc9baacb0bc30a219f841254beb6837412ddad9bfc9c052b5aa805d1c3f0",
-    "bytes": 873564
-   },
-   "roughness": {
-    "hash": "889f66231be4f25ecd80b5d87f06f4e8c22c801edb8dcc7e34c13e6b4b74491c",
-    "bytes": 476160
    }
   }
  },
