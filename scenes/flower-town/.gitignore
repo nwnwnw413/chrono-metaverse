@@ -12,3 +12,5 @@ limits.json
 scan/
 work/
 web/
+build/models/*.glb
+build/models/_work/
