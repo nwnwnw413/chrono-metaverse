@@ -16,6 +16,54 @@
     ]
    }
   },
+  "lib-armchair_01": {
+   "assetHash": "25adbfd052b3edfa6dd8d19c34e2d43b8c3fa7de6d712036eb49163f159a00c6",
+   "file": "25adbfd052b3.glb",
+   "bounds": {
+    "min": [
+     -0.4243,
+     -0.0005,
+     -0.4174
+    ],
+    "max": [
+     0.4243,
+     1.0647,
+     0.3485
+    ]
+   }
+  },
+  "lib-bar_chair_round_01": {
+   "assetHash": "5f85b953512e471dc63502abf9376d4b6c6f7079024d967f9519eb47920168f5",
+   "file": "5f85b953512e.glb",
+   "bounds": {
+    "min": [
+     -0.2288,
+     0,
+     -0.2445
+    ],
+    "max": [
+     0.2545,
+     0.7506,
+     0.2416
+    ]
+   }
+  },
+  "lib-brass_pot_01": {
+   "assetHash": "5358e4da5591b2b16aa92116c06c2029012854fb6d1867e5d8cbc47d97f6ee72",
+   "file": "5358e4da5591.glb",
+   "bounds": {
+    "min": [
+     -0.1511,
+     -0.0009,
+     -0.1509
+    ],
+    "max": [
+     0.151,
+     0.2901,
+     0.1509
+    ]
+   }
+  },
   "lib-brass_vase_02": {
    "assetHash": "eefd93fcb13c15dc8613825b70ab366529273003ab512f9cfb3d5e1f65f8ad19",
    "file": "eefd93fcb13c.glb",
@@ -45,6 +93,22 @@
      0.3754,
      0.6236,
      0.4508
+    ]
+   }
+  },
+  "lib-ceramic_pot": {
+   "assetHash": "04c90a84605c50533bb790a0210000e38ddf8499fdeeaea593c14c136fde12a4",
+   "file": "04c90a84605c.glb",
+   "bounds": {
+    "min": [
+     -0.3282,
+     -0.0009,
+     -0.2506
+    ],
+    "max": [
+     0.3282,
+     0.3708,
+     0.2513
     ]
    }
   },
@@ -96,6 +160,38 @@
     ]
    }
   },
+  "lib-coffee_table_round_01": {
+   "assetHash": "149a68ee4c4e677c867566131756bc0474e12cb598a367e7c80c3798e901cdfc",
+   "file": "149a68ee4c4e.glb",
+   "bounds": {
+    "min": [
+     -0.6507,
+     -0.0014,
+     -0.6507
+    ],
+    "max": [
+     0.6507,
+     0.4897,
+     0.6507
+    ]
+   }
+  },
+  "lib-dining_chair_02": {
+   "assetHash": "73ed79b99643ab3436b0929491de1f7c8b9883d858102263bcb003a4cb83a2e8",
+   "file": "73ed79b99643.glb",
+   "bounds": {
+    "min": [
+     -0.2168,
+     0.0012,
+     -0.3311
+    ],
+    "max": [
+     0.2168,
+     0.9747,
+     0.2454
+    ]
+   }
+  },
   "lib-flower_empodium": {
    "assetHash": "d88954b087e5e226bd0c4db460aa39dc69f20bdd30ab73efd2a90ab6871cc514",
    "file": "d88954b087e5.glb",
@@ -128,6 +224,22 @@
     ]
    }
   },
+  "lib-gallinera_chair": {
+   "assetHash": "f25a3de7672df0dd4ccde8b37eeebe9defca98176acbe574a4829f60c5f4b8a0",
+   "file": "f25a3de7672d.glb",
+   "bounds": {
+    "min": [
+     -0.2908,
+     -0.0002,
+     -0.2656
+    ],
+    "max": [
+     0.2901,
+     1.0336,
+     0.3383
+    ]
+   }
+  },
   "lib-hanging_industrial_lamp": {
    "assetHash": "085a725a1e53ffae81d753ced5ee50806762c887399ed36a970241d3d8b1ac7c",
    "file": "085a725a1e53.glb",
@@ -141,6 +253,150 @@
      0.2749,
      0.0154,
      0.2749
+    ]
+   }
+  },
+  "lib-hanging_picture_frame_02": {
+   "assetHash": "57949daea57f85ed66694f84af8a509879c498e24283bbcdbefcf66772cdd27a",
+   "file": "57949daea57f.glb",
+   "bounds": {
+    "min": [
+     -0.3757,
+     -0.2787,
+     0.002
+    ],
+    "max": [
+     0.3763,
+     0.2214,
+     0.0352
+    ]
+   }
+  },
+  "lib-lantern_chandelier_01": {
+   "assetHash": "3a3a599fbbf1e25e6973df986da83e2458ff3c50695f648f8d4451920c8a46d0",
+   "file": "3a3a599fbbf1.glb",
+   "bounds": {
+    "min": [
+     -0.2854,
+     -0.8653,
+     -0.2873
+    ],
+    "max": [
+     0.2938,
+     0.0124,
+     0.2874
+    ]
+   }
+  },
+  "lib-metal_stool_02": {
+   "assetHash": "1b4ac7d8c362462e49ae88b7676af196128e00086548efe1d0d6e0aaaa11623c",
+   "file": "1b4ac7d8c362.glb",
+   "bounds": {
+    "min": [
+     -0.2241,
+     -0.0001,
+     -0.2352
+    ],
+    "max": [
+     0.2241,
+     0.4582,
+     0.238
+    ]
+   }
+  },
+  "lib-mid_century_lounge_chair": {
+   "assetHash": "05dcad2c669245e76b1a72b5b377bc71b22c5c1b36b1f85c9a7ea006dbb2299a",
+   "file": "05dcad2c6692.glb",
+   "bounds": {
+    "min": [
+     -0.5044,
+     -0.0001,
+     -0.6614
+    ],
+    "max": [
+     0.5044,
+     1.1691,
+     0.529
+    ]
+   }
+  },
+  "lib-modern_ceiling_lamp_01": {
+   "assetHash": "cb66c3dd1b46fdbed05c795d3277932c9ebb21570d826fce620e49ca9a81c843",
+   "file": "cb66c3dd1b46.glb",
+   "bounds": {
+    "min": [
+     -0.2158,
+     0.221,
+     -0.2144
+    ],
+    "max": [
+     0.2159,
+     1.1727,
+     0.2174
+    ]
+   }
+  },
+  "lib-modern_coffee_table_01": {
+   "assetHash": "a1a76cf19b9b17b07f258a5c7f94820269eee2715eec50798f68958bebb5ca2f",
+   "file": "a1a76cf19b9b.glb",
+   "bounds": {
+    "min": [
+     -0.3,
+     -0.0002,
+     -0.6007
+    ],
+    "max": [
+     0.3001,
+     0.3899,
+     0.6012
+    ]
+   }
+  },
+  "lib-modern_wooden_cabinet": {
+   "assetHash": "d45f1e4afdf4e39717ed6935766e092e7d2874758db1cc111a6249a00c734bfc",
+   "file": "d45f1e4afdf4.glb",
+   "bounds": {
+    "min": [
+     -1.2201,
+     0,
+     -0.27
+    ],
+    "max": [
+     1.2201,
+     0.6802,
+     0.25
+    ]
+   }
+  },
+  "lib-painted_wooden_cabinet_02": {
+   "assetHash": "b9b452ea418b20748462ddffa2cf53b16d26b52390ae4064777f4e3b7d765e16",
+   "file": "b9b452ea418b.glb",
+   "bounds": {
+    "min": [
+     -0.4985,
+     -0.0011,
+     -0.3222
+    ],
+    "max": [
+     0.4985,
+     2.5676,
+     0.4002
+    ]
+   }
+  },
+  "lib-painted_wooden_table": {
+   "assetHash": "60d41155a7098277385aac3bd66de2be861268fc25624e537c6b8e717a3c7fea",
+   "file": "60d41155a709.glb",
+   "bounds": {
+    "min": [
+     -1.2034,
+     -0.0005,
+     -0.5712
+    ],
+    "max": [
+     1.2023,
+     0.9582,
+     0.5658
     ]
    }
   },
@@ -160,6 +416,22 @@
     ]
    }
   },
+  "lib-planter_box_01": {
+   "assetHash": "35a446618a35605fad6eeba37008ecbf36dd05ad5ca354bdc66e9ad03010bdff",
+   "file": "35a446618a35.glb",
+   "bounds": {
+    "min": [
+     -0.4568,
+     0,
+     -0.2072
+    ],
+    "max": [
+     0.4559,
+     0.425,
+     0.2066
+    ]
+   }
+  },
   "lib-planter_box_02": {
    "assetHash": "030c0f536a20dc483424ff40fef9bcf37047b861cce4a6507ddec02233a53412",
    "file": "030c0f536a20.glb",
@@ -173,6 +445,22 @@
      0.6267,
      0.4527,
      0.2325
+    ]
+   }
+  },
+  "lib-planter_box_03": {
+   "assetHash": "e796b390161013bd7204f7f30dbc190f1a1024b7bd65dc0e199d6c82ab2e3f6e",
+   "file": "e796b3901610.glb",
+   "bounds": {
+    "min": [
+     -0.4574,
+     0,
+     -0.3286
+    ],
+    "max": [
+     0.457,
+     0.8552,
+     0.3271
     ]
    }
   },
@@ -240,6 +528,22 @@
     ]
    }
   },
+  "lib-shelf_01": {
+   "assetHash": "518f0e837622fc922bc353e4ba2c28e854ffe2443c0f97f985e27987400966be",
+   "file": "518f0e837622.glb",
+   "bounds": {
+    "min": [
+     -0.5018,
+     -0.0001,
+     -0.0001
+    ],
+    "max": [
+     0.5018,
+     2.0804,
+     0.257
+    ]
+   }
+  },
   "lib-shrub_sorrel_01": {
    "assetHash": "1603665d2ac4024086bf4303d049bfc6e0e8e754ae978914c4f13f605d27ea28",
    "file": "1603665d2ac4.glb",
@@ -253,6 +557,70 @@
      0.1657,
      0.0566,
      0.0227
+    ]
+   }
+  },
+  "lib-side_table_01": {
+   "assetHash": "6864854871a7c2b28b8b1e513b6fdc13c1422992dc99763cfa986a5a6cb065b4",
+   "file": "6864854871a7.glb",
+   "bounds": {
+    "min": [
+     -0.2751,
+     -0.0024,
+     -0.2251
+    ],
+    "max": [
+     0.2751,
+     0.5484,
+     0.2251
+    ]
+   }
+  },
+  "lib-small_wooden_table_01": {
+   "assetHash": "211346c18fb04e2cc04f39f94cee2a0a69ed40e86bc85da389ef8045d16a9a45",
+   "file": "211346c18fb0.glb",
+   "bounds": {
+    "min": [
+     -0.4581,
+     -0.0001,
+     -0.2201
+    ],
+    "max": [
+     0.4581,
+     0.5331,
+     0.22
+    ]
+   }
+  },
+  "lib-sofa_02": {
+   "assetHash": "f540dfe5227586ab767e786a88328f0c096e5c42d0678270f8968e37d6f78dc8",
+   "file": "f540dfe52275.glb",
+   "bounds": {
+    "min": [
+     -0.9034,
+     0.0002,
+     -0.4777
+    ],
+    "max": [
+     0.9039,
+     0.7097,
+     0.3401
+    ]
+   }
+  },
+  "lib-sofa_03": {
+   "assetHash": "0556c75eb693e649498be3901b4aeedc4ebe4412cb8cad77aa46ce3410f02bd2",
+   "file": "0556c75eb693.glb",
+   "bounds": {
+    "min": [
+     -1.3656,
+     0.0006,
+     -0.4639
+    ],
+    "max": [
+     1.3656,
+     1.1189,
+     0.4613
     ]
    }
   },
@@ -272,6 +640,54 @@
     ]
    }
   },
+  "lib-steel_frame_shelves_03": {
+   "assetHash": "1cebdf57faa044c4f5ff63ae95e0f1646b207d1050fe5a537eb1a8b322365309",
+   "file": "1cebdf57faa0.glb",
+   "bounds": {
+    "min": [
+     -1.0445,
+     -0.0002,
+     -0.3584
+    ],
+    "max": [
+     1.3067,
+     2.3117,
+     0.363
+    ]
+   }
+  },
+  "lib-watering_can_metal_01": {
+   "assetHash": "f8607dd2322524923b58b3ad631ece387cc607cff9115a378ad8a5dd544408b5",
+   "file": "f8607dd23225.glb",
+   "bounds": {
+    "min": [
+     -0.0953,
+     -0.0011,
+     -0.1748
+    ],
+    "max": [
+     0.0958,
+     0.1958,
+     0.2777
+    ]
+   }
+  },
+  "lib-wicker_basket_01": {
+   "assetHash": "988575f04fa88c14e5fa686037c6fb15fd1910666180e8647bb46d63b5822a8d",
+   "file": "988575f04fa8.glb",
+   "bounds": {
+    "min": [
+     -0.1919,
+     -0.001,
+     -0.148
+    ],
+    "max": [
+     0.1914,
+     0.1166,
+     0.1471
+    ]
+   }
+  },
   "lib-wicker_basket_02": {
    "assetHash": "b3964e04032da2e62c5fa5c1767ba1d5dadbf8194fdf66727739c09d2ce9568d",
    "file": "b3964e04032d.glb",
@@ -285,6 +701,22 @@
      0.2394,
      0.2002,
      0.1092
+    ]
+   }
+  },
+  "lib-wooden_bookshelf_worn": {
+   "assetHash": "b45b4b0d81e971206c046903ed9406daf92530f927d72361ae6996d78656c94d",
+   "file": "b45b4b0d81e9.glb",
+   "bounds": {
+    "min": [
+     -0.687,
+     -0.0001,
+     -0.2907
+    ],
+    "max": [
+     0.687,
+     2.0635,
+     0.2907
     ]
    }
   },
@@ -304,6 +736,38 @@
     ]
    }
   },
+  "lib-wooden_crate_01": {
+   "assetHash": "bd7e28eeb2385814a15eb2abf0b200067819298de9190af91d14ae4e414b0c0f",
+   "file": "bd7e28eeb238.glb",
+   "bounds": {
+    "min": [
+     -0.4127,
+     -0.008,
+     -0.1962
+    ],
+    "max": [
+     0.4127,
+     0.3417,
+     0.2129
+    ]
+   }
+  },
+  "lib-wooden_crate_02": {
+   "assetHash": "0b498acf2ca85a3696725c4b65ff42578484e47f1a84193fd7c0b9912524f4da",
+   "file": "0b498acf2ca8.glb",
+   "bounds": {
+    "min": [
+     -0.2646,
+     -0.0099,
+     -0.5834
+    ],
+    "max": [
+     0.2646,
+     0.4542,
+     0.583
+    ]
+   }
+  },
   "lib-wooden_display_shelves_01": {
    "assetHash": "60e653be887cdb40e8efc514869078f30e128fedf348267b48949eb3867682f1",
    "file": "60e653be887c.glb",
@@ -317,6 +781,54 @@
      0.1858,
      1.5567,
      0.5389
+    ]
+   }
+  },
+  "lib-wooden_stool_01": {
+   "assetHash": "140d5fe3d3224fb66e8e3207d14e2ea789cb523ad226967110b11e1836da6265",
+   "file": "140d5fe3d322.glb",
+   "bounds": {
+    "min": [
+     -0.2127,
+     0,
+     -0.2212
+    ],
+    "max": [
+     0.2127,
+     0.4374,
+     0.2212
+    ]
+   }
+  },
+  "lib-wooden_table_02": {
+   "assetHash": "a50ad9dc32835c2fe720e3fa5cfb9c8a095b685dad9cfa783ed536e7a9d04953",
+   "file": "a50ad9dc3283.glb",
+   "bounds": {
+    "min": [
+     -0.5673,
+     -0.0002,
+     -0.3531
+    ],
+    "max": [
+     0.5673,
+     0.7995,
+     0.3531
+    ]
+   }
+  },
+  "lib-woodentable_03": {
+   "assetHash": "28efdec85e36c48a460aefbc365b3a860e9613c27617a4b41c60b1004572126f",
+   "file": "28efdec85e36.glb",
+   "bounds": {
+    "min": [
+     -0.6588,
+     -0.0001,
+     -0.2809
+    ],
+    "max": [
+     0.6682,
+     0.8301,
+     0.2945
     ]
    }
   }
@@ -344,6 +856,75 @@
    },
    "source": "8d250535ba3e10d4c25fc4f3c5508959df05dff775ba4e42295f64fea231357e",
    "file": "bf9ac7ed810e.glb"
+  },
+  "25adbfd052b3edfa6dd8d19c34e2d43b8c3fa7de6d712036eb49163f159a00c6": {
+   "bytes": 355392,
+   "triangles": 5626,
+   "vertices": 3758,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 5626,
+   "bounds": {
+    "min": [
+     -0.4242154359817505,
+     0.0,
+     -0.38288015127182007
+    ],
+    "max": [
+     0.4242154359817505,
+     1.0650876760482788,
+     0.38288015127182007
+    ]
+   },
+   "source": "6f76a0ab40b7fa25f48b7595ddf32b570ae23967729894239af55221a3172e46",
+   "file": "25adbfd052b3.glb"
+  },
+  "5f85b953512e471dc63502abf9376d4b6c6f7079024d967f9519eb47920168f5": {
+   "bytes": 1240304,
+   "triangles": 14373,
+   "vertices": 29091,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 14373,
+   "bounds": {
+    "min": [
+     -0.24157509207725525,
+     0.0,
+     -0.24299785494804382
+    ],
+    "max": [
+     0.24157509207725525,
+     0.7505484819412231,
+     0.24299785494804382
+    ]
+   },
+   "source": "a07e6191aed53549a5e3c1b07bfbc4b8cb4fc0ed8a565d34f1f63ef3f389fc21",
+   "file": "5f85b953512e.glb"
+  },
+  "5358e4da5591b2b16aa92116c06c2029012854fb6d1867e5d8cbc47d97f6ee72": {
+   "bytes": 310840,
+   "triangles": 3760,
+   "vertices": 2250,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 3760,
+   "bounds": {
+    "min": [
+     -0.15097282826900482,
+     0.0,
+     -0.15084630250930786
+    ],
+    "max": [
+     0.15097282826900482,
+     0.29094764590263367,
+     0.15084630250930786
+    ]
+   },
+   "source": "97f6763786f6810f1bafceb6553a8ed189dfa8e348f01d5fd21794210e032c0a",
+   "file": "5358e4da5591.glb"
   },
   "eefd93fcb13c15dc8613825b70ab366529273003ab512f9cfb3d5e1f65f8ad19": {
    "bytes": 393724,
@@ -390,6 +971,29 @@
    },
    "source": "165d882fb89c45ab132de3444bee9c9f817e33c126560bfb5a965494a55b6734",
    "file": "2631e4ca7a9d.glb"
+  },
+  "04c90a84605c50533bb790a0210000e38ddf8499fdeeaea593c14c136fde12a4": {
+   "bytes": 333684,
+   "triangles": 3592,
+   "vertices": 2075,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 3592,
+   "bounds": {
+    "min": [
+     -0.32812514901161194,
+     0.0,
+     -0.25087618827819824
+    ],
+    "max": [
+     0.32812514901161194,
+     0.37166544795036316,
+     0.25087618827819824
+    ]
+   },
+   "source": "92ac3a014904b71d716c096ab56f414bb11fa1f76b6e778a15147a6024596600",
+   "file": "04c90a84605c.glb"
   },
   "0a2cf87eb686d5f2312dc5a2de8e0e9306346778d9a633ee6f3e153d7ef9c123": {
    "bytes": 300980,
@@ -460,6 +1064,52 @@
    "source": "d0ae5100376b4e2450d17062b69575c56d3469378f3bf1a50d5c3feef2a48883",
    "file": "027786bfb859.glb"
   },
+  "149a68ee4c4e677c867566131756bc0474e12cb598a367e7c80c3798e901cdfc": {
+   "bytes": 274784,
+   "triangles": 4044,
+   "vertices": 3339,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 4044,
+   "bounds": {
+    "min": [
+     -0.6506505012512207,
+     0.0,
+     -0.6506507992744446
+    ],
+    "max": [
+     0.6506505012512207,
+     0.4910094439983368,
+     0.6506507992744446
+    ]
+   },
+   "source": "e0d4553bdfda77138eed60a386973378266473f789a545b16a5c333c259dba80",
+   "file": "149a68ee4c4e.glb"
+  },
+  "73ed79b99643ab3436b0929491de1f7c8b9883d858102263bcb003a4cb83a2e8": {
+   "bytes": 647128,
+   "triangles": 22013,
+   "vertices": 12891,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 22013,
+   "bounds": {
+    "min": [
+     -0.21678538620471954,
+     0.0,
+     -0.28821006417274475
+    ],
+    "max": [
+     0.21678538620471954,
+     0.9733777046203613,
+     0.28821006417274475
+    ]
+   },
+   "source": "1119bc67b664d66b5533adde7044ddb8668744a756cf060055bf56188e077fe6",
+   "file": "73ed79b99643.glb"
+  },
   "d88954b087e5e226bd0c4db460aa39dc69f20bdd30ab73efd2a90ab6871cc514": {
    "bytes": 176576,
    "triangles": 3053,
@@ -506,6 +1156,29 @@
    "source": "1f6007e2e612ea1710edc2a5ab3c84a5ed6b916984ac493ffe7b03cc484305ba",
    "file": "05b39889e172.glb"
   },
+  "f25a3de7672df0dd4ccde8b37eeebe9defca98176acbe574a4829f60c5f4b8a0": {
+   "bytes": 532000,
+   "triangles": 11560,
+   "vertices": 8888,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 11560,
+   "bounds": {
+    "min": [
+     -0.29039958119392395,
+     0.0,
+     -0.30194100737571716
+    ],
+    "max": [
+     0.29039958119392395,
+     1.033689022064209,
+     0.30194100737571716
+    ]
+   },
+   "source": "dd6f35a8000aa7e520fc305eb74899aa32db263c327c4c31d866d5529df0991e",
+   "file": "f25a3de7672d.glb"
+  },
   "085a725a1e53ffae81d753ced5ee50806762c887399ed36a970241d3d8b1ac7c": {
    "bytes": 578684,
    "triangles": 9530,
@@ -528,6 +1201,213 @@
    },
    "source": "3e5725cf88ae69370ba2e1a6789e412dc4147b005849c14d2417c7c39e9e5d10",
    "file": "085a725a1e53.glb"
+  },
+  "57949daea57f85ed66694f84af8a509879c498e24283bbcdbefcf66772cdd27a": {
+   "bytes": 426092,
+   "triangles": 3678,
+   "vertices": 2907,
+   "materials": 3,
+   "textureSide": 1024,
+   "texturePixels": 2097152,
+   "sourceTriangles": 3678,
+   "bounds": {
+    "min": [
+     -0.37590670585632324,
+     0.0,
+     -0.01653757132589817
+    ],
+    "max": [
+     0.37590670585632324,
+     0.4999999701976776,
+     0.01653757132589817
+    ]
+   },
+   "source": "01d2816507df61b9abd2ebbb01a6c2fb356733b1100fab33c8573df1fd915340",
+   "file": "57949daea57f.glb"
+  },
+  "3a3a599fbbf1e25e6973df986da83e2458ff3c50695f648f8d4451920c8a46d0": {
+   "bytes": 421408,
+   "triangles": 5971,
+   "vertices": 5713,
+   "materials": 3,
+   "textureSide": 1024,
+   "texturePixels": 2097152,
+   "sourceTriangles": 5971,
+   "bounds": {
+    "min": [
+     -0.289585143327713,
+     0.0,
+     -0.28731831908226013
+    ],
+    "max": [
+     0.289585143327713,
+     0.8775878548622131,
+     0.28731831908226013
+    ]
+   },
+   "source": "1c593c8aedbe79f83e0678f414d199d2ef440f1688b5d018028b96bcee2c99e0",
+   "file": "3a3a599fbbf1.glb"
+  },
+  "1b4ac7d8c362462e49ae88b7676af196128e00086548efe1d0d6e0aaaa11623c": {
+   "bytes": 471928,
+   "triangles": 6532,
+   "vertices": 4490,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 6532,
+   "bounds": {
+    "min": [
+     -0.224049910902977,
+     0.0,
+     -0.2365451455116272
+    ],
+    "max": [
+     0.224049910902977,
+     0.45812273025512695,
+     0.2365451455116272
+    ]
+   },
+   "source": "6e898e87eb0c492a68671e739018c2c6fc6be40de140b83e570698930347e8bf",
+   "file": "1b4ac7d8c362.glb"
+  },
+  "05dcad2c669245e76b1a72b5b377bc71b22c5c1b36b1f85c9a7ea006dbb2299a": {
+   "bytes": 389040,
+   "triangles": 6148,
+   "vertices": 4203,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 6148,
+   "bounds": {
+    "min": [
+     -0.5043071508407593,
+     0.0,
+     -0.5951553583145142
+    ],
+    "max": [
+     0.5043071508407593,
+     1.1690846681594849,
+     0.5951553583145142
+    ]
+   },
+   "source": "7df4848f806c118f543bc3c43aac33a9ee40f68a981fd03bf1d7f2ff820bafa6",
+   "file": "05dcad2c6692.glb"
+  },
+  "cb66c3dd1b46fdbed05c795d3277932c9ebb21570d826fce620e49ca9a81c843": {
+   "bytes": 235968,
+   "triangles": 5602,
+   "vertices": 3538,
+   "materials": 2,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 5602,
+   "bounds": {
+    "min": [
+     -0.2158246636390686,
+     0.0,
+     -0.21583038568496704
+    ],
+    "max": [
+     0.2158246636390686,
+     0.9515514969825745,
+     0.21583038568496704
+    ]
+   },
+   "source": "fda40b777528b99a2a1b3eda9c70a88abb61264353b4cf3f495a6ed42460e0a5",
+   "file": "cb66c3dd1b46.glb"
+  },
+  "a1a76cf19b9b17b07f258a5c7f94820269eee2715eec50798f68958bebb5ca2f": {
+   "bytes": 295600,
+   "triangles": 4504,
+   "vertices": 3995,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 4504,
+   "bounds": {
+    "min": [
+     -0.30000001192092896,
+     0.0,
+     -0.6009150147438049
+    ],
+    "max": [
+     0.30000001192092896,
+     0.38999998569488525,
+     0.6009150147438049
+    ]
+   },
+   "source": "6c4721f039f6ca669125f0b0873c10a7fc351254983bc8cd3006c95a537226f4",
+   "file": "a1a76cf19b9b.glb"
+  },
+  "d45f1e4afdf4e39717ed6935766e092e7d2874758db1cc111a6249a00c734bfc": {
+   "bytes": 1391216,
+   "triangles": 24976,
+   "vertices": 31535,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 24976,
+   "bounds": {
+    "min": [
+     -1.2200002670288086,
+     0.0,
+     -0.25999999046325684
+    ],
+    "max": [
+     1.2200002670288086,
+     0.6801425218582153,
+     0.25999999046325684
+    ]
+   },
+   "source": "75c3a9671580848403ecf1beae5affda58b9dbde3f7262a2828dbcdfda171f13",
+   "file": "d45f1e4afdf4.glb"
+  },
+  "b9b452ea418b20748462ddffa2cf53b16d26b52390ae4064777f4e3b7d765e16": {
+   "bytes": 228344,
+   "triangles": 966,
+   "vertices": 1048,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 966,
+   "bounds": {
+    "min": [
+     -0.49846673011779785,
+     0.0,
+     -0.36117151379585266
+    ],
+    "max": [
+     0.49846673011779785,
+     2.568572521209717,
+     0.36117151379585266
+    ]
+   },
+   "source": "9c2a0762641a6272f4f725c21ff830639f00cc4fb7a5b84a9504955ac5c5f11b",
+   "file": "b9b452ea418b.glb"
+  },
+  "60d41155a7098277385aac3bd66de2be861268fc25624e537c6b8e717a3c7fea": {
+   "bytes": 164112,
+   "triangles": 600,
+   "vertices": 686,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 600,
+   "bounds": {
+    "min": [
+     -1.2028019428253174,
+     0.0,
+     -0.5684919953346252
+    ],
+    "max": [
+     1.2028019428253174,
+     0.9586371183395386,
+     0.5684919953346252
+    ]
+   },
+   "source": "877933bce0559c0b4481477b5b6f70c1983e3a0f698daa6837620d496eea18a8",
+   "file": "60d41155a709.glb"
   },
   "7f76dcdf3b49ac327ee47bb422cee5677364bb6d5c6b76b285b4e163b3255907": {
    "bytes": 1488888,
@@ -552,6 +1432,29 @@
    "source": "5cf2824392d9a3667cd047f9c12e305f0e76cc52d57668e1f0ec9eb2abc3c1a2",
    "file": "7f76dcdf3b49.glb"
   },
+  "35a446618a35605fad6eeba37008ecbf36dd05ad5ca354bdc66e9ad03010bdff": {
+   "bytes": 481776,
+   "triangles": 8094,
+   "vertices": 6313,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 8094,
+   "bounds": {
+    "min": [
+     -0.45630568265914917,
+     0.0,
+     -0.20683398842811584
+    ],
+    "max": [
+     0.45630568265914917,
+     0.42496824264526367,
+     0.20683398842811584
+    ]
+   },
+   "source": "c8031599fabfce95f1d5958e351b8045ef2d275feec68904976060c680e53f1b",
+   "file": "35a446618a35.glb"
+  },
   "030c0f536a20dc483424ff40fef9bcf37047b861cce4a6507ddec02233a53412": {
    "bytes": 586300,
    "triangles": 10944,
@@ -574,6 +1477,29 @@
    },
    "source": "eba431ad9869fd88cd586dcdf13ae955424c2ff7d4d018d557813b4337f1c1f8",
    "file": "030c0f536a20.glb"
+  },
+  "e796b390161013bd7204f7f30dbc190f1a1024b7bd65dc0e199d6c82ab2e3f6e": {
+   "bytes": 660308,
+   "triangles": 13112,
+   "vertices": 10671,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 13112,
+   "bounds": {
+    "min": [
+     -0.4571534991264343,
+     0.0,
+     -0.3277718424797058
+    ],
+    "max": [
+     0.4571534991264343,
+     0.8551032543182373,
+     0.3277718424797058
+    ]
+   },
+   "source": "a6b7e018859110814bef6b6d09fcdbacb14e65610fdc4e772bdd00ae023d2367",
+   "file": "e796b3901610.glb"
   },
   "4d76745de2f9fd17abaaf3d16c482d6ee78fd53d21e0dfae775b88498798252d": {
    "bytes": 3009832,
@@ -667,6 +1593,29 @@
    "source": "9865e46f1a3b5c8cd23c5e61323f9e1063f376f6ea2e2e03ae630b0d90c9e7bd",
    "file": "3fb05e7912ff.glb"
   },
+  "518f0e837622fc922bc353e4ba2c28e854ffe2443c0f97f985e27987400966be": {
+   "bytes": 186936,
+   "triangles": 182,
+   "vertices": 362,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 182,
+   "bounds": {
+    "min": [
+     -0.5017218589782715,
+     0.0,
+     -0.12848974764347076
+    ],
+    "max": [
+     0.5017218589782715,
+     2.080310344696045,
+     0.12848974764347076
+    ]
+   },
+   "source": "c34c898ef104a80a57e0033aa0c2cb9eb4359099e54c02f3901655d0f575d706",
+   "file": "518f0e837622.glb"
+  },
   "1603665d2ac4024086bf4303d049bfc6e0e8e754ae978914c4f13f605d27ea28": {
    "bytes": 239056,
    "triangles": 3319,
@@ -689,6 +1638,98 @@
    },
    "source": "0a823331d7bedf78e925528829e4bfb131a099d6a08974b9e198e3341a99f54b",
    "file": "1603665d2ac4.glb"
+  },
+  "6864854871a7c2b28b8b1e513b6fdc13c1422992dc99763cfa986a5a6cb065b4": {
+   "bytes": 324468,
+   "triangles": 2756,
+   "vertices": 3164,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 2756,
+   "bounds": {
+    "min": [
+     -0.27500003576278687,
+     0.0,
+     -0.22500000894069672
+    ],
+    "max": [
+     0.27500003576278687,
+     0.5506622791290283,
+     0.22500000894069672
+    ]
+   },
+   "source": "baeb7bdc88fda943133a1ba76c865a5321f117a8718c237ba5ce27b125ffc206",
+   "file": "6864854871a7.glb"
+  },
+  "211346c18fb04e2cc04f39f94cee2a0a69ed40e86bc85da389ef8045d16a9a45": {
+   "bytes": 247532,
+   "triangles": 3410,
+   "vertices": 2249,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 3410,
+   "bounds": {
+    "min": [
+     -0.45809391140937805,
+     0.0,
+     -0.21998131275177002
+    ],
+    "max": [
+     0.45809391140937805,
+     0.5330857634544373,
+     0.21998131275177002
+    ]
+   },
+   "source": "664cdcec8c9f89c44afbbb83bd570916952eebde6d36ae9c5200c96a46bb1cef",
+   "file": "211346c18fb0.glb"
+  },
+  "f540dfe5227586ab767e786a88328f0c096e5c42d0678270f8968e37d6f78dc8": {
+   "bytes": 172120,
+   "triangles": 2728,
+   "vertices": 1828,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 2728,
+   "bounds": {
+    "min": [
+     -0.9035836458206177,
+     0.0,
+     -0.4088757038116455
+    ],
+    "max": [
+     0.9035836458206177,
+     0.7094889283180237,
+     0.4088757038116455
+    ]
+   },
+   "source": "b16d9d52a412bc5f01a6eebd55ae7f8a66c708c20f66d03ba74c3b74bee8786b",
+   "file": "f540dfe52275.glb"
+  },
+  "0556c75eb693e649498be3901b4aeedc4ebe4412cb8cad77aa46ce3410f02bd2": {
+   "bytes": 573892,
+   "triangles": 8004,
+   "vertices": 5655,
+   "materials": 2,
+   "textureSide": 1024,
+   "texturePixels": 2097152,
+   "sourceTriangles": 8004,
+   "bounds": {
+    "min": [
+     -1.365588665008545,
+     0.0,
+     -0.4625421166419983
+    ],
+    "max": [
+     1.365588665008545,
+     1.118264079093933,
+     0.4625421166419983
+    ]
+   },
+   "source": "a90eabf5bde28211d8f2519e095a048547a6743966c58cf4f1afee77a2b61337",
+   "file": "0556c75eb693.glb"
   },
   "7365a82ccc5d7dd5c5706892e4f9e7f86742d5eaaf9fc058792061b0661c9e1e": {
    "bytes": 323464,
@@ -713,6 +1754,75 @@
    "source": "004737cc81472dd4178b1e0bb2813a31ea136ae4551c556d2959e53542d866e0",
    "file": "7365a82ccc5d.glb"
   },
+  "1cebdf57faa044c4f5ff63ae95e0f1646b207d1050fe5a537eb1a8b322365309": {
+   "bytes": 642468,
+   "triangles": 8396,
+   "vertices": 6531,
+   "materials": 2,
+   "textureSide": 1024,
+   "texturePixels": 2097152,
+   "sourceTriangles": 8396,
+   "bounds": {
+    "min": [
+     -1.1755385398864746,
+     0.0,
+     -0.3606230616569519
+    ],
+    "max": [
+     1.1755385398864746,
+     2.311832904815674,
+     0.3606230616569519
+    ]
+   },
+   "source": "413774a3e7fd35206daabd6b16fcdc2118b873cc934d4110975761d9f3ea7fe6",
+   "file": "1cebdf57faa0.glb"
+  },
+  "f8607dd2322524923b58b3ad631ece387cc607cff9115a378ad8a5dd544408b5": {
+   "bytes": 566452,
+   "triangles": 11837,
+   "vertices": 7741,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 11837,
+   "bounds": {
+    "min": [
+     -0.09550929069519043,
+     0.0,
+     -0.22616803646087646
+    ],
+    "max": [
+     0.09550929069519043,
+     0.1968185305595398,
+     0.22616803646087646
+    ]
+   },
+   "source": "2847e0e5a40ce29111d4145473acab793f02de4809ae6574cca1955d78d58888",
+   "file": "f8607dd23225.glb"
+  },
+  "988575f04fa88c14e5fa686037c6fb15fd1910666180e8647bb46d63b5822a8d": {
+   "bytes": 871800,
+   "triangles": 22276,
+   "vertices": 15352,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 22276,
+   "bounds": {
+    "min": [
+     -0.1916121244430542,
+     0.0,
+     -0.14750760793685913
+    ],
+    "max": [
+     0.1916121244430542,
+     0.1174229308962822,
+     0.14750760793685913
+    ]
+   },
+   "source": "b323430aa3f6b137b0c273c4862d686e703a254a450208ebe0edf7759fb8e0ab",
+   "file": "988575f04fa8.glb"
+  },
   "b3964e04032da2e62c5fa5c1767ba1d5dadbf8194fdf66727739c09d2ce9568d": {
    "bytes": 769840,
    "triangles": 17850,
@@ -735,6 +1845,29 @@
    },
    "source": "0ab71883ad6844bdd0eaf860975b11902caeea5237689b9113c79f517428db6b",
    "file": "b3964e04032d.glb"
+  },
+  "b45b4b0d81e971206c046903ed9406daf92530f927d72361ae6996d78656c94d": {
+   "bytes": 609332,
+   "triangles": 10106,
+   "vertices": 6479,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 10106,
+   "bounds": {
+    "min": [
+     -0.68697589635849,
+     0.0,
+     -0.29065102338790894
+    ],
+    "max": [
+     0.68697589635849,
+     2.0634419918060303,
+     0.29065102338790894
+    ]
+   },
+   "source": "07192b5c5f240bf47e1fea1bc13cbaa9d502cfc880be530950d12eeb894409d1",
+   "file": "b45b4b0d81e9.glb"
   },
   "0d432436a68568dba9b4769ad4c79fc3a1c45129f2f666931f4a1788f480d09b": {
    "bytes": 403604,
@@ -759,6 +1892,52 @@
    "source": "487ee66e9ae65f79695bdc34f800ceb299591e9029bee002d6c0c7be8ca42600",
    "file": "0d432436a685.glb"
   },
+  "bd7e28eeb2385814a15eb2abf0b200067819298de9190af91d14ae4e414b0c0f": {
+   "bytes": 443180,
+   "triangles": 6576,
+   "vertices": 4686,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 6576,
+   "bounds": {
+    "min": [
+     -0.4126364588737488,
+     0.0,
+     -0.20447686314582825
+    ],
+    "max": [
+     0.4126364588737488,
+     0.3496182858943939,
+     0.20447686314582825
+    ]
+   },
+   "source": "d2872cbad165f68ba5e3b93fa3cae7e508bce6506190858fe212442ef9edcfab",
+   "file": "bd7e28eeb238.glb"
+  },
+  "0b498acf2ca85a3696725c4b65ff42578484e47f1a84193fd7c0b9912524f4da": {
+   "bytes": 408956,
+   "triangles": 5176,
+   "vertices": 3719,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 5176,
+   "bounds": {
+    "min": [
+     -0.26455047726631165,
+     0.0,
+     -0.5831629037857056
+    ],
+    "max": [
+     0.26455047726631165,
+     0.4639545679092407,
+     0.5831629037857056
+    ]
+   },
+   "source": "b092486c7e7fb5034ca01c60c72558190165f8e29806d211b606d0680ad8d026",
+   "file": "0b498acf2ca8.glb"
+  },
   "60e653be887cdb40e8efc514869078f30e128fedf348267b48949eb3867682f1": {
    "bytes": 259752,
    "triangles": 3174,
@@ -781,13 +1960,82 @@
    },
    "source": "78bf24fdff3b473321a29fe3538ce625f9cf1628b674d61eb2d73f15e6f4ad9b",
    "file": "60e653be887c.glb"
+  },
+  "140d5fe3d3224fb66e8e3207d14e2ea789cb523ad226967110b11e1836da6265": {
+   "bytes": 556308,
+   "triangles": 10946,
+   "vertices": 7039,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 10946,
+   "bounds": {
+    "min": [
+     -0.21267758309841156,
+     0.0,
+     -0.22118140757083893
+    ],
+    "max": [
+     0.21267758309841156,
+     0.43735265731811523,
+     0.22118140757083893
+    ]
+   },
+   "source": "0bdfe447405a3b1daeb3167c08a491fb2cd58343e6881955cf610c56c9877e49",
+   "file": "140d5fe3d322.glb"
+  },
+  "a50ad9dc32835c2fe720e3fa5cfb9c8a095b685dad9cfa783ed536e7a9d04953": {
+   "bytes": 209496,
+   "triangles": 196,
+   "vertices": 200,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 196,
+   "bounds": {
+    "min": [
+     -0.5672082901000977,
+     0.0,
+     -0.35301241278648376
+    ],
+    "max": [
+     0.5672082901000977,
+     0.7995429039001465,
+     0.35301241278648376
+    ]
+   },
+   "source": "de2ef38d495957dcfb3179de07bb3a93aaffbc0f9eebaf412c88f52edd726039",
+   "file": "a50ad9dc3283.glb"
+  },
+  "28efdec85e36c48a460aefbc365b3a860e9613c27617a4b41c60b1004572126f": {
+   "bytes": 290892,
+   "triangles": 2298,
+   "vertices": 3262,
+   "materials": 1,
+   "textureSide": 1024,
+   "texturePixels": 1048576,
+   "sourceTriangles": 2298,
+   "bounds": {
+    "min": [
+     -0.6634264588356018,
+     0.0,
+     -0.287638783454895
+    ],
+    "max": [
+     0.6634264588356018,
+     0.8300816416740417,
+     0.287638783454895
+    ]
+   },
+   "source": "8d9067113985ce48152b0202e8dc56353890eab591b73811ccbcd31b3d258f24",
+   "file": "28efdec85e36.glb"
   }
  },
  "summary": {
-  "entities": 20,
-  "files": 20,
-  "bytes": 14136088,
-  "localSources": 20,
+  "entities": 52,
+  "files": 52,
+  "bytes": 29099844,
+  "localSources": 52,
   "downloaded": null
  }
 }
