@@ -295,21 +295,16 @@ export default function build(base: BuildBase, kit: Kit) {
   push(place('porch-cabinet', slab(2.7, 3.45, street, street + 0.8, SZ0, SZ0 + 0.55, { color: '#2a2b2d', roughness: 0.6 }), { label: '矮柜' }));
   push(place('hyd-1', instance('hydrangea-blue', { at: at(2.85, street + 0.8, SZ0 + 0.27) }), { templates, label: '绣球' }), place('hyd-2', instance('hydrangea-pink', { at: at(3.08, street + 0.8, SZ0 + 0.3), yaw: 40 }), { templates, label: '绣球' }), place('hyd-3', instance('hydrangea-lilac', { at: at(3.3, street + 0.8, SZ0 + 0.26), yaw: 80 }), { templates, label: '绣球' }));
   push(model('porch-plant-1', 'lib-potted_plant_01', at(5.8, street, 6.6), { yaw: 190 }), model('porch-plant-2', 'lib-potted_plant_02', at(0.7, street, 6.5)));
-  push(model('porch-bucket-2', 'lib-wooden_bucket_01', at(0.75, street, 6.2)), model('porch-bucket', 'lib-wooden_bucket_01', at(5.6, street, 6.95)), bloomAt(5.6, street + 0.5, 6.95, 'bloom-pink'));
-  // 门口的 A 字黑板（自己搭的，便于贴二维码）：正面贴 Telegram 订花二维码，扫码找花店助手小花
-  // 老板的查看器不放可点的链接，物件属性只当文字显示，所以用二维码；点黑板能看到链接文字，滚轮或双指放大就能扫
+  push(model('porch-board', 'lib-standing_chalkboard_01', at(1.9, street, 6.55), { yaw: -20, label: '门口黑板', props: { link: 'https://t.me/flowerassis_bot', 说明: '黑板上贴着二维码：手机扫码，在 Telegram 里向花店助手小花订花，可送到 ChronoAI 前厅' } }), model('porch-bucket', 'lib-wooden_bucket_01', at(5.6, street, 6.95)), bloomAt(5.6, street + 0.5, 6.95, 'bloom-pink'));
+  // 黑板正面贴 Telegram 订花二维码：黑板模型（standing_chalkboard_01）朝 +z 的板面中心在模型坐标 (0, 0.859, 0.189)，
+  // 法线 (0, 0.208, 0.978)（上仰 12°，按网格实测）；二维码板贴在板面外 1.5 厘米，和黑板同一个原点、同一个朝向（yaw -20）
+  // 老板的查看器不放可点的链接，物件属性只当文字显示，所以用二维码；滚轮或双指把镜头推近就能扫
   const qr = TEXTURES['qr_telegram'];
   if (qr === undefined) throw new Error('build/textures.json 里没有贴图 qr_telegram');
-  const tilt = 14, rad = (tilt * Math.PI) / 180, frame = { color: '#7a5a3a', roughness: 0.8 }, slate = { color: '#1f2a24', roughness: 0.95 };
-  const aLeaf = (sign: 1 | -1) => [
-    ...[-0.38, 0.38].map((x) => box([0.05, 1.4, 0.05], { at: [x, 0.7, sign * 0.17], pitch: -sign * tilt, ...frame })),
-    box([0.81, 0.05, 0.05], { at: [0, 1.38, 0], ...frame }),
-    box([0.72, 0.96, 0.025], { at: [0, 0.72, sign * 0.17], pitch: -sign * tilt, ...slate }),
-  ];
-  push(place('porch-board', group([
-    ...aLeaf(1), ...aLeaf(-1),
-    box([0.6, 0.6, 0.01], { at: [0, 0.78 + 0.02 * Math.sin(rad), 0.17 + 0.02 * Math.cos(rad)], pitch: -tilt, texture: { hash: qr.maps.color.hash, uv: 'mesh' }, shading: 'albedo', unlit: true }),
-  ], { at: at(1.6, street, 6.7) }), { label: '门口黑板：扫码找小花订花', props: { link: 'https://t.me/flowerassis_bot', 说明: '手机扫黑板上的二维码，在 Telegram 里向花店助手小花订花，可送到 ChronoAI 前厅' } }));
+  const bn = [0, 0.208, 0.978] as const, bc = [0, 0.859, 0.189] as const, lift = 0.015;
+  push(place('porch-qr', group([
+    box([0.56, 0.56, 0.008], { at: [bc[0] + bn[0] * lift, bc[1] + bn[1] * lift, bc[2] + bn[2] * lift], pitch: -12, texture: { hash: qr.maps.color.hash, uv: 'mesh' }, shading: 'albedo', unlit: true }),
+  ], { at: at(1.9, street, 6.55), yaw: -20 }), { label: '扫码找小花订花（Telegram）', props: { link: 'https://t.me/flowerassis_bot', 说明: '手机扫码，在 Telegram 里向花店助手小花订花，可送到 ChronoAI 前厅' } }));
 
   // ---------------------------------------------------------------- 锚点
   push({ ...createAnchor(anchor('counter', 'counter', { box: [toGrid(ox + cX0), toGrid(F), toGrid(oz + cZ - 0.3), toGrid(ox + cX1), toGrid(F + 1.06), toGrid(oz + cZ + 0.3)] }, { label: '收银台' })), ifNew: true });
