@@ -36,12 +36,20 @@ import { AgentKeyConnection } from '../auth/AgentKeyConnection';
 import { readAuthMethod, saveAuthMethod, type CmaAuthMethod } from '../auth/cmaConnection';
 import { useFloatingChat } from './useFloatingChat';
 import { NyxAgentPanel } from './NyxAgentPanel';
+import type { ViewerCommand } from './viewerActions';
 
 type PreviewIdentity = {
   spaceId: string;
   preview: { draftId: string; rev: number; baseSeq: number; scope: string };
 };
 const CMA = 'https://cma.nyxid.ai';
+function readChatProvider(): 'cma' | 'nyxagent' {
+  try {
+    return sessionStorage.getItem('metaverse-chat-provider') === 'nyxagent' ? 'nyxagent' : 'cma';
+  } catch {
+    return 'cma';
+  }
+}
 const terminal = (status: string) =>
   ['succeeded', 'completed', 'failed', 'cancelled', 'stopped', 'deleted', 'paused'].includes(
     status,
@@ -107,13 +115,8 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
   const [catalogReload, setCatalogReload] = useState(0);
   const [catalogBusy, setCatalogBusy] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
-  const [assistant, setAssistant] = useState<'cma' | 'nyxagent'>(() => {
-    try {
-      return sessionStorage.getItem('metaverse-chat-provider') === 'nyxagent' ? 'nyxagent' : 'cma';
-    } catch {
-      return 'cma';
-    }
-  });
+  const openRestoredChat = useCallback(() => setChatOpen(true), []);
+  const [assistant, setAssistant] = useState(readChatProvider);
   const [nyxagentBusy, setNyxagentBusy] = useState(false);
   function chooseAssistant(value: 'cma' | 'nyxagent') {
     setAssistant(value);
@@ -160,6 +163,9 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
   const [confirmForget, setConfirmForget] = useState(false);
   const [manualPreview, setPreview] = useState('');
   const [viewerInput, setViewerInput] = useState('');
+  const [viewerCommand, setViewerCommand] = useState<ViewerCommand>();
+  const [viewerFeedback, setViewerFeedback] = useState<{ error?: string; notice?: string }>({});
+  const appliedViewerCommands = useRef(new Set<string>());
   const [previewIdentity, setPreviewIdentity] = useState<{
     url: string;
     value: PreviewIdentity;
@@ -190,6 +196,9 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
   const links = [...new Set([...resultLinks(liveTranscript), ...resultLinks(transcript)])];
   const latest = links[0] ?? '';
   const preview = followPreview && latest ? latest : manualPreview;
+  const inlinePreviewToken = preview.startsWith('/preview#t=')
+    ? new URL(preview, window.location.origin).hash.slice(3)
+    : undefined;
   useEffect(() => {
     const c = new AbortController();
     const timeout = setTimeout(() => c.abort(), 15_000);
@@ -888,8 +897,13 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
       setCatalogBusy(false);
     }
   }
-  function openSpace(id: string, orgId?: string) {
-    if (disabled || !session?.subject || !/^[a-z0-9][a-z0-9-]{0,79}$/.test(id)) return;
+  function openSpace(id: string, orgId?: string, completedTurn = false) {
+    if (
+      (completedTurn ? busy || Boolean(note.pending) : disabled) ||
+      !session?.subject ||
+      !/^[a-z0-9][a-z0-9-]{0,79}$/.test(id)
+    )
+      return;
     try {
       const next = readSpaceNotebook(session.subject, id);
       if (!next.agentId && orgId) next.orgId = orgId;
@@ -906,6 +920,8 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
       setPreview('');
       setPreviewIdentity(null);
       setPreviewError('');
+      setViewerCommand(undefined);
+      setViewerFeedback({});
       setConfirmPublish('');
       setFollowPreview(true);
       setNotice('');
@@ -916,6 +932,38 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
     } catch {
       setError('无法保存聊天记录，请检查浏览器存储设置。');
     }
+  }
+  function applyViewerCommand(command: ViewerCommand) {
+    const key = `${note.spaceId}:${command.id}`;
+    if (busy || note.pending || appliedViewerCommands.current.has(key)) return;
+    const space = command.actions.find((a) => a.type === 'space');
+    if (space?.type === 'space') {
+      const target = catalog?.items.find((s) => s.id === space.spaceId);
+      if (!target) {
+        setViewerFeedback({ error: '无法打开该空间，请先在空间列表中核对访问权限。' });
+        return;
+      }
+      openSpace(target.id, target.owner.kind === 'org' ? target.owner.id : undefined, true);
+    }
+    appliedViewerCommands.current.add(key);
+    if (appliedViewerCommands.current.size > 50)
+      appliedViewerCommands.current.delete(appliedViewerCommands.current.values().next().value!);
+    for (const action of command.actions) {
+      if (action.type === 'current') {
+        setFollowPreview(false);
+        setPreview('');
+        setPreviewIdentity(null);
+        setConfirmPublish('');
+      }
+      if (action.type === 'preview') {
+        setFollowPreview(false);
+        setPreview(viewerLink(action.url)!);
+        setPreviewIdentity(null);
+        setConfirmPublish('');
+      }
+    }
+    setViewerCommand(command);
+    setViewerFeedback({ notice: '已更新页面查看设置。' });
   }
   const conversation = (transcript?.turns ?? [])
     .slice(-30)
@@ -1259,7 +1307,7 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
                       ×
                     </button>
                   </div>
-                  {links.length > 0 && (
+                  {(links.length > 0 || preview) && (
                     <div className="workspace__results">
                       <button
                         className={!preview ? '' : 'workspace__secondary'}
@@ -1347,27 +1395,13 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
         )}
         {session?.connected && (
           <button
-            className="workspace__button workspace__secondary"
-            aria-label="打开 NyxAgent 聊天"
-            disabled={busy || nyxagentBusy}
-            onClick={() => {
-              chooseAssistant('nyxagent');
-              setChatOpen(true);
-            }}
-          >
-            NyxAgent
-          </button>
-        )}
-        {session?.connected && (
-          <button
             ref={chatButton}
             className="workspace__chat-launcher workspace__button"
-            aria-label="打开 CMA 聊天"
+            aria-label="打开空间助手"
             aria-expanded={chatOpen}
             aria-controls="workspace-chat"
             hidden={chatOpen}
             onClick={() => {
-              chooseAssistant('cma');
               setChatOpen(true);
             }}
           >
@@ -1383,7 +1417,7 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
               <path d="M20 11.5a8 8 0 0 1-8 8H4l1.4-4A8 8 0 1 1 20 11.5Z" />
               <path d="M8 10h8M8 14h5" />
             </svg>
-            <span>CMA 聊天</span>
+            <span>空间助手</span>
             {awaiting ? (
               <small>处理中</small>
             ) : preview.startsWith('/preview') ? (
@@ -1423,7 +1457,7 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
         >
           <section className="workspace__preview" aria-label="空间视图">
             <div className="workspace__scene">
-              {preview ? (
+              {preview && (!inlinePreviewToken || !note.spaceId || !browserClient) ? (
                 <iframe
                   className="workspace__frame"
                   title="三维空间预览"
@@ -1431,7 +1465,7 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
                   referrerPolicy="no-referrer"
                   sandbox="allow-scripts allow-same-origin allow-pointer-lock"
                 />
-              ) : note.creation && !selected ? (
+              ) : note.creation && !selected && !preview ? (
                 <div className="workspace__empty" role="status">
                   <span aria-hidden="true">◇</span>
                   <h1>{note.creation.name}</h1>
@@ -1446,11 +1480,20 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
                 </div>
               ) : note.spaceId && browserClient ? (
                 <SpacePage
-                  key={note.spaceId}
+                  key={session.subject}
                   spaceId={note.spaceId}
                   client={browserClient}
                   hasShareToken
                   embedded
+                  previewToken={inlinePreviewToken}
+                  viewerCommand={viewerCommand}
+                  onCameraResult={(success) =>
+                    setViewerFeedback(
+                      success
+                        ? { notice: '已调整镜头。' }
+                        : { error: '当前视图中没有找到可聚焦的物件，请先切换视图或核对物件。' },
+                    )
+                  }
                 />
               ) : (
                 <div className="workspace__empty">
@@ -1503,11 +1546,9 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
               </button>
               <div>
                 <h2>
-                  {assistant === 'nyxagent'
-                    ? 'NyxAgent 聊天'
-                    : note.creation?.phase === 'draft'
-                      ? '创建空间'
-                      : 'CMA 聊天'}
+                  {assistant === 'cma' && note.creation?.phase === 'draft'
+                    ? '创建空间'
+                    : '空间助手'}
                 </h2>
                 <p>{spaceName || '选择一个空间，或创建新空间'}</p>
               </div>
@@ -1519,18 +1560,24 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
                   disabled={busy || nyxagentBusy}
                   onChange={(event) => chooseAssistant(event.target.value as 'cma' | 'nyxagent')}
                 >
-                  <option value="cma">CMA</option>
-                  <option value="nyxagent">NyxAgent</option>
+                  <option value="cma">CMA · 扫描与导入</option>
+                  <option value="nyxagent">NyxAgent · 对话编辑</option>
                 </select>
               </label>
               <span className="workspace__badge" role="status">
                 {assistant === 'nyxagent'
                   ? nyxagentBusy
                     ? '执行中'
-                    : 'Agent Key'
-                  : creating
-                    ? '待提交'
-                    : statusText(responseStatus || operation?.status || agent?.status || 'ready')}
+                    : ''
+                  : !connectionReady
+                    ? '连接未就绪'
+                    : !session.workerEnabled
+                      ? '待启用'
+                      : creating
+                        ? '待提交'
+                        : statusText(
+                            responseStatus || operation?.status || agent?.status || 'ready',
+                          )}
               </span>
               <button
                 className="workspace__icon-button workspace__secondary"
@@ -1547,6 +1594,15 @@ export function WorkspacePage({ request = fetch }: { readonly request?: typeof f
                 space={selected}
                 request={request}
                 onBusy={setNyxagentBusy}
+                onRestore={openRestoredChat}
+                viewerContext={{
+                  spaces: (catalog?.items ?? [])
+                    .slice(0, 50)
+                    .map((s) => ({ id: s.id, name: s.name.slice(0, 100) })),
+                  ...(preview.startsWith('/preview#t=') ? { preview } : {}),
+                }}
+                onViewerCommand={applyViewerCommand}
+                viewerFeedback={viewerFeedback}
                 onPreview={(value) => {
                   const url = viewerLink(value);
                   if (!url) return;

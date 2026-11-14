@@ -73,12 +73,16 @@ pub(super) fn routes(provider: MockProvider, app: Router) -> Router {
                     state.nyxagent_stream_gate.clone().zip(state.nyxagent_stream_entered.clone())
                 };
                 if let Some((gate, entered)) = gate {
+                    let finished = p.0.lock().unwrap().nyxagent_stream_finished.clone();
                     let start = axum::body::Bytes::from(format!("data: {}\n\n", json!({"type":"response.created","response":created})));
                     let end = axum::body::Bytes::from(format!("data: {}\n\n", json!({"type":"response.completed","response":response()})));
                     let stream = futures_util::stream::once(async move { Ok::<_, std::io::Error>(start) })
                         .chain(futures_util::stream::once(async move {
                             entered.notify_one();
                             gate.notified().await;
+                            if let Some(finished) = finished {
+                                finished.notify_one();
+                            }
                             Ok::<_, std::io::Error>(end)
                         }));
                     return ([(header::CONTENT_TYPE, "text/event-stream")], Body::from_stream(stream)).into_response();
@@ -266,7 +270,7 @@ async fn nyxagent_versions_instructions_without_changing_legacy_retries() {
             .contains("get_agent_guide"));
         assert_eq!(bodies[0]["input"], bodies[3]["input"]);
     }
-    for version in [json!(0), json!(4), json!("2"), json!(-1)] {
+    for version in [json!(0), json!(5), json!("2"), json!(-1)] {
         let mut input = task();
         input["instructionsVersion"] = version;
         assert_eq!(
@@ -275,6 +279,50 @@ async fn nyxagent_versions_instructions_without_changing_legacy_retries() {
         );
     }
     assert_eq!(app.nyx.oauth.0.lock().unwrap().worker_calls.len(), 5);
+}
+
+#[tokio::test]
+async fn nyxagent_page_actions_preserve_retry_context_and_do_not_change_legacy_requests() {
+    let Some(app) = TestApp::start_with_options(true, true).await else {
+        return;
+    };
+    let cookie = setup(&app).await;
+    let mut input = task();
+    input["instructionsVersion"] = json!(4);
+    input["viewerContext"] = json!({"spaces":[{"id":"lobby","name":"前厅"}]});
+    for _ in 0..2 {
+        assert_eq!(
+            call(&app, &cookie, "message", input.clone()).await.0,
+            StatusCode::OK
+        );
+    }
+    {
+        let state = app.nyx.oauth.0.lock().unwrap();
+        let bodies: Vec<_> = state.worker_calls.iter().map(|(_, _, b)| b).collect();
+        assert_eq!(bodies.len(), 2);
+        assert_eq!(bodies[0], bodies[1]);
+        assert!(bodies[0]["instructions"]
+            .as_str()
+            .unwrap()
+            .contains("metaverse-view"));
+        assert!(bodies[0]["instructions"]
+            .as_str()
+            .unwrap()
+            .contains("不清缓存"));
+        assert!(bodies[0]["input"].as_str().unwrap().contains("前厅"));
+    }
+    input["instructionsVersion"] = json!(3);
+    assert_eq!(
+        call(&app, &cookie, "message", input.clone()).await.0,
+        StatusCode::UNPROCESSABLE_ENTITY
+    );
+    input["instructionsVersion"] = json!(4);
+    input["viewerContext"] = json!({"unbounded":"x".repeat(16001)});
+    assert_eq!(
+        call(&app, &cookie, "message", input).await.0,
+        StatusCode::UNPROCESSABLE_ENTITY
+    );
+    assert_eq!(app.nyx.oauth.0.lock().unwrap().worker_calls.len(), 2);
 }
 
 #[tokio::test]
@@ -290,6 +338,67 @@ async fn nyxagent_reports_stream_failure_without_resetting_or_replaying_the_requ
     assert!(result.2.contains("response.created"));
     assert!(!result.2.contains("response.completed"));
     assert!(!result.2.contains("private upstream diagnostics"));
+    assert_eq!(
+        app.nyx
+            .oauth
+            .0
+            .lock()
+            .unwrap()
+            .worker_calls
+            .iter()
+            .filter(|(action, _, _)| action == "nyx-message")
+            .count(),
+        1
+    );
+}
+
+#[tokio::test]
+async fn nyxagent_keeps_running_after_browser_drops_stream_without_replaying() {
+    let Some(app) = TestApp::start_with_options(true, true).await else {
+        return;
+    };
+    let cookie = setup(&app).await;
+    let gate = Arc::new(tokio::sync::Notify::new());
+    let entered = Arc::new(tokio::sync::Notify::new());
+    let finished = Arc::new(tokio::sync::Notify::new());
+    {
+        let mut state = app.nyx.oauth.0.lock().unwrap();
+        state.nyxagent_stream_gate = Some(gate.clone());
+        state.nyxagent_stream_entered = Some(entered.clone());
+        state.nyxagent_stream_finished = Some(finished.clone());
+    }
+    let session = session(&app, &cookie).await;
+    let req = Request::builder()
+        .method(Method::POST)
+        .uri(format!("{ROOT}/nyxagent/message"))
+        .header(header::COOKIE, &cookie)
+        .header(header::ORIGIN, ORIGIN)
+        .header(header::CONTENT_TYPE, "application/json")
+        .header(header::AUTHORIZATION, format!("Bearer {KEY}"))
+        .header("x-csrf-token", session.body["csrfToken"].as_str().unwrap())
+        .header("x-metaverse-cma-owner", ORG)
+        .header("x-metaverse-cma-credential", version())
+        .body(Body::from(task().to_string()))
+        .unwrap();
+    let reply = metaverse_api::app(app.state.clone())
+        .oneshot(req)
+        .await
+        .unwrap();
+    assert_eq!(reply.status(), StatusCode::OK);
+    let mut body = reply.into_body().into_data_stream();
+    let chunk = body.next().await.unwrap().unwrap();
+    assert!(String::from_utf8_lossy(&chunk).contains("response.created"));
+    tokio::time::timeout(std::time::Duration::from_secs(3), entered.notified())
+        .await
+        .unwrap();
+    drop(body); // Browser refresh closes the downstream stream while the upstream turn is live.
+    gate.notify_one();
+    tokio::time::timeout(std::time::Duration::from_secs(3), finished.notified())
+        .await
+        .unwrap();
+    let result = call(&app, &cookie, "response", json!({"responseId":"resp_test"})).await;
+    assert_eq!(result.0, StatusCode::OK);
+    assert!(result.2.contains("completed"));
     assert_eq!(
         app.nyx
             .oauth

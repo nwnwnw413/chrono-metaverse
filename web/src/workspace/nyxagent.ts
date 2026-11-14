@@ -6,6 +6,7 @@ import {
   type Session,
   type ResponseOutput,
 } from './client';
+import type { ViewerContext } from './viewerActions';
 
 export type NyxagentTask = {
   spaceId: string;
@@ -13,7 +14,8 @@ export type NyxagentTask = {
   instruction: string;
   idempotencyKey: string;
   conversationId?: string;
-  instructionsVersion?: 1 | 2 | 3;
+  instructionsVersion?: 1 | 2 | 3 | 4;
+  viewerContext?: ViewerContext;
 };
 export type NyxagentResponse = {
   id: string;
@@ -29,6 +31,7 @@ export type NyxagentPending = {
 };
 export type NyxagentNote = {
   conversationId?: string;
+  recoveryRequired?: boolean;
   instruction: string;
   messages: { role: 'user' | 'assistant'; text: string }[];
   pending?: NyxagentPending;
@@ -48,6 +51,7 @@ export function readNyxagentNote(subject: string, spaceId: string, orgId?: strin
       typeof note.instruction !== 'string' ||
       note.instruction.length > 16000 ||
       (note.conversationId !== undefined && !identifier(note.conversationId)) ||
+      (note.recoveryRequired !== undefined && typeof note.recoveryRequired !== 'boolean') ||
       !Array.isArray(note.messages) ||
       note.messages.length > 30 ||
       note.messages.some(
@@ -70,7 +74,10 @@ export function readNyxagentNote(subject: string, spaceId: string, orgId?: strin
         (p.body.instructionsVersion !== undefined &&
           p.body.instructionsVersion !== 1 &&
           p.body.instructionsVersion !== 2 &&
-          p.body.instructionsVersion !== 3) ||
+          p.body.instructionsVersion !== 3 &&
+          p.body.instructionsVersion !== 4) ||
+        (p.body.viewerContext !== undefined &&
+          JSON.stringify(p.body.viewerContext).length > 16000) ||
         (p.body.conversationId !== undefined && !identifier(p.body.conversationId))
       )
         return emptyNyxagentNote();

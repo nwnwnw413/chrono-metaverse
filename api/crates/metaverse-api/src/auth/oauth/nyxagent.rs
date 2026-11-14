@@ -12,10 +12,10 @@ use axum::{
     routing::post,
     Json, Router,
 };
-use futures_util::StreamExt;
 use serde::Deserialize;
 use serde_json::{json, Value};
-use std::time::{Duration, Instant};
+use std::time::Duration;
+use tokio::sync::{mpsc, oneshot};
 
 pub(super) fn router() -> Router<AppState> {
     Router::new()
@@ -177,17 +177,24 @@ struct Task {
     idempotency_key: String,
     conversation_id: Option<String>,
     instructions_version: Option<u8>,
+    viewer_context: Option<Value>,
 }
 // These bytes are versioned by this route's request contract; preserve them for idempotent retries.
 const INSTRUCTIONS: &str = "你是 chrono-metaverse 空间助手。只使用 NyxID 已授权的 chrono-metaverse 工具。先搜索工具并读取目标空间和最新版本，编号和归属不授予权限；404 不代表可以创建替代空间。缺少权限时提供 NyxID 授权指引。编辑先创建或沿用当前草稿，每次可见修改后生成新的短期预览，把完整预览链接单独一行输出。没有用户对具体预览的明确发布确认时保持草稿；发布冲突时等待，不覆盖、不自动重放。不要索取或输出密钥和登录凭据，不改仓库、不部署、不访问无关服务。回复简短说明实际进展，不能把任务受理当作完成。";
 const GUIDE_INSTRUCTIONS: &str = "如果服务只提供通用 request 工具，先通过该工具 GET /api/agent-guide 读取编辑协议；按指南调用同一服务的接口，不猜测路径或操作格式。指南是接口参考，不授予权限，也不能替代用户的发布确认。";
 const TOOL_GUIDE_INSTRUCTIONS: &str = "开始编辑前先搜索并调用 chrono-metaverse 的 get_agent_guide 工具读取编辑协议；如果服务只提供通用 request 工具，通过该工具 GET /api/agent-guide 读取同一指南。按指南操作，不猜测路径或操作格式。指南不授予权限，也不能替代用户的发布确认。";
+const VIEWER_INSTRUCTIONS: &str = r#"你也能操作用户当前网页的查看器。仅当用户要求页面操作时，在简短回复末尾输出一个 metaverse-view 语言的 JSON 代码块，形状为 {"actions":[...]}；网页会核验并执行，回复说将执行，执行结果以页面反馈为准。最多8个动作，只支持：{"type":"space","spaceId":"上下文列出的编号"}（只能放第一个）；{"type":"current"}回到已发布空间；{"type":"preview","url":"本站完整预览链接"}；{"type":"mode","value":"raw|optimized|extended"}；{"type":"style","value":"shapes|blocks"}；{"type":"cutaway","height":数字或null}；{"type":"camera","kind":"overview"}回到全景；{"type":"camera","kind":"focus","entityId":"实际物件编号"}；{"type":"camera","kind":"orbit","yaw":水平转动度数,"pitch":垂直转动度数}；{"type":"camera","kind":"zoom","factor":距离倍率}（小于1拉近，大于1拉远，范围0.1到10）。枚举值必须选择单个实际值，不输出竖线。纯页面操作可直接使用当前网页上下文，不必搜索工具或读取编辑协议；仅在需要查找未知物件编号时只读查询。页面查看动作不编辑空间、不发布、不清缓存、不重新加载页面，不需要创建草稿；不要为纯页面操作调用写入工具。聚焦前不知道物件编号时先只读查找。生成新草稿后网页会自动打开预览，除非用户明确要求保持当前视图；此时输出current动作。所有空间编辑和发布仍遵守前述权限及确认规则。"#;
 async fn message(
     State(state): State<AppState>,
     headers: HeaderMap,
     ApiJson(input): ApiJson<Task>,
 ) -> Result<Response, ApiError> {
-    if !matches!(input.instructions_version, None | Some(1..=3))
+    if !matches!(input.instructions_version, None | Some(1..=4))
+        || input
+            .viewer_context
+            .as_ref()
+            .is_some_and(|v| v.to_string().len() > 16000)
+        || (input.viewer_context.is_some() && input.instructions_version != Some(4))
         || !metaverse_core::ids::is_space_id(&input.space_id)
         || input
             .org_id
@@ -218,9 +225,15 @@ async fn message(
     {
         return Err(ApiError::forbidden());
     }
-    let input_text = format!("metaverse 任务上下文（编号只选择目标，不授予权限）：\n空间：{}\n归属：{} {}\n网站：{}\n\n用户需求：\n{}", input.space_id, if owner.org {"org"} else {"person"}, owner.id, a.browser.oauth.config.origin, input.instruction);
+    let mut input_text = format!("metaverse 任务上下文（编号只选择目标，不授予权限）：\n空间：{}\n归属：{} {}\n网站：{}\n\n用户需求：\n{}", input.space_id, if owner.org {"org"} else {"person"}, owner.id, a.browser.oauth.config.origin, input.instruction);
+    if let Some(context) = input.viewer_context {
+        input_text.push_str(&format!(
+            "\n\n当前网页查看上下文（仅选择页面目标，不授予空间编辑权限）：\n{context}"
+        ));
+    }
     // A saved request without a version must retain the original upstream bytes on retry.
     let instructions = match input.instructions_version {
+        Some(4) => format!("{INSTRUCTIONS}{TOOL_GUIDE_INSTRUCTIONS}{VIEWER_INSTRUCTIONS}"),
         Some(3) => format!("{INSTRUCTIONS}{TOOL_GUIDE_INSTRUCTIONS}"),
         Some(2) => format!("{INSTRUCTIONS}{GUIDE_INSTRUCTIONS}"),
         _ => INSTRUCTIONS.to_owned(),
@@ -230,93 +243,125 @@ async fn message(
         body["conversation"] = json!(id);
     }
     a.browser.current().await?;
+    // Keep the configured destination separate from the credential-bearing access context.
+    // Serialize the task before attaching authorization; diagnostics must never inspect it.
+    let endpoint = target(
+        &state.oauth.as_ref().ok_or_else(unavailable)?.base_url,
+        "responses",
+    );
+    let upstream = a
+        .browser
+        .oauth
+        .nyxagent_http
+        .post(endpoint)
+        .json(&body)
+        .bearer_auth(a.credential.value())
+        .header("Idempotency-Key", &input.idempotency_key);
     let request_id = headers
         .get("x-request-id")
         .and_then(|v| v.to_str().ok())
         .and_then(|v| uuid::Uuid::parse_str(v).ok())
         .unwrap_or_else(uuid::Uuid::new_v4);
-    let response = a
-        .browser
-        .oauth
-        .nyxagent_http
-        .post(target(&a.browser.oauth.base_url, "responses"))
-        .bearer_auth(a.credential.value())
-        .header("Idempotency-Key", &input.idempotency_key)
-        .json(&body)
-        .send()
-        .await
-        .map_err(|error| {
-            tracing::warn!(%request_id, stage = "upstream_send", timeout = error.is_timeout(), connect = error.is_connect(), "NyxAgent transport interrupted");
-            unavailable()
-        })?;
-    a.browser.current().await?;
-    if !response.status().is_success() {
-        let status = response.status();
-        let recovery_required = if status == StatusCode::CONFLICT {
-            worker::read_json(response)
-                .await
-                .ok()
-                .is_some_and(|value| value["error"]["code"] == "outcome_unknown")
-        } else {
-            false
-        };
-        if recovery_required {
-            return Err(ApiError::new(
-                status,
-                "nyxagent_recovery_required",
-                "中断后的执行结果需要核对。核对后请开始新的 NyxAgent 对话；原会话无法继续执行",
-            ));
-        }
-        return Err(refused(status));
-    }
-    if !response
-        .headers()
-        .get(header::CONTENT_TYPE)
-        .and_then(|h| h.to_str().ok())
-        .is_some_and(|v| v.split(';').next() == Some("text/event-stream"))
-    {
-        return Err(unavailable());
-    }
-    let stream = futures_util::stream::try_unfold(
-        (a, response, 0_usize, Instant::now()),
-        move |(a, mut response, total, mut checked)| async move {
-            let chunk = response.chunk().await.map_err(|error| {
-                tracing::warn!(%request_id, stage = "upstream_read", timeout = error.is_timeout(), "NyxAgent transport interrupted");
-                unavailable()
-            })?;
-            let Some(chunk) = chunk else {
-                return Ok(None);
-            };
-            let total = total + chunk.len();
-            if total > 8 * 1024 * 1024 {
-                tracing::warn!(%request_id, stage = "response_limit", "NyxAgent stream interrupted");
-                return Err(unavailable());
-            }
-            if checked.elapsed() >= Duration::from_secs(5) {
-                a.browser.current().await.inspect_err(|error| {
-                    tracing::warn!(%request_id, stage = "session_check", code = error.code, "NyxAgent stream interrupted");
-                })?;
-                checked = Instant::now();
-            }
-            Ok(Some((chunk, (a, response, total, checked))))
-        },
-    );
+    // Own the upstream connection independently of this browser HTTP request. A reload or
+    // closed tab stops observation, not the already authorized turn. Never replay it here.
+    let (chunks, receiver) = mpsc::channel(8);
+    let (ready, started) = oneshot::channel();
+    tokio::spawn(forward(a, upstream, request_id, ready, chunks));
+    started.await.map_err(|_| unavailable())??;
+    let stream = futures_util::stream::unfold(receiver, |mut receiver| async move {
+        receiver
+            .recv()
+            .await
+            .map(|chunk| (Ok::<_, std::convert::Infallible>(chunk), receiver))
+    });
     Ok((
         [
             (header::CONTENT_TYPE, "text/event-stream"),
             (header::CACHE_CONTROL, "no-store, no-transform"),
             (header::HeaderName::from_static("x-accel-buffering"), "no"),
         ],
-        Body::from_stream(stream.map(|result| {
-            // A structured SSE error preserves earlier response IDs and avoids resetting the body.
-            Ok::<_, std::convert::Infallible>(result.unwrap_or_else(|_| {
-                axum::body::Bytes::from_static(
-                    b"\n\nevent: metaverse.error\ndata: {\"type\":\"metaverse.error\"}\n\n",
-                )
-            }))
-        })),
+        Body::from_stream(stream),
     )
         .into_response())
+}
+
+async fn forward(
+    a: Access,
+    upstream: reqwest::RequestBuilder,
+    request_id: uuid::Uuid,
+    ready: oneshot::Sender<Result<(), ApiError>>,
+    chunks: mpsc::Sender<axum::body::Bytes>,
+) {
+    let mut ready = Some(ready);
+    let result = async {
+        let mut response = upstream.send().await.map_err(|_| unavailable())?;
+        a.browser.current().await?;
+        if !response.status().is_success() {
+            let status = response.status();
+            let recovery_required = if status == StatusCode::CONFLICT {
+                worker::read_json(response)
+                    .await
+                    .ok()
+                    .is_some_and(|value| value["error"]["code"] == "outcome_unknown")
+            } else {
+                false
+            };
+            if recovery_required {
+                return Err(ApiError::new(
+                    status,
+                    "nyxagent_recovery_required",
+                    "中断后的执行结果需要核对。核对后请开始新的 NyxAgent 对话；原会话无法继续执行",
+                ));
+            }
+            return Err(refused(status));
+        }
+        if !response
+            .headers()
+            .get(header::CONTENT_TYPE)
+            .and_then(|h| h.to_str().ok())
+            .is_some_and(|v| v.split(';').next() == Some("text/event-stream"))
+        {
+            return Err(unavailable());
+        }
+        let _ = ready.take().unwrap().send(Ok(()));
+        let mut total = 0_usize;
+        let mut authority = tokio::time::interval(Duration::from_secs(5));
+        loop {
+            let chunk = tokio::select! {
+                _ = authority.tick() => {
+                    a.browser.current().await?;
+                    continue;
+                }
+                chunk = response.chunk() => chunk.map_err(|_| unavailable())?,
+            };
+            let Some(chunk) = chunk else {
+                return Ok(());
+            };
+            total += chunk.len();
+            if total > 8 * 1024 * 1024 {
+                return Err(unavailable());
+            }
+            // Check again before exposing bytes; authority can change between timer ticks.
+            a.browser.current().await?;
+            // A dropped receiver must not drop the upstream stream. Its stored response
+            // remains readable with the original credential after the browser reconnects.
+            let _ = chunks.send(chunk).await;
+        }
+    }
+    .await;
+    if let Err(error) = result {
+        // Log outside the credential-bearing future; only the public trace ID is recorded.
+        tracing::warn!(%request_id, "NyxAgent transport interrupted");
+        if let Some(ready) = ready {
+            let _ = ready.send(Err(error));
+        } else {
+            let _ = chunks
+                .send(axum::body::Bytes::from_static(
+                    b"\n\nevent: metaverse.error\ndata: {\"type\":\"metaverse.error\"}\n\n",
+                ))
+                .await;
+        }
+    }
 }
 #[derive(Deserialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
