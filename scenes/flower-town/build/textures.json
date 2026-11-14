@@ -1,170 +1,190 @@
 {
- "dark_wood": {
-  "sizeM": [
-   2.0,
-   2.0
-  ],
-  "source": {
-   "library": "polyhaven",
-   "id": "dark_wood",
-   "title": "Dark Wood",
-   "author": "Dario Barresi, Dimitrios Savva, Rico Cilliers",
-   "license": "CC0-1.0",
-   "page": "https://polyhaven.com/a/dark_wood"
+  "dark_wood": {
+    "sizeM": [
+      2.0,
+      2.0
+    ],
+    "source": {
+      "library": "polyhaven",
+      "id": "dark_wood",
+      "title": "Dark Wood",
+      "author": "Dario Barresi, Dimitrios Savva, Rico Cilliers",
+      "license": "CC0-1.0",
+      "page": "https://polyhaven.com/a/dark_wood"
+    },
+    "maps": {
+      "color": {
+        "hash": "d68da31655bf47024af893156a6a01a6c95bb60f55d97e2dc9bdd47be320e5b5",
+        "bytes": 754754
+      },
+      "normal": {
+        "hash": "c42541f1bda0a14b39f120c24407eeba699af8ac85b371c7cef98ffd7d7b13bf",
+        "bytes": 344338
+      },
+      "roughness": {
+        "hash": "47ea12dbf649109b02eaa164dde9732a74e839957f29ad0ec7f5266b575d1835",
+        "bytes": 574415
+      }
+    }
   },
-  "maps": {
-   "color": {
-    "hash": "d68da31655bf47024af893156a6a01a6c95bb60f55d97e2dc9bdd47be320e5b5",
-    "bytes": 754754
-   },
-   "normal": {
-    "hash": "c42541f1bda0a14b39f120c24407eeba699af8ac85b371c7cef98ffd7d7b13bf",
-    "bytes": 344338
-   },
-   "roughness": {
-    "hash": "47ea12dbf649109b02eaa164dde9732a74e839957f29ad0ec7f5266b575d1835",
-    "bytes": 574415
-   }
-  }
- },
- "hinoki_planks": {
-  "sizeM": [
-   1.89,
-   1.89
-  ],
-  "source": {
-   "library": "polyhaven",
-   "id": "hinoki_planks",
-   "title": "Hinoki Planks",
-   "author": "Charlotte Baglioni",
-   "license": "CC0-1.0",
-   "page": "https://polyhaven.com/a/hinoki_planks"
+  "hinoki_planks": {
+    "sizeM": [
+      1.89,
+      1.89
+    ],
+    "source": {
+      "library": "polyhaven",
+      "id": "hinoki_planks",
+      "title": "Hinoki Planks",
+      "author": "Charlotte Baglioni",
+      "license": "CC0-1.0",
+      "page": "https://polyhaven.com/a/hinoki_planks"
+    },
+    "maps": {
+      "color": {
+        "hash": "a0166cad69a255971bf25f336c9947d2853b4dae5707c84a86f25f79aec347a5",
+        "bytes": 527974
+      },
+      "normal": {
+        "hash": "90c97139c4a6e086c67b9e2c23c138c92df59070de0414763bcd3e7fc3c878a1",
+        "bytes": 456865
+      },
+      "roughness": {
+        "hash": "20d2dc9fdbd2b76b267d68617836efb4af74397716f7ad9b5dff3752bdb097f5",
+        "bytes": 155781
+      }
+    }
   },
-  "maps": {
-   "color": {
-    "hash": "a0166cad69a255971bf25f336c9947d2853b4dae5707c84a86f25f79aec347a5",
-    "bytes": 527974
-   },
-   "normal": {
-    "hash": "90c97139c4a6e086c67b9e2c23c138c92df59070de0414763bcd3e7fc3c878a1",
-    "bytes": 456865
-   },
-   "roughness": {
-    "hash": "20d2dc9fdbd2b76b267d68617836efb4af74397716f7ad9b5dff3752bdb097f5",
-    "bytes": 155781
-   }
-  }
- },
- "oak_wood_planks": {
-  "sizeM": [
-   1.2,
-   1.2
-  ],
-  "source": {
-   "library": "polyhaven",
-   "id": "oak_wood_planks",
-   "title": "Oak Wood Planks",
-   "author": "Dimitrios Savva",
-   "license": "CC0-1.0",
-   "page": "https://polyhaven.com/a/oak_wood_planks"
+  "oak_wood_planks": {
+    "sizeM": [
+      1.2,
+      1.2
+    ],
+    "source": {
+      "library": "polyhaven",
+      "id": "oak_wood_planks",
+      "title": "Oak Wood Planks",
+      "author": "Dimitrios Savva",
+      "license": "CC0-1.0",
+      "page": "https://polyhaven.com/a/oak_wood_planks"
+    },
+    "maps": {
+      "color": {
+        "hash": "f715ed3e4346e94f971ef8dd61221ff6cc774886c20f65381e01e1dc0bb0a634",
+        "bytes": 696814
+      },
+      "normal": {
+        "hash": "b4272cb2818f8f33f2620a2dc093c962f34920e9d485a4e132eb6d69de1ba950",
+        "bytes": 392213
+      },
+      "roughness": {
+        "hash": "10ced559145df3c537bf1ccef6dc767ef6c47e134c21a9650bab261fa95ecacf",
+        "bytes": 845590
+      }
+    }
   },
-  "maps": {
-   "color": {
-    "hash": "f715ed3e4346e94f971ef8dd61221ff6cc774886c20f65381e01e1dc0bb0a634",
-    "bytes": 696814
-   },
-   "normal": {
-    "hash": "b4272cb2818f8f33f2620a2dc093c962f34920e9d485a4e132eb6d69de1ba950",
-    "bytes": 392213
-   },
-   "roughness": {
-    "hash": "10ced559145df3c537bf1ccef6dc767ef6c47e134c21a9650bab261fa95ecacf",
-    "bytes": 845590
-   }
-  }
- },
- "stacked_stone_wall": {
-  "sizeM": [
-   2.0,
-   2.0
-  ],
-  "source": {
-   "library": "polyhaven",
-   "id": "stacked_stone_wall",
-   "title": "Stacked Stone Wall",
-   "author": "Dimitrios Savva",
-   "license": "CC0-1.0",
-   "page": "https://polyhaven.com/a/stacked_stone_wall"
+  "stacked_stone_wall": {
+    "sizeM": [
+      2.0,
+      2.0
+    ],
+    "source": {
+      "library": "polyhaven",
+      "id": "stacked_stone_wall",
+      "title": "Stacked Stone Wall",
+      "author": "Dimitrios Savva",
+      "license": "CC0-1.0",
+      "page": "https://polyhaven.com/a/stacked_stone_wall"
+    },
+    "maps": {
+      "color": {
+        "hash": "91217c3edf4f288eb8fa31ef208d8f6067d75320a8a66b32cd6f3965b763c45a",
+        "bytes": 746206
+      },
+      "normal": {
+        "hash": "5115f1f61a790a582f7e5713e84f1752591bf2d26229557b418c3afcd99406c3",
+        "bytes": 1131732
+      },
+      "roughness": {
+        "hash": "410f94d0c0fd34c76b9d0f1e526652e728df89501ce569b5012e98ad606e6175",
+        "bytes": 626916
+      }
+    }
   },
-  "maps": {
-   "color": {
-    "hash": "91217c3edf4f288eb8fa31ef208d8f6067d75320a8a66b32cd6f3965b763c45a",
-    "bytes": 746206
-   },
-   "normal": {
-    "hash": "5115f1f61a790a582f7e5713e84f1752591bf2d26229557b418c3afcd99406c3",
-    "bytes": 1131732
-   },
-   "roughness": {
-    "hash": "410f94d0c0fd34c76b9d0f1e526652e728df89501ce569b5012e98ad606e6175",
-    "bytes": 626916
-   }
-  }
- },
- "terracotta_floor_tiles": {
-  "sizeM": [
-   2.08,
-   2.08
-  ],
-  "source": {
-   "library": "polyhaven",
-   "id": "terracotta_floor_tiles",
-   "title": "Terracotta Floor Tiles",
-   "author": "Dimitrios Savva",
-   "license": "CC0-1.0",
-   "page": "https://polyhaven.com/a/terracotta_floor_tiles"
+  "terracotta_floor_tiles": {
+    "sizeM": [
+      2.08,
+      2.08
+    ],
+    "source": {
+      "library": "polyhaven",
+      "id": "terracotta_floor_tiles",
+      "title": "Terracotta Floor Tiles",
+      "author": "Dimitrios Savva",
+      "license": "CC0-1.0",
+      "page": "https://polyhaven.com/a/terracotta_floor_tiles"
+    },
+    "maps": {
+      "color": {
+        "hash": "966ff423065e4a4ce9490864fba61fdb491985d4a2c60eb2b85181c7e7edcd5d",
+        "bytes": 649304
+      },
+      "normal": {
+        "hash": "7d9a6935951f3b2c1f6ae372dd512969dd5c7c27efbbfe6941ed3ec1b7da9758",
+        "bytes": 593169
+      },
+      "roughness": {
+        "hash": "df263e7205e36a6249db10e85f4d55b93b3f6793871fc79d2d10531433de109e",
+        "bytes": 626503
+      }
+    }
   },
-  "maps": {
-   "color": {
-    "hash": "966ff423065e4a4ce9490864fba61fdb491985d4a2c60eb2b85181c7e7edcd5d",
-    "bytes": 649304
-   },
-   "normal": {
-    "hash": "7d9a6935951f3b2c1f6ae372dd512969dd5c7c27efbbfe6941ed3ec1b7da9758",
-    "bytes": 593169
-   },
-   "roughness": {
-    "hash": "df263e7205e36a6249db10e85f4d55b93b3f6793871fc79d2d10531433de109e",
-    "bytes": 626503
-   }
-  }
- },
- "white_stucco": {
-  "sizeM": [
-   1.998,
-   1.998
-  ],
-  "source": {
-   "library": "polyhaven",
-   "id": "white_stucco",
-   "title": "White Stucco",
-   "author": "Amal Kumar",
-   "license": "CC0-1.0",
-   "page": "https://polyhaven.com/a/white_stucco"
+  "white_stucco": {
+    "sizeM": [
+      1.998,
+      1.998
+    ],
+    "source": {
+      "library": "polyhaven",
+      "id": "white_stucco",
+      "title": "White Stucco",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "page": "https://polyhaven.com/a/white_stucco"
+    },
+    "maps": {
+      "color": {
+        "hash": "5f2d11f5675ffe679155d8e38ed8eaa9b9972126675641e4977c8a4f905f276b",
+        "bytes": 557550
+      },
+      "normal": {
+        "hash": "f0d4f34b30093ceca5e58d5168fc06c2f0cd0b81289708aa3eac7d0801bd069d",
+        "bytes": 932038
+      },
+      "roughness": {
+        "hash": "04866e5a27a96148a744c526babad0abc27fe8c1b4c0c7edae65583d1ed6afb1",
+        "bytes": 347861
+      }
+    }
   },
-  "maps": {
-   "color": {
-    "hash": "5f2d11f5675ffe679155d8e38ed8eaa9b9972126675641e4977c8a4f905f276b",
-    "bytes": 557550
-   },
-   "normal": {
-    "hash": "f0d4f34b30093ceca5e58d5168fc06c2f0cd0b81289708aa3eac7d0801bd069d",
-    "bytes": 932038
-   },
-   "roughness": {
-    "hash": "04866e5a27a96148a744c526babad0abc27fe8c1b4c0c7edae65583d1ed6afb1",
-    "bytes": 347861
-   }
+  "qr_telegram": {
+    "sizeM": [
+      0.6,
+      0.6
+    ],
+    "maps": {
+      "color": {
+        "hash": "d81e789382324f41be3a329f6ce217906607224a17ef6faf984dab1beec3586d",
+        "format": "png"
+      }
+    },
+    "source": {
+      "library": "self",
+      "id": "qr-telegram",
+      "title": "Telegram 订花二维码（https://t.me/flowerassis_bot，本仓库生成）",
+      "author": "Ada",
+      "license": "CC0-1.0",
+      "page": "https://t.me/flowerassis_bot"
+    }
   }
- }
 }

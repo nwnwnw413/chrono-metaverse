@@ -292,7 +292,15 @@ export default function build(base: BuildBase, kit: Kit) {
   push(place('porch-cabinet', slab(2.7, 3.45, street, street + 0.8, SZ0, SZ0 + 0.55, { color: '#2a2b2d', roughness: 0.6 }), { label: '矮柜' }));
   push(place('hyd-1', instance('hydrangea-blue', { at: at(2.85, street + 0.8, SZ0 + 0.27) }), { templates, label: '绣球' }), place('hyd-2', instance('hydrangea-pink', { at: at(3.08, street + 0.8, SZ0 + 0.3), yaw: 40 }), { templates, label: '绣球' }), place('hyd-3', instance('hydrangea-lilac', { at: at(3.3, street + 0.8, SZ0 + 0.26), yaw: 80 }), { templates, label: '绣球' }));
   push(model('porch-plant-1', 'lib-potted_plant_01', at(5.8, street, 6.6), { yaw: 190 }), model('porch-plant-2', 'lib-potted_plant_02', at(0.7, street, 6.5)));
-  push(model('porch-board', 'lib-standing_chalkboard_01', at(1.9, street, 6.55), { yaw: -20 }), model('porch-bucket', 'lib-wooden_bucket_01', at(5.6, street, 6.95)), bloomAt(5.6, street + 0.5, 6.95, 'bloom-pink'));
+  push(model('porch-board', 'lib-standing_chalkboard_01', at(0.75, street, 6.2), { yaw: -25 }), model('porch-bucket', 'lib-wooden_bucket_01', at(5.6, street, 6.95)), bloomAt(5.6, street + 0.5, 6.95, 'bloom-pink'));
+  // 门廊左侧的二维码立牌：扫码到 Telegram 找花店助手小花订花（老板的查看器不放可点的链接，物件属性只当文字显示，所以用二维码）
+  const qr = TEXTURES['qr_telegram'];
+  if (qr === undefined) throw new Error('build/textures.json 里没有贴图 qr_telegram');
+  push(place('porch-qr', group([
+    box([0.06, 1.7, 0.06], { at: [0, 0, -0.05], ...darkwood }),
+    box([1.0, 1.0, 0.05], { at: [0, 0.9, 0], ...darkwood }),
+    box([0.9, 0.9, 0.012], { at: [0, 0.9, 0.032], texture: { hash: qr.maps.color.hash, uv: 'mesh' }, shading: 'albedo', unlit: true }),
+  ], { at: at(1.7, street, 6.85) }), { label: '扫码找小花订花（Telegram）', props: { link: 'https://t.me/flowerassis_bot', 说明: '手机扫码，在 Telegram 里向花店助手小花订花，可送到 ChronoAI 前厅' } }));
 
   // ---------------------------------------------------------------- 锚点
   push(createAnchor(anchor('counter', 'counter', { box: [toGrid(ox + cX0), toGrid(F), toGrid(oz + cZ - 0.3), toGrid(ox + cX1), toGrid(F + 1.06), toGrid(oz + cZ + 0.3)] }, { label: '收银台' })));
