@@ -174,17 +174,17 @@
     ],
     "maps": {
       "color": {
-        "hash": "331e7fc123cf252b3d3cdaf7c0d6c8d626dfb9ba932dfb3437387a5ce9b7ff21",
+        "hash": "ad974651d9d252547ec4c4b71c8e4cd7b77ee484528281121508fdf937dfba28",
         "format": "png"
       }
     },
     "source": {
       "library": "self",
       "id": "qr-telegram",
-      "title": "Telegram 一键订花篮二维码（https://t.me/flowerassis_bot?start=cb，本仓库生成）",
+      "title": "Telegram 花店助手小花的二维码（https://t.me/flowerassis_bot，本仓库生成）",
       "author": "Ada",
       "license": "CC0-1.0",
-      "page": "https://t.me/flowerassis_bot?start=cb"
+      "page": "https://t.me/flowerassis_bot"
     }
   }
 }

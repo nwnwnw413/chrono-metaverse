@@ -295,7 +295,7 @@ export default function build(base: BuildBase, kit: Kit) {
   push(place('porch-cabinet', slab(2.7, 3.45, street, street + 0.8, SZ0, SZ0 + 0.55, { color: '#2a2b2d', roughness: 0.6 }), { label: '矮柜' }));
   push(place('hyd-1', instance('hydrangea-blue', { at: at(2.85, street + 0.8, SZ0 + 0.27) }), { templates, label: '绣球' }), place('hyd-2', instance('hydrangea-pink', { at: at(3.08, street + 0.8, SZ0 + 0.3), yaw: 40 }), { templates, label: '绣球' }), place('hyd-3', instance('hydrangea-lilac', { at: at(3.3, street + 0.8, SZ0 + 0.26), yaw: 80 }), { templates, label: '绣球' }));
   push(model('porch-plant-1', 'lib-potted_plant_01', at(5.8, street, 6.6), { yaw: 190 }), model('porch-plant-2', 'lib-potted_plant_02', at(0.7, street, 6.5)));
-  push(model('porch-board', 'lib-standing_chalkboard_01', at(1.9, street, 6.55), { label: '门口黑板', props: { link: 'https://t.me/flowerassis_bot?start=cb', 说明: '黑板上贴着二维码：手机扫码进 Telegram，点一下 START 就给 ChronoAI 发布会送一个花篮（演示，免费）' } }), model('porch-bucket', 'lib-wooden_bucket_01', at(5.6, street, 6.95)), bloomAt(5.6, street + 0.5, 6.95, 'bloom-pink'));
+  push(model('porch-board', 'lib-standing_chalkboard_01', at(1.9, street, 6.55), { label: '门口黑板', props: { link: 'https://t.me/flowerassis_bot', 说明: '黑板上贴着二维码：手机扫码进 Telegram 找小花，点 START 再点 /basket，就给 ChronoAI 发布会送一个花篮（演示，免费）' } }), model('porch-bucket', 'lib-wooden_bucket_01', at(5.6, street, 6.95)), bloomAt(5.6, street + 0.5, 6.95, 'bloom-pink'));
   // 黑板正面贴 Telegram 订花二维码：黑板模型（standing_chalkboard_01）朝 +z 的板面中心在模型坐标 (0, 0.859, 0.189)，
   // 法线 (0, 0.208, 0.978)（上仰 12°，按网格实测）；二维码板贴在板面外 1.2 厘米，和黑板同一个原点、同一个朝向（黑板摆正，正对街道，不斜放）
   // 老板的查看器不放可点的链接，物件属性只当文字显示，所以用二维码；滚轮或双指把镜头推近就能扫
@@ -306,7 +306,7 @@ export default function build(base: BuildBase, kit: Kit) {
   push(place('porch-qr', group([
     box([0.7, 0.7, 0.008], { at: [bc[0] + bn[0] * lift, bc[1] + bn[1] * lift, bc[2] + bn[2] * lift], pitch: -12, texture: { hash: qr.maps.color.hash, uv: 'mesh' }, shading: 'albedo', unlit: true }),
   ], { at: at(1.9, street, 6.55) }), { label: '扫码找小花订花（Telegram）', props: {
-    link: 'https://t.me/flowerassis_bot?start=cb', 说明: '手机扫码进 Telegram，点一下 START 就给 ChronoAI 发布会送一个花篮（演示，免费），也可以和小花聊别的花',
+    link: 'https://t.me/flowerassis_bot', 说明: '手机扫码进 Telegram 找小花，点 START 再点 /basket，就给 ChronoAI 发布会送一个花篮（演示，免费），也可以和小花聊别的花',
     // 查看器的「位置标记」（docs/SHAPES.md）：页面上挂一个可点的标签，点一下镜头就推到黑板前，二维码占满屏幕，手机对着屏幕就能扫；
     // 标记只对背景物件生效，所以这块二维码板按背景物件登记（不参与自动取景、剖切和点选；点选的说明文字在黑板 porch-board 上）
     background: true,
