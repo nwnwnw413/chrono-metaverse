@@ -174,17 +174,17 @@
     ],
     "maps": {
       "color": {
-        "hash": "7cf1e2459b6501731f5561bce15f7e5a0053da0be7cca15841e18c0562d0eff0",
+        "hash": "331e7fc123cf252b3d3cdaf7c0d6c8d626dfb9ba932dfb3437387a5ce9b7ff21",
         "format": "png"
       }
     },
     "source": {
       "library": "self",
       "id": "qr-telegram",
-      "title": "Telegram 一键订花篮二维码（https://t.me/flowerassis_bot?start=chronoai_basket，本仓库生成）",
+      "title": "Telegram 一键订花篮二维码（https://t.me/flowerassis_bot?start=cb，本仓库生成）",
       "author": "Ada",
       "license": "CC0-1.0",
-      "page": "https://t.me/flowerassis_bot?start=chronoai_basket"
+      "page": "https://t.me/flowerassis_bot?start=cb"
     }
   }
 }
