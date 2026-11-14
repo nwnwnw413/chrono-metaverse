@@ -197,7 +197,10 @@ export default function build(base: BuildBase, kit: Kit) {
   const push = (...items: unknown[]) => { for (const i of items) if (i !== undefined) ops.push(i); };
 
   // ---------------------------------------------------------------- 街面与地面
-  push(addBlock('pavement', 'solid', { color: '#c9c3b8' }), fill(cells([toGrid(ox), toGrid(oy), toGrid(oz)], [128, 1, 148]), 'pavement'));
+  // 街面方块：第一次建造时新增；之后重跑，方块表里已经有，就按编号引用（base.block 按名称查编号）
+  const pavementInPalette = base.palette.some((b) => b.name === 'pavement');
+  if (!pavementInPalette) push(addBlock('pavement', 'solid', { color: '#c9c3b8' }));
+  push(fill(cells([toGrid(ox), toGrid(oy), toGrid(oz)], [128, 1, 148]), pavementInPalette ? base.block('pavement') : 'pavement'));
   push(place('floor', slab(IX0, IX1, street, F, IZ0, IZ1, oak), { kind: 'structure', label: '橡木地板' }));
   push(place('floor-porch', slab(X0, X1, street, F, Z1, 7.2, terracotta), { kind: 'structure', label: '门廊地砖' }));
 
@@ -292,22 +295,28 @@ export default function build(base: BuildBase, kit: Kit) {
   push(place('porch-cabinet', slab(2.7, 3.45, street, street + 0.8, SZ0, SZ0 + 0.55, { color: '#2a2b2d', roughness: 0.6 }), { label: '矮柜' }));
   push(place('hyd-1', instance('hydrangea-blue', { at: at(2.85, street + 0.8, SZ0 + 0.27) }), { templates, label: '绣球' }), place('hyd-2', instance('hydrangea-pink', { at: at(3.08, street + 0.8, SZ0 + 0.3), yaw: 40 }), { templates, label: '绣球' }), place('hyd-3', instance('hydrangea-lilac', { at: at(3.3, street + 0.8, SZ0 + 0.26), yaw: 80 }), { templates, label: '绣球' }));
   push(model('porch-plant-1', 'lib-potted_plant_01', at(5.8, street, 6.6), { yaw: 190 }), model('porch-plant-2', 'lib-potted_plant_02', at(0.7, street, 6.5)));
-  push(model('porch-board', 'lib-standing_chalkboard_01', at(0.75, street, 6.2), { yaw: -25 }), model('porch-bucket', 'lib-wooden_bucket_01', at(5.6, street, 6.95)), bloomAt(5.6, street + 0.5, 6.95, 'bloom-pink'));
-  // 门廊左侧的二维码立牌：扫码到 Telegram 找花店助手小花订花（老板的查看器不放可点的链接，物件属性只当文字显示，所以用二维码）
+  push(model('porch-bucket-2', 'lib-wooden_bucket_01', at(0.75, street, 6.2)), model('porch-bucket', 'lib-wooden_bucket_01', at(5.6, street, 6.95)), bloomAt(5.6, street + 0.5, 6.95, 'bloom-pink'));
+  // 门口的 A 字黑板（自己搭的，便于贴二维码）：正面贴 Telegram 订花二维码，扫码找花店助手小花
+  // 老板的查看器不放可点的链接，物件属性只当文字显示，所以用二维码；点黑板能看到链接文字，滚轮或双指放大就能扫
   const qr = TEXTURES['qr_telegram'];
   if (qr === undefined) throw new Error('build/textures.json 里没有贴图 qr_telegram');
-  push(place('porch-qr', group([
-    box([0.06, 1.7, 0.06], { at: [0, 0, -0.05], ...darkwood }),
-    box([1.0, 1.0, 0.05], { at: [0, 0.9, 0], ...darkwood }),
-    box([0.9, 0.9, 0.012], { at: [0, 0.9, 0.032], texture: { hash: qr.maps.color.hash, uv: 'mesh' }, shading: 'albedo', unlit: true }),
-  ], { at: at(1.7, street, 6.85) }), { label: '扫码找小花订花（Telegram）', props: { link: 'https://t.me/flowerassis_bot', 说明: '手机扫码，在 Telegram 里向花店助手小花订花，可送到 ChronoAI 前厅' } }));
+  const tilt = 14, rad = (tilt * Math.PI) / 180, frame = { color: '#7a5a3a', roughness: 0.8 }, slate = { color: '#1f2a24', roughness: 0.95 };
+  const aLeaf = (sign: 1 | -1) => [
+    ...[-0.38, 0.38].map((x) => box([0.05, 1.4, 0.05], { at: [x, 0.7, sign * 0.17], pitch: -sign * tilt, ...frame })),
+    box([0.81, 0.05, 0.05], { at: [0, 1.38, 0], ...frame }),
+    box([0.72, 0.96, 0.025], { at: [0, 0.72, sign * 0.17], pitch: -sign * tilt, ...slate }),
+  ];
+  push(place('porch-board', group([
+    ...aLeaf(1), ...aLeaf(-1),
+    box([0.6, 0.6, 0.01], { at: [0, 0.78 + 0.02 * Math.sin(rad), 0.17 + 0.02 * Math.cos(rad)], pitch: -tilt, texture: { hash: qr.maps.color.hash, uv: 'mesh' }, shading: 'albedo', unlit: true }),
+  ], { at: at(1.6, street, 6.7) }), { label: '门口黑板：扫码找小花订花', props: { link: 'https://t.me/flowerassis_bot', 说明: '手机扫黑板上的二维码，在 Telegram 里向花店助手小花订花，可送到 ChronoAI 前厅' } }));
 
   // ---------------------------------------------------------------- 锚点
-  push(createAnchor(anchor('counter', 'counter', { box: [toGrid(ox + cX0), toGrid(F), toGrid(oz + cZ - 0.3), toGrid(ox + cX1), toGrid(F + 1.06), toGrid(oz + cZ + 0.3)] }, { label: '收银台' })));
-  push(createAnchor(anchor('door', 'door', { position: at(2.8, F, Z1 - T / 2) }, { label: '出入口' })));
-  push(createAnchor(anchor('window', 'zone', { box: [toGrid(ox + 3.8), toGrid(F), toGrid(oz + 4.6), toGrid(ox + 5.6), toGrid(F + 2.5), toGrid(oz + Z1)] }, { label: '橱窗' })));
-  push(createAnchor(anchor('retail', 'zone', { box: [toGrid(ox + 2.0), toGrid(F), toGrid(oz + 2.0), toGrid(ox + IX1), toGrid(F + 2.5), toGrid(oz + IZ1)] }, { label: '零售区' })));
-  push(createAnchor(anchor('floral', 'zone', { box: [toGrid(ox + IX0), toGrid(F), toGrid(oz + IZ0), toGrid(ox + 2.0), toGrid(F + 2.5), toGrid(oz + IZ1)] }, { label: '花艺区' })));
+  push({ ...createAnchor(anchor('counter', 'counter', { box: [toGrid(ox + cX0), toGrid(F), toGrid(oz + cZ - 0.3), toGrid(ox + cX1), toGrid(F + 1.06), toGrid(oz + cZ + 0.3)] }, { label: '收银台' })), ifNew: true });
+  push({ ...createAnchor(anchor('door', 'door', { position: at(2.8, F, Z1 - T / 2) }, { label: '出入口' })), ifNew: true });
+  push({ ...createAnchor(anchor('window', 'zone', { box: [toGrid(ox + 3.8), toGrid(F), toGrid(oz + 4.6), toGrid(ox + 5.6), toGrid(F + 2.5), toGrid(oz + Z1)] }, { label: '橱窗' })), ifNew: true });
+  push({ ...createAnchor(anchor('retail', 'zone', { box: [toGrid(ox + 2.0), toGrid(F), toGrid(oz + 2.0), toGrid(ox + IX1), toGrid(F + 2.5), toGrid(oz + IZ1)] }, { label: '零售区' })), ifNew: true });
+  push({ ...createAnchor(anchor('floral', 'zone', { box: [toGrid(ox + IX0), toGrid(F), toGrid(oz + IZ0), toGrid(ox + 2.0), toGrid(F + 2.5), toGrid(oz + IZ1)] }, { label: '花艺区' })), ifNew: true });
 
   return { message: '街角花店：6 × 5 米小店，收银区与零售花艺区，门廊街面', ops };
 }
