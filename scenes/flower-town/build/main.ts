@@ -302,9 +302,11 @@ export default function build(base: BuildBase, kit: Kit) {
   const qr = TEXTURES['qr_telegram'];
   if (qr === undefined) throw new Error('build/textures.json 里没有贴图 qr_telegram');
   // 写字区实测 x ±0.38、y 0.33–1.44，中心 (0, 0.885, 0.18)；二维码占满写字区宽度
-  const bn = [0, 0.208, 0.978] as const, bc = [0, 0.885, 0.18] as const, lift = 0.012;
+  // box 的原点在底面中心、向 +y 延伸（docs/SHAPES.md），所以把原点放在二维码的下边中点：从板面中心沿板面向下半边长，再沿法线抬起 lift
+  const bn = [0, 0.208, 0.978] as const, bc = [0, 0.885, 0.18] as const, bu = [0, 0.978, -0.208] as const, lift = 0.012, half = 0.35;
+  const qrAt = [0, 1, 2].map((i) => r6(bc[i]! - bu[i]! * half + bn[i]! * lift)) as [number, number, number];
   push(place('porch-qr', group([
-    box([0.7, 0.7, 0.008], { at: [bc[0] + bn[0] * lift, bc[1] + bn[1] * lift, bc[2] + bn[2] * lift], pitch: -12, texture: { hash: qr.maps.color.hash, uv: 'mesh' }, shading: 'albedo', unlit: true }),
+    box([2 * half, 2 * half, 0.008], { at: qrAt, pitch: -12, texture: { hash: qr.maps.color.hash, uv: 'mesh' }, shading: 'albedo', unlit: true }),
   ], { at: at(1.9, street, 6.55) }), { label: '扫码找小花订花（Telegram）', props: {
     link: 'https://t.me/flowerassis_bot', 说明: '手机扫码进 Telegram 找小花，点 START 再点 /basket，就给 ChronoAI 发布会送一个花篮（演示，免费），也可以和小花聊别的花',
     // 查看器的「位置标记」（docs/SHAPES.md）：页面上挂一个可点的标签，点一下镜头就推到黑板前，二维码占满屏幕，手机对着屏幕就能扫；
