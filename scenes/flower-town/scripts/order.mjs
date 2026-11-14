@@ -22,7 +22,8 @@
 // 去重靠 sourceEventId（<订单编号>.placed / .sent / .arrived），同一单重复运行不会写第二条；
 // send 和 arrive 用同一个 correlationId = <花店空间编号>:<订单编号>，查看器据此把起点和终点连成路线。
 
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { homedir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
@@ -112,8 +113,12 @@ function client(spaceId) {
     return new ApiClient({ mode: 'direct', api, devTokenUrl, ...(devSub ? { devSub } : {}) });
   }
   const lobby = spaceId !== shopId;
+  const profile = lobby ? values['lobby-profile'] : (values.profile ?? config.profile);
+  // nyxid 0.78 的 `login --agent-key --profile <名>` 把 key 存在 ~/.nyxid/profiles/<名>/token（SDK 找的是 access_token），这里先找它
+  const profileToken = profile && /^[A-Za-z0-9_-]{1,64}$/.test(profile) ? join(homedir(), '.nyxid', 'profiles', profile, 'token') : undefined;
   const resolved = resolveNyxToken({
-    ...(lobby ? { token: values['lobby-token'] ?? env.LOBBY_NYXID_TOKEN, profile: values['lobby-profile'] } : { token: values.token, profile: values.profile ?? config.profile }),
+    ...(lobby ? { token: values['lobby-token'] ?? env.LOBBY_NYXID_TOKEN } : { token: values.token }),
+    ...(profileToken && existsSync(profileToken) ? { token: readFileSync(profileToken, 'utf8').trim() } : { profile }),
     env,
   });
   console.error(`${lobby ? '前厅' : '花店'}的令牌：${resolved.source}`);
