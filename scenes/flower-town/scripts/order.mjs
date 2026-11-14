@@ -7,6 +7,7 @@
 //   node scripts/order.mjs status 营业中|已打烊                   店主专员改营业状态：空间级 shop.status
 //
 // 选项：
+//   --from <送花人>        送花人的署名（来宾自己起的昵称，不写电话），显示在前厅的送达标签上
 //   --at <RFC 3339>        现实发生时间，默认现在（晚于服务端 5 分钟以上会被拒收）
 //   --dry-run              只打印要发的路径和请求体，不发送；同时按 event-types/ 里的 schema 检查 data
 //   --source <数据源>       数据源，默认 florist（key 的操作范围只放开这个数据源）
@@ -44,7 +45,7 @@ function usage(message) {
 const { values, positionals } = parseArgs({
   allowPositionals: true,
   options: {
-    order: { type: 'string' }, item: { type: 'string' }, at: { type: 'string' },
+    order: { type: 'string' }, item: { type: 'string' }, from: { type: 'string' }, at: { type: 'string' },
     'dry-run': { type: 'boolean', default: false }, json: { type: 'boolean', default: false },
     source: { type: 'string', default: 'florist' },
     lobby: { type: 'string', default: 'chronoai-lobby' }, 'lobby-anchor': { type: 'string', default: 'counter-01' },
@@ -95,7 +96,7 @@ function buildRequest() {
   if (!values.item) usage('--item 要写花品（例如 发布会花篮）');
   const spaceId = step.where === 'shop' ? shopId : values.lobby;
   const anchorId = step.where === 'shop' ? 'counter' : values['lobby-anchor'];
-  const data = { item: values.item, orderId: values.order };
+  const data = { item: values.item, orderId: values.order, ...(values.from ? { from: values.from } : {}) };
   checkData(spaceId, step.type, data);
   const event = { sourceEventId: `${values.order}.${step.suffix}`, type: step.type, anchorId, at, data };
   if (step.correlated) event.correlationId = `${shopId}:${values.order}`;

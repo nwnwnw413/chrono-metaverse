@@ -10,6 +10,10 @@
       "orderId": {
         "type": "string",
         "maxLength": 40
+      },
+      "from": {
+        "type": "string",
+        "maxLength": 40
       }
     },
     "required": [
@@ -18,7 +22,8 @@
     "additionalProperties": false
   },
   "publicFields": [
-    "item"
+    "item",
+    "from"
   ],
   "defaultVisibility": "public",
   "display": {
