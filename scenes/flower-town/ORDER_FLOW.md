@@ -4,6 +4,10 @@
 
 ![组合「街角」里的送花路线](preview/street-corner.png)
 
+## 来宾怎么下单（一键）
+
+花店门口黑板上的二维码指向 `https://t.me/flowerassis_bot?start=chronoai_basket`：扫码进 Telegram 点一下 START，花店的顾客专员就按默认值登记一张送到「ChronoAI 前厅」的发布会花篮（不问信息、不收款），之后开始配送、前厅签收、送达通知由花店的 bridge 自动推进（见 nyxid-nyxbot-trials 的 Flower Town README「一键单与自动推进」）。查看器不放可点的链接（设计 4.4：物件属性只当文字显示），所以用二维码；点黑板能看到链接文字，镜头推近就能扫。
+
 ## 角色
 
 | 角色 | 是谁 | 做什么 |
