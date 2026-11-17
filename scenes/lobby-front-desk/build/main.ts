@@ -18,7 +18,7 @@ const TEXTURES: Record<string, TextureRecord> = JSON.parse(readFileSync(new URL(
 const r6 = (v: number) => Math.round(v * 1e6) / 1e6;
 
 export default function build(base: BuildBase, kit: Kit) {
-  const { place, placeEntity, box, group, template, instance, anchor, createAnchor, removeAnchor, toGrid } = kit;
+  const { place, placeEntity, box, group, template, instance, anchor, createAnchor, moveAnchor, removeAnchor, toGrid } = kit;
   const board = MODELS['lib-standing_chalkboard_01'];
   const qr = TEXTURES['qr_frontdesk'];
   if (board === undefined || qr === undefined) throw new Error('build/models/models.json 或 build/textures.json 不完整');
@@ -68,7 +68,7 @@ export default function build(base: BuildBase, kit: Kit) {
   });
 
   // ---------------------------------------------------------------- 花篮位：世界地图墙前两排、每排 6 个
-  // 验收原话「送达后花篮带着送花人的署名出现在前厅页面的花篮位」。查看器不能按事件生成模型，所以预置 12 个位置：
+  // 验收原话「送达后花篮带着送花人的署名出现在前厅页面的花篮位」。预置 18 个位置（签收时 basket.placed 用 spawnEntity 在位置上生成花篮模型）：
   // 每个位置一个锚点 basket-01…12 和一块半透明虚线地垫（空位只有地垫；签收后这个位置亮常驻标签「<署名> 送的<花品>」，
   // 到达动画也落在这个位置）。第一排贴墙（x 1.65），从靠门一头（z 小）往里排，间距 0.7 米；第二排在厅内一侧（x 2.45）。
   // 第 17、18 版的台子、花篮模型和整片锚点 basket-stand 都撤掉（它上面还挂着旧标签）。
@@ -85,17 +85,22 @@ export default function build(base: BuildBase, kit: Kit) {
   const templates = new Map([['basket-slot-mat', matShape]]);
   const matTemplate = template('basket-slot-mat', matShape, { label: '花篮位地垫（虚线）' });
   const slots: { id: string; x: number; z: number }[] = [];
+  // 每排 9 个（11-17 从 6 个加到 9 个，往窗那头延伸到 z 10.3，长会议桌从 z 10.6 起）：第一排 01–09 贴墙，第二排 10–18。
+  const Z = [4.7, 5.4, 6.1, 6.8, 7.5, 8.2, 8.9, 9.6, 10.3];
   [1.65, 2.45].forEach((x, row) => {
-    [4.7, 5.4, 6.1, 6.8, 7.5, 8.2].forEach((z, i) => slots.push({ id: `basket-${String(row * 6 + i + 1).padStart(2, '0')}`, x, z }));
+    Z.forEach((z, i) => slots.push({ id: `basket-${String(row * Z.length + i + 1).padStart(2, '0')}`, x, z }));
   });
   const mats = slots.map((sl) => place(`${sl.id}-mat`, instance('basket-slot-mat', { at: [sl.x, 0.001, sl.z] }), { templates, label: `花篮位 ${sl.id.slice(-2)}` }));
-  const slotAnchors = slots.map((sl) => ({
-    ...createAnchor(anchor(sl.id, 'zone', { box: [toGrid(sl.x - 0.3), toGrid(0), toGrid(sl.z - 0.3), toGrid(sl.x + 0.3), toGrid(0.6), toGrid(sl.z + 0.3)] }, { label: `花篮位 ${sl.id.slice(-2)}` })),
-    ifNew: true,
-  }));
+  // 锚点已存在的只挪盒子（编号从 12 个改成 18 个时第二排的 07–12 换了位置），没有的新建。
+  const slotAnchors = slots.map((sl) => {
+    const box = [toGrid(sl.x - 0.3), toGrid(0), toGrid(sl.z - 0.3), toGrid(sl.x + 0.3), toGrid(0.6), toGrid(sl.z + 0.3)];
+    return base.anchors.some((a) => a.anchorId === sl.id)
+      ? moveAnchor(sl.id, { box })
+      : createAnchor(anchor(sl.id, 'zone', { box }, { label: `花篮位 ${sl.id.slice(-2)}` }));
+  });
 
   return {
-    message: '前厅门口黑板贴前台 bot 二维码；花篮位改为世界地图墙前两排 12 个虚线地垫（锚点 basket-01…12）',
+    message: '前厅门口黑板贴前台 bot 二维码；花篮位：世界地图墙前两排、每排 9 个虚线地垫（锚点 basket-01…18）',
     ops: [placeEntity(chalkboard as Parameters<typeof placeEntity>[0]), qrBoard, ...removed, placeEntity(matTemplate), ...mats, ...slotAnchors, ...(base.anchors.some((a) => a.anchorId === 'basket-stand') ? [removeAnchor('basket-stand')] : [])],
   };
 }
