@@ -18,7 +18,7 @@ const TEXTURES: Record<string, TextureRecord> = JSON.parse(readFileSync(new URL(
 const r6 = (v: number) => Math.round(v * 1e6) / 1e6;
 
 export default function build(base: BuildBase, kit: Kit) {
-  const { place, placeEntity, box, group, cone, lathe, template, instance, anchor, createAnchor, moveAnchor, toGrid } = kit;
+  const { place, placeEntity, box, group, template, instance, anchor, createAnchor, removeAnchor, toGrid } = kit;
   const board = MODELS['lib-standing_chalkboard_01'];
   const qr = TEXTURES['qr_frontdesk'];
   if (board === undefined || qr === undefined) throw new Error('build/models/models.json 或 build/textures.json 不完整');
@@ -71,7 +71,7 @@ export default function build(base: BuildBase, kit: Kit) {
   // 验收原话「送达后花篮带着送花人的署名出现在前厅页面的花篮位」。查看器不能按事件生成模型，所以预置 12 个位置：
   // 每个位置一个锚点 basket-01…12 和一块半透明虚线地垫（空位只有地垫；签收后这个位置亮常驻标签「<署名> 送的<花品>」，
   // 到达动画也落在这个位置）。第一排贴墙（x 1.65），从靠门一头（z 小）往里排，间距 0.7 米；第二排在厅内一侧（x 2.45）。
-  // 锚点 basket-stand（整条花篮区，第 17 版建）保留，作为区域。第 17、18 版的台子和花篮模型撤掉。
+  // 第 17、18 版的台子、花篮模型和整片锚点 basket-stand 都撤掉（它上面还挂着旧标签）。
   const { removeEntity } = kit;
   const removed = ['basket-stand-table', 'basket-stand-basket', 'basket-stand-bloom', 'lobby-bloom-warm']
     .filter((id) => base.entities.some((e) => e.entityId === id))
