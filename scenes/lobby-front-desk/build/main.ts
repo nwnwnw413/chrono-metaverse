@@ -67,39 +67,35 @@ export default function build(base: BuildBase, kit: Kit) {
     },
   });
 
-  // ---------------------------------------------------------------- 花篮位：前台左侧的小台子，放一只花篮
-  // 验收原话「送达后花篮带着送花人的署名出现在前厅页面的花篮位」：花篮位是锚点 basket-stand（世界地图墙前的一溜地板，x 1.25–2.1、z 4.4–9.0），
-  // 台上常年摆一只花篮模型；前台签收时往这个锚点写 delivery.arrived（60 秒的到达动画）和 basket.placed（状态标签「<署名> 送的<花品>」，常驻）。
-  const basket = MODELS['lib-wicker_basket_02'];
-  if (basket === undefined) throw new Error('build/models/models.json 里没有 lib-wicker_basket_02');
-  const sx = 1.65, sz = 6.0, standH = 0.9; // 靠世界地图墙，花篮区是墙前这一溜地板
-  const stand = place('basket-stand-table', group([
-    box([0.5, standH, 0.5], { color: '#d8cdb8', roughness: 0.8 }),
-    box([0.56, 0.03, 0.56], { at: [0, standH, 0], color: '#5a3b2a', roughness: 0.6 }),
-  ], { at: [sx, 0, sz] }), { label: '花篮位' });
-  const bloomShape = group([
-    cone(0.16, 0.14, { color: '#4f8f55' }),
-    ...['#f2c14e', '#e8743b', '#f9d976', '#e8743b', '#f2c14e', '#fff1c1'].map((c, i) => {
-      const a = (i / 6) * Math.PI * 2, rad = i === 0 ? 0 : 0.085, r = 0.055;
-      return lathe([[0, 0], [r * 0.7, r * 0.3], [r, r], [r * 0.7, r * 1.7], [0, r * 2]], { at: [Math.cos(a) * rad, i === 0 ? 0.12 : 0.08, Math.sin(a) * rad], color: c });
-    }),
+  // ---------------------------------------------------------------- 花篮位：世界地图墙前两排、每排 6 个
+  // 验收原话「送达后花篮带着送花人的署名出现在前厅页面的花篮位」。查看器不能按事件生成模型，所以预置 12 个位置：
+  // 每个位置一个锚点 basket-01…12 和一块半透明虚线地垫（空位只有地垫；签收后这个位置亮常驻标签「<署名> 送的<花品>」，
+  // 到达动画也落在这个位置）。第一排贴墙（x 1.65），从靠门一头（z 小）往里排，间距 0.7 米；第二排在厅内一侧（x 2.45）。
+  // 锚点 basket-stand（整条花篮区，第 17 版建）保留，作为区域。第 17、18 版的台子和花篮模型撤掉。
+  const { removeEntity } = kit;
+  const removed = ['basket-stand-table', 'basket-stand-basket', 'basket-stand-bloom', 'lobby-bloom-warm']
+    .filter((id) => base.entities.some((e) => e.entityId === id))
+    .map((id) => removeEntity(id));
+  // 虚线地垫：0.6 × 0.6 米的方框，每边 4 段短线，线宽 2.5 厘米、厚 6 毫米，米白半透明
+  const dash = (x: number, z: number, along: 'x' | 'z') =>
+    box(along === 'x' ? [0.1, 0.006, 0.025] : [0.025, 0.006, 0.1], { at: [x, 0, z], color: '#f3efe6', opacity: 0.55, roughness: 0.9 });
+  const matShape = group([
+    ...[-0.225, -0.075, 0.075, 0.225].flatMap((t) => [dash(t, -0.3, 'x'), dash(t, 0.3, 'x'), dash(-0.3, t, 'z'), dash(0.3, t, 'z')]),
   ]);
-  const templates = new Map([['lobby-bloom-warm', bloomShape]]);
-  const bloomTemplate = template('lobby-bloom-warm', bloomShape, { label: '花团（暖）' });
-  const by = standH + 0.03;
-  const basketEntity = {
-    entityId: 'basket-stand-basket', layer: 'ext', kind: 'object', label: '发布会花篮', assetHash: basket.assetHash, material: { shading: 'albedo' },
-    bounds: { min: [r6(sx + basket.bounds.min[0]!), r6(by + basket.bounds.min[1]!), r6(sz + basket.bounds.min[2]!)], max: [r6(sx + basket.bounds.max[0]!), r6(by + basket.bounds.max[1]!), r6(sz + basket.bounds.max[2]!)] },
-    props: { source: { library: 'polyhaven', id: 'wicker_basket_02', title: 'Wicker Basket 02', author: 'James Ray Cock', license: 'CC0-1.0', page: 'https://polyhaven.com/a/wicker_basket_02' } },
-  };
-  const blooms = place('basket-stand-bloom', instance('lobby-bloom-warm', { at: [sx + 0.03, by + 0.18, sz] }), { templates, label: '花' });
-  const standBox = [toGrid(1.25), toGrid(0), toGrid(4.4), toGrid(2.1), toGrid(1.5), toGrid(9.0)];
-  // 锚点已经存在（第 17 版）时只挪盒子；还没有时新建。
-  const hasStandAnchor = base.anchors.some((a) => a.anchorId === 'basket-stand');
-  const standAnchor = hasStandAnchor ? moveAnchor('basket-stand', { box: standBox }) : createAnchor(anchor('basket-stand', 'zone', { box: standBox }, { label: '花篮位' }));
+  const templates = new Map([['basket-slot-mat', matShape]]);
+  const matTemplate = template('basket-slot-mat', matShape, { label: '花篮位地垫（虚线）' });
+  const slots: { id: string; x: number; z: number }[] = [];
+  [1.65, 2.45].forEach((x, row) => {
+    [4.7, 5.4, 6.1, 6.8, 7.5, 8.2].forEach((z, i) => slots.push({ id: `basket-${String(row * 6 + i + 1).padStart(2, '0')}`, x, z }));
+  });
+  const mats = slots.map((sl) => place(`${sl.id}-mat`, instance('basket-slot-mat', { at: [sl.x, 0.001, sl.z] }), { templates, label: `花篮位 ${sl.id.slice(-2)}` }));
+  const slotAnchors = slots.map((sl) => ({
+    ...createAnchor(anchor(sl.id, 'zone', { box: [toGrid(sl.x - 0.3), toGrid(0), toGrid(sl.z - 0.3), toGrid(sl.x + 0.3), toGrid(0.6), toGrid(sl.z + 0.3)] }, { label: `花篮位 ${sl.id.slice(-2)}` })),
+    ifNew: true,
+  }));
 
   return {
-    message: '前厅门口加黑板：贴发布会前台 Telegram bot 的二维码，页面上可点「扫码订座 · Telegram」；前台左侧加花篮位（锚点 basket-stand）',
-    ops: [placeEntity(chalkboard as Parameters<typeof placeEntity>[0]), qrBoard, stand, placeEntity(basketEntity as Parameters<typeof placeEntity>[0]), placeEntity(bloomTemplate), blooms, standAnchor],
+    message: '前厅门口黑板贴前台 bot 二维码；花篮位改为世界地图墙前两排 12 个虚线地垫（锚点 basket-01…12）',
+    ops: [placeEntity(chalkboard as Parameters<typeof placeEntity>[0]), qrBoard, ...removed, placeEntity(matTemplate), ...mats, ...slotAnchors],
   };
 }
