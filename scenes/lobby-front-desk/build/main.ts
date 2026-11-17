@@ -5,7 +5,7 @@ import type { BuildBase, Kit } from '@chrono-metaverse/sdk';
  * 前厅门口的「找 AI 前台订座」黑板：和街角花店门口的一样，黑板上贴发布会前台 Telegram bot 的二维码，
  * 二维码板登记为位置标记，页面上点「扫码订座 · Telegram」镜头推到黑板前。
  *
- * 位置：进门（入口玻璃门 x 0.87–3.06、z 0.87–2.89）后右手边 (3.4, 0, 3.3)，板面朝厅内（yaw 0，页面镜头从厅内看），
+ * 位置：进门（入口玻璃门 x 0.87–3.06、z 0.87–2.89）后左手边贴墙 (1.75, 0, 3.4)，板面朝厅内（yaw 0，页面镜头从厅内看），
  * 不挡门、不碰 LED 大屏墙（z 0.95–1.57）和前台（x 5.76–7.62、z 3.66–7.53）。坐标是空间米坐标。
  *
  * 只往实体区加两个物件，不动重建层；模型和贴图先用 `metaverse edit upload --file work-upload.json` 上传。
@@ -23,7 +23,7 @@ export default function build(_base: BuildBase, kit: Kit) {
   const qr = TEXTURES['qr_frontdesk'];
   if (board === undefined || qr === undefined) throw new Error('build/models/models.json 或 build/textures.json 不完整');
 
-  const at: [number, number, number] = [3.4, 0, 3.3];
+  const at: [number, number, number] = [1.75, 0, 3.4]; // 紧贴门口左侧（西墙 x≈1.1），不挡门
   const yaw = 0; // 朝厅内：页面镜头从厅内取景，二维码要对着镜头才扫得到
   const th = (yaw * Math.PI) / 180;
   const { min, max } = board.bounds;
