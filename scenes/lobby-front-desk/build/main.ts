@@ -92,11 +92,12 @@ export default function build(base: BuildBase, kit: Kit) {
   });
   const mats = slots.map((sl) => place(`${sl.id}-mat`, instance('basket-slot-mat', { at: [sl.x, 0.001, sl.z] }), { templates, label: `花篮位 ${sl.id.slice(-2)}` }));
   // 锚点已存在的只挪盒子（编号从 12 个改成 18 个时第二排的 07–12 换了位置），没有的新建。
+  // 点锚点落在地垫正中、地面高度：盒子锚点的位置取顶面中心，生成的花篮会悬在盒子顶上。
   const slotAnchors = slots.map((sl) => {
-    const box = [toGrid(sl.x - 0.3), toGrid(0), toGrid(sl.z - 0.3), toGrid(sl.x + 0.3), toGrid(0.6), toGrid(sl.z + 0.3)];
+    const position: [number, number, number] = [r6(sl.x), 0, r6(sl.z)];
     return base.anchors.some((a) => a.anchorId === sl.id)
-      ? moveAnchor(sl.id, { box })
-      : createAnchor(anchor(sl.id, 'zone', { box }, { label: `花篮位 ${sl.id.slice(-2)}` }));
+      ? moveAnchor(sl.id, { position })
+      : createAnchor(anchor(sl.id, 'zone', { position }, { label: `花篮位 ${sl.id.slice(-2)}` }));
   });
 
   return {
