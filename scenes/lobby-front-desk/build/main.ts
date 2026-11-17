@@ -17,14 +17,14 @@ const TEXTURES: Record<string, TextureRecord> = JSON.parse(readFileSync(new URL(
 
 const r6 = (v: number) => Math.round(v * 1e6) / 1e6;
 
-export default function build(_base: BuildBase, kit: Kit) {
-  const { place, placeEntity, box, group, cone, lathe, template, instance, anchor, createAnchor, toGrid } = kit;
+export default function build(base: BuildBase, kit: Kit) {
+  const { place, placeEntity, box, group, cone, lathe, template, instance, anchor, createAnchor, moveAnchor, toGrid } = kit;
   const board = MODELS['lib-standing_chalkboard_01'];
   const qr = TEXTURES['qr_frontdesk'];
   if (board === undefined || qr === undefined) throw new Error('build/models/models.json 或 build/textures.json 不完整');
 
-  const at: [number, number, number] = [1.75, 0, 3.4]; // 紧贴门口左侧（西墙 x≈1.1），不挡门
-  const yaw = 0; // 朝厅内：页面镜头从厅内取景，二维码要对着镜头才扫得到
+  const at: [number, number, number] = [1.65, 0, 3.7]; // 靠着门口的世界地图墙（墙面 x≈1.23），板面朝厅内
+  const yaw = 90; // 板面（局部 +z）转向 +x，正对厅内
   const th = (yaw * Math.PI) / 180;
   const { min, max } = board.bounds;
   const corners = [[min[0], min[2]], [max[0], min[2]], [min[0], max[2]], [max[0], max[2]]].map(([x, z]) => [x! * Math.cos(th) + z! * Math.sin(th), -x! * Math.sin(th) + z! * Math.cos(th)]);
@@ -61,18 +61,18 @@ export default function build(_base: BuildBase, kit: Kit) {
       background: true,
       landmark: {
         label: '扫码订座 · Telegram',
-        position: [r6(at[0]), r6(at[1] + 1.55), r6(at[2] - 0.2)],
-        focusBounds: { min: [r6(at[0] - 0.55), r6(at[1] + 0.25), r6(at[2] - 0.8)], max: [r6(at[0] + 0.55), r6(at[1] + 1.75), r6(at[2] + 0.3)] },
+        position: [r6(at[0] + 0.2), r6(at[1] + 1.55), r6(at[2])],
+        focusBounds: { min: [r6(at[0] - 0.3), r6(at[1] + 0.25), r6(at[2] - 0.55)], max: [r6(at[0] + 1.0), r6(at[1] + 1.75), r6(at[2] + 0.55)] },
       },
     },
   });
 
   // ---------------------------------------------------------------- 花篮位：前台左侧的小台子，放一只花篮
-  // 验收原话「送达后花篮带着送花人的署名出现在前厅页面的花篮位」：花篮位是锚点 basket-stand（前台左侧 x 4.6–5.6、z 3.6–4.6 的空地），
+  // 验收原话「送达后花篮带着送花人的署名出现在前厅页面的花篮位」：花篮位是锚点 basket-stand（世界地图墙前的一溜地板，x 1.25–2.1、z 4.4–9.0），
   // 台上常年摆一只花篮模型；前台签收时往这个锚点写 delivery.arrived（60 秒的到达动画）和 basket.placed（状态标签「<署名> 送的<花品>」，常驻）。
   const basket = MODELS['lib-wicker_basket_02'];
   if (basket === undefined) throw new Error('build/models/models.json 里没有 lib-wicker_basket_02');
-  const sx = 5.1, sz = 4.1, standH = 0.9;
+  const sx = 1.65, sz = 6.0, standH = 0.9; // 靠世界地图墙，花篮区是墙前这一溜地板
   const stand = place('basket-stand-table', group([
     box([0.5, standH, 0.5], { color: '#d8cdb8', roughness: 0.8 }),
     box([0.56, 0.03, 0.56], { at: [0, standH, 0], color: '#5a3b2a', roughness: 0.6 }),
@@ -93,7 +93,10 @@ export default function build(_base: BuildBase, kit: Kit) {
     props: { source: { library: 'polyhaven', id: 'wicker_basket_02', title: 'Wicker Basket 02', author: 'James Ray Cock', license: 'CC0-1.0', page: 'https://polyhaven.com/a/wicker_basket_02' } },
   };
   const blooms = place('basket-stand-bloom', instance('lobby-bloom-warm', { at: [sx + 0.03, by + 0.18, sz] }), { templates, label: '花' });
-  const standAnchor = { ...createAnchor(anchor('basket-stand', 'zone', { box: [toGrid(4.6), toGrid(0), toGrid(3.6), toGrid(5.6), toGrid(1.5), toGrid(4.6)] }, { label: '花篮位' })), ifNew: true };
+  const standBox = [toGrid(1.25), toGrid(0), toGrid(4.4), toGrid(2.1), toGrid(1.5), toGrid(9.0)];
+  // 锚点已经存在（第 17 版）时只挪盒子；还没有时新建。
+  const hasStandAnchor = base.anchors.some((a) => a.anchorId === 'basket-stand');
+  const standAnchor = hasStandAnchor ? moveAnchor('basket-stand', { box: standBox }) : createAnchor(anchor('basket-stand', 'zone', { box: standBox }, { label: '花篮位' }));
 
   return {
     message: '前厅门口加黑板：贴发布会前台 Telegram bot 的二维码，页面上可点「扫码订座 · Telegram」；前台左侧加花篮位（锚点 basket-stand）',
