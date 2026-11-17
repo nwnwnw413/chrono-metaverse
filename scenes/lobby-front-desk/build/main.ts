@@ -96,6 +96,6 @@ export default function build(base: BuildBase, kit: Kit) {
 
   return {
     message: '前厅门口黑板贴前台 bot 二维码；花篮位改为世界地图墙前两排 12 个虚线地垫（锚点 basket-01…12）',
-    ops: [placeEntity(chalkboard as Parameters<typeof placeEntity>[0]), qrBoard, ...removed, placeEntity(matTemplate), ...mats, ...slotAnchors],
+    ops: [placeEntity(chalkboard as Parameters<typeof placeEntity>[0]), qrBoard, ...removed, placeEntity(matTemplate), ...mats, ...slotAnchors, ...(base.anchors.some((a) => a.anchorId === 'basket-stand') ? [removeAnchor('basket-stand')] : [])],
   };
 }
