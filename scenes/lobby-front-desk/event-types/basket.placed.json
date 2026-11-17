@@ -1,0 +1,22 @@
+{
+  "type": "basket.placed",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "from": { "type": "string", "maxLength": 40 },
+      "item": { "type": "string", "maxLength": 80 },
+      "orderId": { "type": "string", "maxLength": 40 }
+    },
+    "required": ["item"],
+    "additionalProperties": false
+  },
+  "publicFields": ["item", "from"],
+  "defaultVisibility": "public",
+  "state": { "key": "basket", "value": "from" },
+  "maxAgeSec": 2592000,
+  "display": {
+    "kind": "label",
+    "color": [236, 96, 140],
+    "labelTemplate": "{from} 送的{item}"
+  }
+}

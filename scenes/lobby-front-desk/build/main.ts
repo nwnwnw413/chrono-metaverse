@@ -18,7 +18,7 @@ const TEXTURES: Record<string, TextureRecord> = JSON.parse(readFileSync(new URL(
 const r6 = (v: number) => Math.round(v * 1e6) / 1e6;
 
 export default function build(_base: BuildBase, kit: Kit) {
-  const { place, placeEntity, box, group } = kit;
+  const { place, placeEntity, box, group, cone, lathe, template, instance, anchor, createAnchor, toGrid } = kit;
   const board = MODELS['lib-standing_chalkboard_01'];
   const qr = TEXTURES['qr_frontdesk'];
   if (board === undefined || qr === undefined) throw new Error('build/models/models.json 或 build/textures.json 不完整');
@@ -67,8 +67,36 @@ export default function build(_base: BuildBase, kit: Kit) {
     },
   });
 
+  // ---------------------------------------------------------------- 花篮位：前台左侧的小台子，放一只花篮
+  // 验收原话「送达后花篮带着送花人的署名出现在前厅页面的花篮位」：花篮位是锚点 basket-stand（前台左侧 x 4.6–5.6、z 3.6–4.6 的空地），
+  // 台上常年摆一只花篮模型；前台签收时往这个锚点写 delivery.arrived（60 秒的到达动画）和 basket.placed（状态标签「<署名> 送的<花品>」，常驻）。
+  const basket = MODELS['lib-wicker_basket_02'];
+  if (basket === undefined) throw new Error('build/models/models.json 里没有 lib-wicker_basket_02');
+  const sx = 5.1, sz = 4.1, standH = 0.9;
+  const stand = place('basket-stand-table', group([
+    box([0.5, standH, 0.5], { color: '#d8cdb8', roughness: 0.8 }),
+    box([0.56, 0.03, 0.56], { at: [0, standH, 0], color: '#5a3b2a', roughness: 0.6 }),
+  ], { at: [sx, 0, sz] }), { label: '花篮位' });
+  const bloomShape = group([
+    cone(0.16, 0.14, { color: '#4f8f55' }),
+    ...['#f2c14e', '#e8743b', '#f9d976', '#e8743b', '#f2c14e', '#fff1c1'].map((c, i) => {
+      const a = (i / 6) * Math.PI * 2, rad = i === 0 ? 0 : 0.085, r = 0.055;
+      return lathe([[0, 0], [r * 0.7, r * 0.3], [r, r], [r * 0.7, r * 1.7], [0, r * 2]], { at: [Math.cos(a) * rad, i === 0 ? 0.12 : 0.08, Math.sin(a) * rad], color: c });
+    }),
+  ]);
+  const templates = new Map([['lobby-bloom-warm', bloomShape]]);
+  const bloomTemplate = template('lobby-bloom-warm', bloomShape, { label: '花团（暖）' });
+  const by = standH + 0.03;
+  const basketEntity = {
+    entityId: 'basket-stand-basket', layer: 'ext', kind: 'object', label: '发布会花篮', assetHash: basket.assetHash, material: { shading: 'albedo' },
+    bounds: { min: [r6(sx + basket.bounds.min[0]!), r6(by + basket.bounds.min[1]!), r6(sz + basket.bounds.min[2]!)], max: [r6(sx + basket.bounds.max[0]!), r6(by + basket.bounds.max[1]!), r6(sz + basket.bounds.max[2]!)] },
+    props: { source: { library: 'polyhaven', id: 'wicker_basket_02', title: 'Wicker Basket 02', author: 'James Ray Cock', license: 'CC0-1.0', page: 'https://polyhaven.com/a/wicker_basket_02' } },
+  };
+  const blooms = place('basket-stand-bloom', instance('lobby-bloom-warm', { at: [sx + 0.03, by + 0.18, sz] }), { templates, label: '花' });
+  const standAnchor = { ...createAnchor(anchor('basket-stand', 'zone', { box: [toGrid(4.6), toGrid(0), toGrid(3.6), toGrid(5.6), toGrid(1.5), toGrid(4.6)] }, { label: '花篮位' })), ifNew: true };
+
   return {
-    message: '前厅门口加黑板：贴发布会前台 Telegram bot 的二维码，页面上可点「扫码订座 · Telegram」',
-    ops: [placeEntity(chalkboard as Parameters<typeof placeEntity>[0]), qrBoard],
+    message: '前厅门口加黑板：贴发布会前台 Telegram bot 的二维码，页面上可点「扫码订座 · Telegram」；前台左侧加花篮位（锚点 basket-stand）',
+    ops: [placeEntity(chalkboard as Parameters<typeof placeEntity>[0]), qrBoard, stand, placeEntity(basketEntity as Parameters<typeof placeEntity>[0]), placeEntity(bloomTemplate), blooms, standAnchor],
   };
 }
