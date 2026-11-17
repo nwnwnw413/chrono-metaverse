@@ -1,0 +1,22 @@
+{
+  "qr_frontdesk": {
+    "sizeM": [
+      0.7,
+      0.7
+    ],
+    "maps": {
+      "color": {
+        "hash": "601d3ccccf827ec42f04e6e9da6c55a1ab25a9946788e25c55143438d915c705",
+        "format": "png"
+      }
+    },
+    "source": {
+      "library": "self",
+      "id": "qr-frontdesk",
+      "title": "Telegram 发布会前台的二维码（https://t.me/chronoai_frontdesk_bot，本仓库生成）",
+      "author": "Ada",
+      "license": "CC0-1.0",
+      "page": "https://t.me/chronoai_frontdesk_bot"
+    }
+  }
+}

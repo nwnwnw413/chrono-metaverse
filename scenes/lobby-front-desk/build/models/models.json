@@ -1,0 +1,20 @@
+{
+  "entities": {
+    "lib-standing_chalkboard_01": {
+      "assetHash": "7365a82ccc5d7dd5c5706892e4f9e7f86742d5eaaf9fc058792061b0661c9e1e",
+      "file": "7365a82ccc5d.glb",
+      "bounds": {
+        "min": [
+          -0.4462,
+          -0.0001,
+          -0.3794
+        ],
+        "max": [
+          0.4734,
+          1.5091,
+          0.3794
+        ]
+      }
+    }
+  }
+}

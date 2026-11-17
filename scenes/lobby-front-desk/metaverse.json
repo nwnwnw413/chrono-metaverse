@@ -1,0 +1,7 @@
+{
+  "spaceId": "chronoai-lobby",
+  "mode": "nyxid",
+  "slug": "chrono-metaverse",
+  "webUrl": "https://chrono-metaverse-chronoai.apps.nyxid.ai",
+  "buildScript": "build/main.ts"
+}
