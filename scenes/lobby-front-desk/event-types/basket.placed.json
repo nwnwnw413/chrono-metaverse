@@ -3,20 +3,41 @@
   "schema": {
     "type": "object",
     "properties": {
-      "from": { "type": "string", "maxLength": 40 },
-      "item": { "type": "string", "maxLength": 80 },
-      "orderId": { "type": "string", "maxLength": 40 }
+      "from": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "item": {
+        "type": "string",
+        "maxLength": 80
+      },
+      "orderId": {
+        "type": "string",
+        "maxLength": 40
+      }
     },
-    "required": ["item"],
+    "required": [
+      "item"
+    ],
     "additionalProperties": false
   },
-  "publicFields": ["item", "from"],
+  "publicFields": [
+    "item",
+    "from"
+  ],
   "defaultVisibility": "public",
-  "state": { "key": "basket", "value": "from" },
+  "state": {
+    "key": "basket",
+    "value": "from"
+  },
   "maxAgeSec": 2592000,
   "display": {
-    "kind": "label",
-    "color": [236, 96, 140],
-    "labelTemplate": "{from} 送的{item}"
+    "kind": "spawnEntity",
+    "entityAsset": "b3964e04032da2e62c5fa5c1767ba1d5dadbf8194fdf66727739c09d2ce9568d",
+    "color": [
+      236,
+      96,
+      140
+    ]
   }
 }
