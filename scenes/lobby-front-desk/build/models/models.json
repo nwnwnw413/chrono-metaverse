@@ -33,18 +33,18 @@
       }
     },
     "launch-basket": {
-      "assetHash": "9f375c773cbae8c6c41cd24e4388cdc875236b1d6fa8c1e5dd20204f9d9b0967",
+      "assetHash": "c237827b99c2b8e8a99dd61ac160fa75d8189faef2540289d2fbedee14c7167c",
       "file": "launch-basket.glb",
       "bounds": {
         "min": [
-          -0.58,
+          -0.382,
           0.0,
-          -0.5655
+          -0.3724
         ],
         "max": [
-          0.58,
-          1.93,
-          0.5655
+          0.382,
+          1.75,
+          0.3724
         ]
       }
     }
