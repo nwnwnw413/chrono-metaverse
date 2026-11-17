@@ -1,0 +1,21 @@
+{
+  "type": "seat.state",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "seat": { "type": "string", "maxLength": 16 },
+      "status": { "type": "string", "enum": ["booked", "seated", "free"] },
+      "nickname": { "type": "string", "maxLength": 40 }
+    },
+    "required": ["seat", "status"],
+    "additionalProperties": false
+  },
+  "publicFields": ["seat", "status", "nickname"],
+  "defaultVisibility": "public",
+  "state": { "key": "seat", "value": "status" },
+  "display": {
+    "kind": "label",
+    "color": [96, 160, 236],
+    "labelTemplate": "{nickname}"
+  }
+}
