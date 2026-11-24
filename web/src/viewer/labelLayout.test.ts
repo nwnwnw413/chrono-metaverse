@@ -6,6 +6,8 @@ import {
   maxLabelsFor,
   type LabelCandidate,
   type LabelLayoutOptions,
+  CROWDED_SEAT_COUNT,
+  seatsCrowded,
 } from './labelLayout';
 
 const OPTIONS: LabelLayoutOptions = {
@@ -41,6 +43,14 @@ describe('锚点标签的优先级', () => {
     for (const kind of ['seat', 'camera', 'space', 'shelf', '']) {
       expect(anchorLabelPriority(kind, false)).toBe(0);
     }
+  });
+
+  it('座位多到拥挤时才按拥挤处理，桌子再多也不算', () => {
+    const seats = (n: number) => Array.from({ length: n }, () => ({ kind: 'seat' }));
+    expect(seatsCrowded(seats(3))).toBe(false);
+    expect(seatsCrowded(seats(CROWDED_SEAT_COUNT))).toBe(false);
+    expect(seatsCrowded(seats(CROWDED_SEAT_COUNT + 1))).toBe(true);
+    expect(seatsCrowded(Array.from({ length: 500 }, () => ({ kind: 'table' })))).toBe(false);
   });
 
   it('有事件的锚点（包括座位）高于所有类型', () => {

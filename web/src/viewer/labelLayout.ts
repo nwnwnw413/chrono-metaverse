@@ -10,6 +10,23 @@ const KIND_PRIORITY: Readonly<Record<string, number>> = {
 /** 有事件状态 / 事件显示的锚点：高于所有类型。 */
 export const EVENT_PRIORITY = 10;
 
+/**
+ * 同一空间里座位锚点超过这个数（例如前厅四周的看台，一千多个座位）时按"拥挤"处理：
+ * 座位不画锚点圆点，有事件也不提前显示标签，座号和来宾昵称只在悬停、点按或打开
+ * "更多标签"时显示。餐厅这类只有几个座位的空间不受影响。
+ */
+export const CROWDED_SEAT_COUNT = 100;
+
+/** 这一组锚点里的座位是否拥挤（座位锚点超过 {@link CROWDED_SEAT_COUNT} 个）。 */
+export function seatsCrowded(anchors: readonly { readonly kind: string }[]): boolean {
+  let seats = 0;
+  for (const anchor of anchors) {
+    if (anchor.kind === 'seat') seats += 1;
+    if (seats > CROWDED_SEAT_COUNT) return true;
+  }
+  return false;
+}
+
 /** 锚点标签的优先级；0 表示默认不显示。 */
 export function anchorLabelPriority(kind: string, hasEvent: boolean): number {
   if (hasEvent) return EVENT_PRIORITY;

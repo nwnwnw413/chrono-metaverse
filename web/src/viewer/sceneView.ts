@@ -56,6 +56,7 @@ import {
   layoutLabels,
   maxLabelsFor,
   type LabelCandidate,
+  seatsCrowded,
 } from './labelLayout';
 import {
   bakeInPlace,
@@ -176,6 +177,8 @@ interface AnchorInfo {
   /** 锚点覆盖的范围（世界坐标）：锚点自己的格子盒，没有就用挂在上面的物件；用来估计屏幕上的大小。 */
   readonly extent: THREE.Box3 | null;
   readonly memberName?: string;
+  /** 拥挤的座位（同一空间座位锚点超过 CROWDED_SEAT_COUNT 个）：不画圆点，标签只在悬停、点按或"更多标签"时显示。 */
+  readonly crowded?: boolean;
 }
 
 /** 一个成员的取景来源：内容所在的组、取景范围（世界坐标）、只有模型的物件的包围盒、扫描。 */
@@ -1574,7 +1577,9 @@ export class SceneView {
       bounds.set(entity.anchorId, existing ? existing.union(box) : box);
     }
 
+    const crowdedSeats = seatsCrowded(member.view.anchors);
     for (const anchor of member.view.anchors) {
+      const crowded = crowdedSeats && anchor.kind === 'seat';
       const local = anchorPosition(anchor);
       const ref = { spaceId: member.spaceId, anchorId: anchor.anchorId };
       const label = anchor.label ?? anchor.anchorId;
@@ -1590,14 +1595,17 @@ export class SceneView {
         const object = new CSS2DObject(element);
         object.position.set(...local);
         overlay.add(object);
-        const marker = new THREE.Mesh(
-          new THREE.SphereGeometry(0.035, 12, 8),
-          // 锚点圆点和标签一样，在剖切高度以上时不显示。
-          new THREE.MeshBasicMaterial({ color: this.accent, clippingPlanes: this.clipping }),
-        );
-        marker.userData.accent = true;
-        marker.position.set(...local);
-        overlay.add(marker);
+        // 拥挤的座位不画圆点：上千个座位的圆点会盖满看台。
+        if (!crowded) {
+          const marker = new THREE.Mesh(
+            new THREE.SphereGeometry(0.035, 12, 8),
+            // 锚点圆点和标签一样，在剖切高度以上时不显示。
+            new THREE.MeshBasicMaterial({ color: this.accent, clippingPlanes: this.clipping }),
+          );
+          marker.userData.accent = true;
+          marker.position.set(...local);
+          overlay.add(marker);
+        }
       }
       const attached = bounds.get(anchor.anchorId) ?? null;
       this.anchors.set(anchorKey(ref), {
@@ -1609,6 +1617,7 @@ export class SceneView {
         bounds: attached,
         extent: anchor.box ? placedGridBox(placement, anchor.box) : attached,
         memberName: member.name,
+        crowded,
       });
     }
 
@@ -2497,7 +2506,7 @@ export class SceneView {
       if (info?.world) {
         if (this.cutHides(info.world)) continue;
         const hasEvent = this.eventAnchors.has(key);
-        priority = anchorLabelPriority(info.anchor.kind, hasEvent);
+        priority = anchorLabelPriority(info.anchor.kind, hasEvent && info.crowded !== true);
         forced = key === this.hoverAnchor || key === this.focusedAnchorKey;
         if (key === this.hoverAnchor) priority = EVENT_PRIORITY + 20;
         screenSize = this.screenSize(info, viewport.width, viewport.height);
